@@ -7,7 +7,7 @@ title: Changelog
 
 ## 0.2.0 - prepared for publication
 
-- Scoped npm package: `@zouhair/healwright`.
+- Scoped npm package: `@zouhair_elmattad/healwright`.
 - Self-contained backend jar with embedded dashboard.
 - Mandatory PostgreSQL password without a fallback.
 - Programmatic API and Playwright fixture.

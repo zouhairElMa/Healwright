@@ -10,7 +10,7 @@ title: API
 Wraps a Playwright `Page` and returns a compatible page object with healing enabled.
 
 ```ts
-import { heal } from '@zouhair/healwright';
+import { heal } from '@zouhair_elmattad/healwright';
 
 const healedPage = heal(page, {
   serverUrl: 'http://localhost:7878',
@@ -37,7 +37,7 @@ Important options:
 ## Playwright fixture
 
 ```ts
-import { test, expect } from '@zouhair/healwright/test';
+import { test, expect } from '@zouhair_elmattad/healwright/test';
 
 test.use({ healOptions: { serverUrl: 'http://localhost:7878' } });
 
@@ -52,7 +52,7 @@ The fixture creates a `healedPage` based on the built-in `page` fixture and clos
 ## Configuration helpers
 
 ```ts
-import { DEFAULT_CONFIG, resolveConfig } from '@zouhair/healwright';
+import { DEFAULT_CONFIG, resolveConfig } from '@zouhair_elmattad/healwright';
 
 const config = resolveConfig({ scoreCap: 0.6, reportOnly: true });
 console.log(DEFAULT_CONFIG.serverUrl, config.reportOnly);

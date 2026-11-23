@@ -1,5 +1,5 @@
 /**
- * @playwright/test integration. `import { test, expect } from '@zouhair/healwright/test'` gives a
+ * @playwright/test integration. `import { test, expect } from '@zouhair_elmattad/healwright/test'` gives a
  * `healedPage` fixture — the built-in `page` wrapped by heal() — plus a `healOptions` option
  * (default {}) overridable via test.use()/config to inject a RestClient, sessionId, className,
  * methodName, or any HealwrightConfig field. The fixture names the Healwright report after the

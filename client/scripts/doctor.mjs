@@ -130,7 +130,7 @@ if (failed.length === 0) {
   process.stdout.write(
     [
       '\nReady. Wire Healwright into your Playwright project:\n',
-      "  import { heal } from '@zouhair/healwright';",
+      "  import { heal } from '@zouhair_elmattad/healwright';",
       '  const healedPage = heal(page, {',
       `    serverUrl: '${backendUrl}',`,
       "    className: 'MySuite',",

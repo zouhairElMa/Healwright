@@ -11,14 +11,14 @@ Replace local tarball installation with the scoped package:
 
 ```bash
 npm uninstall healwright
-npm install @zouhair/healwright
+npm install @zouhair_elmattad/healwright
 ```
 
 Update imports:
 
 ```ts
-import { heal } from '@zouhair/healwright';
-import { test, expect } from '@zouhair/healwright/test';
+import { heal } from '@zouhair_elmattad/healwright';
+import { test, expect } from '@zouhair_elmattad/healwright/test';
 ```
 
 Remove any local `.tgz` path from `package.json` and regenerate the lockfile with `npm install`.

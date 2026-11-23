@@ -7,7 +7,7 @@ title: FAQ
 
 ## What is the npm package name?
 
-The package is `@zouhair/healwright`.
+The package is `@zouhair_elmattad/healwright`.
 
 ## Is the backend included in the npm package?
 

@@ -2,7 +2,7 @@
 
 ## 0.2.0 - prepared for publication
 
-- Added the `@zouhair/healwright` npm package identity.
+- Added the `@zouhair_elmattad/healwright` npm package identity.
 - Added a self-contained backend jar with the embedded dashboard.
 - Added PostgreSQL password enforcement without a default fallback.
 - Added Playwright fixture and programmatic APIs.

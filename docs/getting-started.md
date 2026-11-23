@@ -8,7 +8,7 @@ title: Getting started
 ## 1. Install the client
 
 ```bash
-npm install @zouhair/healwright
+npm install @zouhair_elmattad/healwright
 npm install -D playwright @playwright/test
 npx playwright install chromium
 ```
@@ -36,7 +36,7 @@ Open <http://localhost:7878/> for the dashboard.
 
 ```ts
 import { chromium } from 'playwright';
-import { heal } from '@zouhair/healwright';
+import { heal } from '@zouhair_elmattad/healwright';
 
 const browser = await chromium.launch();
 const page = await browser.newPage();
@@ -50,7 +50,7 @@ await browser.close();
 ## 4. Or use the Playwright fixture
 
 ```ts
-import { test, expect } from '@zouhair/healwright/test';
+import { test, expect } from '@zouhair_elmattad/healwright/test';
 
 test.use({ healOptions: { serverUrl: 'http://localhost:7878' } });
 

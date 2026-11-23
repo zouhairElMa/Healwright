@@ -26,7 +26,7 @@ The backend and dashboard are distributed as one executable jar. Docker is not r
 ## Installation
 
 ```bash
-npm install @zouhair/healwright
+npm install @zouhair_elmattad/healwright
 npm install -D playwright @playwright/test
 npx playwright install chromium
 ```
@@ -64,7 +64,7 @@ See the [backend guide](docs/backend.md) for all environment variables and secur
 
 ```ts
 import { chromium } from 'playwright';
-import { heal } from '@zouhair/healwright';
+import { heal } from '@zouhair_elmattad/healwright';
 
 const browser = await chromium.launch();
 const page = await browser.newPage();
@@ -79,7 +79,7 @@ await browser.close();
 ### Playwright fixture
 
 ```ts
-import { test, expect } from '@zouhair/healwright/test';
+import { test, expect } from '@zouhair_elmattad/healwright/test';
 
 test.use({ healOptions: { serverUrl: 'http://localhost:7878' } });
 
