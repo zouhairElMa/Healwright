@@ -1,0 +1,94 @@
+{
+  "name": "@zouhair/healwright",
+  "version": "0.2.0",
+  "description": "Self-healing locators and resilient Playwright tests with a local reporting dashboard",
+  "keywords": [
+    "playwright",
+    "self-healing",
+    "auto-healing",
+    "test-automation",
+    "e2e",
+    "locator",
+    "selector",
+    "resilient-tests"
+  ],
+  "license": "Apache-2.0",
+  "author": "Healwright contributors",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./test": {
+      "types": "./dist/playwright/fixture.d.ts",
+      "import": "./dist/playwright/fixture.js"
+    }
+  },
+  "files": [
+    "dist",
+    "scripts/doctor.mjs",
+    "scripts/run-backend.mjs",
+    "scripts/report-server.mjs",
+    "scripts/rewrite.mjs",
+    "scripts/report-ui.html",
+    "LICENSE",
+    "NOTICE",
+    "README.md"
+  ],
+  "bin": {
+    "healwright-doctor": "./scripts/doctor.mjs",
+    "healwright-backend": "./scripts/run-backend.mjs",
+    "healwright-report": "./scripts/report-server.mjs",
+    "healwright-rewrite": "./scripts/rewrite.mjs"
+  },
+  "sideEffects": false,
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:integration": "vitest run --config vitest.integration.config.ts",
+    "test:fixture": "playwright test --config playwright.config.ts",
+    "lint": "eslint .",
+    "prepack": "npm run build"
+  },
+  "dependencies": {
+    "parse5": "^7.2.1"
+  },
+  "peerDependencies": {
+    "@playwright/test": ">=1.40.0",
+    "playwright": ">=1.40.0"
+  },
+  "peerDependenciesMeta": {
+    "@playwright/test": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@playwright/test": "^1.65.0",
+    "@types/node": "^22.0.0",
+    "eslint": "^9.0.0",
+    "playwright": "^1.65.0",
+    "typescript": "^5.7.0",
+    "typescript-eslint": "^8.0.0",
+    "vitest": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zouhairElMa/Healwright.git"
+  },
+  "homepage": "https://github.com/zouhairElMa/Healwright#readme",
+  "bugs": {
+    "url": "https://github.com/zouhairElMa/Healwright/issues"
+  }
+}

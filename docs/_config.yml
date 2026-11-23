@@ -1,0 +1,7 @@
+title: Healwright
+description: Self-healing locators and resilient Playwright tests
+theme: minima
+markdown: kramdown
+exclude:
+  - evidence
+  - README.md

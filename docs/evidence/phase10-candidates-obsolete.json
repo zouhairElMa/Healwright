@@ -1,0 +1,153 @@
+{
+  "reference": {
+    "file": "phase10-reference-obsolete.json",
+    "pathLength": 8,
+    "leaf": "button#obsolete \"Archive\"",
+    "wireLeaf": {
+      "tag": "button",
+      "id": "obsolete",
+      "classes": {},
+      "index": 0,
+      "otherAttributes": {},
+      "innerText": "Archive",
+      "children": [],
+      "parent": null
+    }
+  },
+  "html": "phase10-dom-after-obsolete.html",
+  "scoreCap": 0.6,
+  "totalScoredNodes": 7,
+  "pathHeight": 7,
+  "scoreGroups": [
+    {
+      "score": 0.7714285714285715,
+      "count": 1
+    },
+    {
+      "score": 0.689795918367347,
+      "count": 4
+    },
+    {
+      "score": 0.6040816326530613,
+      "count": 2
+    }
+  ],
+  "top": [
+    {
+      "rank": 1,
+      "score": 0.7714285714285715,
+      "scoreFromComponents": 0.771429,
+      "lcsDistance": 7,
+      "pathHeight": 7,
+      "element": "button#cancel_btn \"Cancel\"",
+      "tag": "button",
+      "id": "cancel_btn",
+      "classes": [],
+      "innerText": "Cancel",
+      "components": {
+        "tag": 100,
+        "lcs": 100,
+        "id": 0,
+        "text": 0,
+        "classes": 40,
+        "other": 30,
+        "total": 0.7714
+      },
+      "css": {
+        "L1:ID+TAG": "button#cancel_btn",
+        "L2:CLASS+TAG": "button",
+        "L3:CLASS+ID+PARENT+TAG": "div#spec-deleted.spec > button#cancel_btn",
+        "L4:CLASS+PARENT+POSITION+TAG": "div#spec-deleted.spec > button:nth-child(1)",
+        "L5:ATTRIBUTES+CLASS+ID+PARENT+TAG": "div#spec-deleted.spec > button#cancel_btn",
+        "L6:PATH": "html > body > main > div:nth-child(5) > section:nth-child(4) > article:nth-child(3) > div:nth-child(3) > button"
+      }
+    },
+    {
+      "rank": 2,
+      "score": 0.689795918367347,
+      "scoreFromComponents": 0.689796,
+      "lcsDistance": 5,
+      "pathHeight": 7,
+      "element": "button#row_1 \"Delete\"",
+      "tag": "button",
+      "id": "row_1",
+      "classes": [],
+      "innerText": "Delete",
+      "components": {
+        "tag": 100,
+        "lcs": 71.4286,
+        "id": 0,
+        "text": 0,
+        "classes": 40,
+        "other": 30,
+        "total": 0.6898
+      },
+      "css": {
+        "L1:ID+TAG": "button#row_1",
+        "L2:CLASS+TAG": "button",
+        "L3:CLASS+ID+PARENT+TAG": "div#spec-look-alikes.spec > button#row_1",
+        "L4:CLASS+PARENT+POSITION+TAG": "div#spec-look-alikes.spec > button:nth-child(1)",
+        "L5:ATTRIBUTES+CLASS+ID+PARENT+TAG": "div#spec-look-alikes.spec > button#row_1",
+        "L6:PATH": "html > body > main > div:nth-child(5) > section:nth-child(3) > article:nth-child(4) > div:nth-child(3) > button:nth-child(1)"
+      }
+    },
+    {
+      "rank": 3,
+      "score": 0.689795918367347,
+      "scoreFromComponents": 0.689796,
+      "lcsDistance": 5,
+      "pathHeight": 7,
+      "element": "button#row_two \"Delete\"",
+      "tag": "button",
+      "id": "row_two",
+      "classes": [],
+      "innerText": "Delete",
+      "components": {
+        "tag": 100,
+        "lcs": 71.4286,
+        "id": 0,
+        "text": 0,
+        "classes": 40,
+        "other": 30,
+        "total": 0.6898
+      },
+      "css": {
+        "L1:ID+TAG": "button#row_two",
+        "L2:CLASS+TAG": "button",
+        "L3:CLASS+ID+PARENT+TAG": "div#spec-look-alikes.spec > button#row_two",
+        "L4:CLASS+PARENT+POSITION+TAG": "div#spec-look-alikes.spec > button:nth-child(2)",
+        "L5:ATTRIBUTES+CLASS+ID+PARENT+TAG": "div#spec-look-alikes.spec > button#row_two",
+        "L6:PATH": "html > body > main > div:nth-child(5) > section:nth-child(3) > article:nth-child(4) > div:nth-child(3) > button:nth-child(2)"
+      }
+    }
+  ],
+  "expected": {
+    "rank": 1,
+    "score": 0.7714285714285715,
+    "scoreFromComponents": 0.771429,
+    "lcsDistance": 7,
+    "pathHeight": 7,
+    "element": "button#cancel_btn \"Cancel\"",
+    "tag": "button",
+    "id": "cancel_btn",
+    "classes": [],
+    "innerText": "Cancel",
+    "components": {
+      "tag": 100,
+      "lcs": 100,
+      "id": 0,
+      "text": 0,
+      "classes": 40,
+      "other": 30,
+      "total": 0.7714
+    },
+    "css": {
+      "L1:ID+TAG": "button#cancel_btn",
+      "L2:CLASS+TAG": "button",
+      "L3:CLASS+ID+PARENT+TAG": "div#spec-deleted.spec > button#cancel_btn",
+      "L4:CLASS+PARENT+POSITION+TAG": "div#spec-deleted.spec > button:nth-child(1)",
+      "L5:ATTRIBUTES+CLASS+ID+PARENT+TAG": "div#spec-deleted.spec > button#cancel_btn",
+      "L6:PATH": "html > body > main > div:nth-child(5) > section:nth-child(4) > article:nth-child(3) > div:nth-child(3) > button"
+    }
+  }
+}

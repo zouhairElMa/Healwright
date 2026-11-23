@@ -1,0 +1,801 @@
+{
+  "cssParser": [
+    {
+      "selector": "input#user.form.ctrl[name='username']",
+      "ok": true,
+      "tag": "input",
+      "id": "user",
+      "classes": [
+        "form",
+        "ctrl"
+      ],
+      "attributes": {
+        "name": "username"
+      }
+    },
+    {
+      "selector": "input",
+      "ok": true,
+      "tag": "input",
+      "id": "",
+      "classes": [],
+      "attributes": {}
+    },
+    {
+      "selector": "#user",
+      "ok": true,
+      "tag": "",
+      "id": "user",
+      "classes": [],
+      "attributes": {}
+    },
+    {
+      "selector": ".a.b",
+      "ok": true,
+      "tag": "",
+      "id": "",
+      "classes": [
+        "a",
+        "b"
+      ],
+      "attributes": {}
+    },
+    {
+      "selector": "input[value=\"x y\"]",
+      "ok": true,
+      "tag": "input",
+      "id": "",
+      "classes": [],
+      "attributes": {
+        "value": "x y"
+      }
+    },
+    {
+      "selector": "input[data-x='a#b.c']",
+      "ok": true,
+      "tag": "input",
+      "id": "",
+      "classes": [],
+      "attributes": {
+        "data-x": "a#b.c"
+      }
+    },
+    {
+      "selector": "input[name=bare]",
+      "ok": true,
+      "tag": "input",
+      "id": "",
+      "classes": [],
+      "attributes": {}
+    },
+    {
+      "selector": "input > div",
+      "ok": false
+    },
+    {
+      "selector": "input:first-child",
+      "ok": false
+    },
+    {
+      "selector": "",
+      "ok": true,
+      "tag": "",
+      "id": "",
+      "classes": [],
+      "attributes": {}
+    },
+    {
+      "selector": "input[type='text'][name='n']",
+      "ok": true,
+      "tag": "input",
+      "id": "",
+      "classes": [],
+      "attributes": {
+        "type": "text",
+        "name": "n"
+      }
+    }
+  ],
+  "xpathParser": [
+    {
+      "selector": "//input[@id='user'][@name='username']",
+      "ok": true,
+      "tag": "input",
+      "id": "user",
+      "classes": [],
+      "attributes": {
+        "name": "username"
+      },
+      "index": null,
+      "innerText": ""
+    },
+    {
+      "selector": "//div[@class='form ctrl']",
+      "ok": true,
+      "tag": "div",
+      "id": "",
+      "classes": [
+        "form",
+        "ctrl"
+      ],
+      "attributes": {},
+      "index": null,
+      "innerText": ""
+    },
+    {
+      "selector": "//div[contains(@class,'form')]",
+      "ok": true,
+      "tag": "div",
+      "id": "",
+      "classes": [
+        "form"
+      ],
+      "attributes": {},
+      "index": null,
+      "innerText": ""
+    },
+    {
+      "selector": "//input[2]",
+      "ok": true,
+      "tag": "input",
+      "id": "",
+      "classes": [],
+      "attributes": {},
+      "index": 2,
+      "innerText": ""
+    },
+    {
+      "selector": "//input[12]",
+      "ok": true,
+      "tag": "input",
+      "id": "",
+      "classes": [],
+      "attributes": {},
+      "index": 2,
+      "innerText": ""
+    },
+    {
+      "selector": "//button[text()='Go']",
+      "ok": true,
+      "tag": "button",
+      "id": "",
+      "classes": [],
+      "attributes": {},
+      "index": null,
+      "innerText": "Go"
+    },
+    {
+      "selector": "//*[@id='x']",
+      "ok": true,
+      "tag": "",
+      "id": "x",
+      "classes": [],
+      "attributes": {},
+      "index": null,
+      "innerText": ""
+    },
+    {
+      "selector": "//input[@id='user'][@name='n'][3]",
+      "ok": true,
+      "tag": "input",
+      "id": "user",
+      "classes": [],
+      "attributes": {
+        "name": "n"
+      },
+      "index": 3,
+      "innerText": ""
+    },
+    {
+      "selector": "//input",
+      "ok": true,
+      "tag": "input",
+      "id": "",
+      "classes": [],
+      "attributes": {},
+      "index": null,
+      "innerText": ""
+    },
+    {
+      "selector": "/input",
+      "ok": false
+    },
+    {
+      "selector": "//input[@id='user']",
+      "ok": true,
+      "tag": "input",
+      "id": "user",
+      "classes": [],
+      "attributes": {},
+      "index": null,
+      "innerText": ""
+    },
+    {
+      "selector": "//div[@class=\"a b\"]",
+      "ok": true,
+      "tag": "div",
+      "id": "",
+      "classes": [
+        "a",
+        "b"
+      ],
+      "attributes": {},
+      "index": null,
+      "innerText": ""
+    }
+  ],
+  "fromString": [
+    {
+      "type": "By.id",
+      "value": "user",
+      "ok": true,
+      "fields": {
+        "type": "By.id",
+        "tag": null,
+        "id": "user",
+        "classes": null,
+        "index": null,
+        "otherAttributes": null,
+        "innerText": null,
+        "splitClasses": false
+      },
+      "string": "user"
+    },
+    {
+      "type": "By.className",
+      "value": "form",
+      "ok": true,
+      "fields": {
+        "type": "By.className",
+        "tag": null,
+        "id": null,
+        "classes": [
+          "form"
+        ],
+        "index": null,
+        "otherAttributes": null,
+        "innerText": null,
+        "splitClasses": false
+      },
+      "string": "form"
+    },
+    {
+      "type": "By.name",
+      "value": "username",
+      "ok": true,
+      "fields": {
+        "type": "By.name",
+        "tag": null,
+        "id": null,
+        "classes": null,
+        "index": null,
+        "otherAttributes": {
+          "name": "username"
+        },
+        "innerText": null,
+        "splitClasses": false
+      },
+      "string": "username"
+    },
+    {
+      "type": "By.tagName",
+      "value": "input",
+      "ok": true,
+      "fields": {
+        "type": "By.tagName",
+        "tag": "input",
+        "id": null,
+        "classes": null,
+        "index": null,
+        "otherAttributes": null,
+        "innerText": null,
+        "splitClasses": false
+      },
+      "string": "input"
+    },
+    {
+      "type": "By.linkText",
+      "value": "Click",
+      "ok": true,
+      "fields": {
+        "type": "By.linkText",
+        "tag": null,
+        "id": null,
+        "classes": null,
+        "index": null,
+        "otherAttributes": null,
+        "innerText": "Click",
+        "splitClasses": false
+      },
+      "string": "Click"
+    },
+    {
+      "type": "By.partialLinkText",
+      "value": "Cli",
+      "ok": true,
+      "fields": {
+        "type": "By.partialLinkText",
+        "tag": null,
+        "id": null,
+        "classes": null,
+        "index": null,
+        "otherAttributes": null,
+        "innerText": "Cli",
+        "splitClasses": false
+      },
+      "string": "Cli"
+    },
+    {
+      "type": "By.cssSelector",
+      "value": "input#user.form[name='username']",
+      "ok": true,
+      "fields": {
+        "type": "By.cssSelector",
+        "tag": "input",
+        "id": "user",
+        "classes": [
+          "form"
+        ],
+        "index": null,
+        "otherAttributes": {
+          "name": "username"
+        },
+        "innerText": null,
+        "splitClasses": false
+      },
+      "string": "input#user.form[name='username']"
+    },
+    {
+      "type": "By.xpath",
+      "value": "//input[@id='user'][@name='username'][2]",
+      "ok": true,
+      "fields": {
+        "type": "By.xpath",
+        "tag": "input",
+        "id": "user",
+        "classes": null,
+        "index": 2,
+        "otherAttributes": {
+          "name": "username"
+        },
+        "innerText": null,
+        "splitClasses": false
+      },
+      "string": "//input[@id='user'][@name='username'][2]"
+    },
+    {
+      "type": "By.cssSelector",
+      "value": "input > div",
+      "ok": false,
+      "error": "Cannot parse CSS selector."
+    }
+  ],
+  "imitate": [
+    {
+      "type": "By.cssSelector",
+      "userValue": "img[name='some_name']",
+      "target": {
+        "tag": "img",
+        "other": {
+          "name": "name2"
+        }
+      },
+      "ok": true,
+      "results": [
+        {
+          "type": "By.cssSelector",
+          "tag": "img",
+          "id": null,
+          "classes": null,
+          "index": null,
+          "otherAttributes": {
+            "name": "name2"
+          },
+          "innerText": null,
+          "splitClasses": true,
+          "string": "img[name='name2']"
+        }
+      ]
+    },
+    {
+      "type": "By.cssSelector",
+      "userValue": "input#user.form.ctrl",
+      "target": {
+        "tag": "input",
+        "id": "username",
+        "classes": [
+          "form",
+          "ctrl2"
+        ]
+      },
+      "ok": true,
+      "results": [
+        {
+          "type": "By.cssSelector",
+          "tag": "input",
+          "id": "username",
+          "classes": [
+            "form",
+            "ctrl2"
+          ],
+          "index": null,
+          "otherAttributes": null,
+          "innerText": null,
+          "splitClasses": false,
+          "string": "input#username.form.ctrl2"
+        }
+      ]
+    },
+    {
+      "type": "By.cssSelector",
+      "userValue": ".a.b",
+      "target": {
+        "classes": [
+          "a",
+          "b",
+          "c"
+        ]
+      },
+      "ok": true,
+      "results": [
+        {
+          "type": "By.cssSelector",
+          "tag": null,
+          "id": null,
+          "classes": [
+            "a",
+            "b"
+          ],
+          "index": null,
+          "otherAttributes": null,
+          "innerText": null,
+          "splitClasses": true,
+          "string": ".a.b"
+        }
+      ]
+    },
+    {
+      "type": "By.xpath",
+      "userValue": "//div[@class='a b']",
+      "target": {
+        "tag": "div",
+        "classes": [
+          "a",
+          "b",
+          "c"
+        ]
+      },
+      "ok": true,
+      "results": [
+        {
+          "type": "By.xpath",
+          "tag": "div",
+          "id": null,
+          "classes": [
+            "a",
+            "b"
+          ],
+          "index": null,
+          "otherAttributes": null,
+          "innerText": null,
+          "splitClasses": true,
+          "string": "//div[contains(@class, 'a')][contains(@class, 'b')]"
+        }
+      ]
+    },
+    {
+      "type": "By.xpath",
+      "userValue": "//div[@class='a b']",
+      "target": {
+        "tag": "div",
+        "classes": [
+          "a",
+          "b"
+        ]
+      },
+      "ok": true,
+      "results": [
+        {
+          "type": "By.xpath",
+          "tag": "div",
+          "id": null,
+          "classes": [
+            "a",
+            "b"
+          ],
+          "index": null,
+          "otherAttributes": null,
+          "innerText": null,
+          "splitClasses": false,
+          "string": "//div[@class='a b']"
+        }
+      ]
+    },
+    {
+      "type": "By.id",
+      "userValue": "user",
+      "target": {
+        "id": "username"
+      },
+      "ok": true,
+      "results": [
+        {
+          "type": "By.id",
+          "tag": null,
+          "id": "username",
+          "classes": null,
+          "index": null,
+          "otherAttributes": null,
+          "innerText": null,
+          "splitClasses": false,
+          "string": "username"
+        }
+      ]
+    },
+    {
+      "type": "By.id",
+      "userValue": "user",
+      "target": {
+        "id": ""
+      },
+      "ok": false,
+      "error": "Target node does not have an id."
+    },
+    {
+      "type": "By.className",
+      "userValue": "form",
+      "target": {
+        "classes": [
+          "a",
+          "b"
+        ]
+      },
+      "ok": true,
+      "results": [
+        {
+          "type": "By.className",
+          "tag": null,
+          "id": null,
+          "classes": [
+            "a"
+          ],
+          "index": null,
+          "otherAttributes": null,
+          "innerText": null,
+          "splitClasses": false,
+          "string": "a"
+        },
+        {
+          "type": "By.className",
+          "tag": null,
+          "id": null,
+          "classes": [
+            "b"
+          ],
+          "index": null,
+          "otherAttributes": null,
+          "innerText": null,
+          "splitClasses": false,
+          "string": "b"
+        }
+      ]
+    },
+    {
+      "type": "By.className",
+      "userValue": "form",
+      "target": {
+        "classes": []
+      },
+      "ok": false,
+      "error": "Target node does not belong to any class."
+    },
+    {
+      "type": "By.name",
+      "userValue": "old",
+      "target": {
+        "other": {
+          "name": "new"
+        }
+      },
+      "ok": true,
+      "results": [
+        {
+          "type": "By.name",
+          "tag": null,
+          "id": null,
+          "classes": null,
+          "index": null,
+          "otherAttributes": {
+            "name": "new"
+          },
+          "innerText": null,
+          "splitClasses": false,
+          "string": "new"
+        }
+      ]
+    },
+    {
+      "type": "By.name",
+      "userValue": "old",
+      "target": {
+        "other": {}
+      },
+      "ok": false,
+      "error": "Target node does not have a name attribute."
+    },
+    {
+      "type": "By.tagName",
+      "userValue": "input",
+      "target": {
+        "tag": "button"
+      },
+      "ok": true,
+      "results": [
+        {
+          "type": "By.tagName",
+          "tag": "button",
+          "id": null,
+          "classes": null,
+          "index": null,
+          "otherAttributes": null,
+          "innerText": null,
+          "splitClasses": false,
+          "string": "button"
+        }
+      ]
+    },
+    {
+      "type": "By.tagName",
+      "userValue": "input",
+      "target": {
+        "tag": ""
+      },
+      "ok": false,
+      "error": "Target node does not have a tag name."
+    },
+    {
+      "type": "By.linkText",
+      "userValue": "Old",
+      "target": {
+        "tag": "a",
+        "innerText": "New"
+      },
+      "ok": true,
+      "results": [
+        {
+          "type": "By.linkText",
+          "tag": null,
+          "id": null,
+          "classes": null,
+          "index": null,
+          "otherAttributes": null,
+          "innerText": "New",
+          "splitClasses": false,
+          "string": "New"
+        }
+      ]
+    },
+    {
+      "type": "By.linkText",
+      "userValue": "Old",
+      "target": {
+        "tag": "div",
+        "innerText": "New"
+      },
+      "ok": false,
+      "error": "Target node is not an anchor tag, so selector by link text is not applicable."
+    },
+    {
+      "type": "By.linkText",
+      "userValue": "Old",
+      "target": {
+        "tag": "a",
+        "innerText": ""
+      },
+      "ok": false,
+      "error": "Target node does not have a link text."
+    },
+    {
+      "type": "By.partialLinkText",
+      "userValue": "Old",
+      "target": {
+        "tag": "a",
+        "innerText": "New Text"
+      },
+      "ok": true,
+      "results": [
+        {
+          "type": "By.partialLinkText",
+          "tag": null,
+          "id": null,
+          "classes": null,
+          "index": null,
+          "otherAttributes": null,
+          "innerText": "New Text",
+          "splitClasses": false,
+          "string": "New Text"
+        }
+      ]
+    },
+    {
+      "type": "By.xpath",
+      "userValue": "//input[1]",
+      "target": {
+        "tag": "input",
+        "index": 0
+      },
+      "ok": false,
+      "error": "Target node does not have any index."
+    },
+    {
+      "type": "By.xpath",
+      "userValue": "//input[1]",
+      "target": {
+        "tag": "input",
+        "index": 3
+      },
+      "ok": true,
+      "results": [
+        {
+          "type": "By.xpath",
+          "tag": "input",
+          "id": null,
+          "classes": null,
+          "index": 3,
+          "otherAttributes": null,
+          "innerText": null,
+          "splitClasses": true,
+          "string": "//input[3]"
+        }
+      ]
+    },
+    {
+      "type": "By.cssSelector",
+      "userValue": ".class1[name='some_name']",
+      "target": {
+        "classes": [
+          "class2",
+          "class3"
+        ],
+        "other": {
+          "src": "img.png"
+        }
+      },
+      "ok": false,
+      "error": "Target node does not have an attribute name."
+    },
+    {
+      "type": "By.cssSelector",
+      "userValue": "img[name='some_name']",
+      "target": {
+        "other": {
+          "name": "some_name"
+        }
+      },
+      "ok": false,
+      "error": "Target node does not have any tag."
+    },
+    {
+      "type": "By.xpath",
+      "userValue": "//button[text()='Go']",
+      "target": {
+        "tag": "button",
+        "innerText": "Submit"
+      },
+      "ok": true,
+      "results": [
+        {
+          "type": "By.xpath",
+          "tag": "button",
+          "id": null,
+          "classes": null,
+          "index": null,
+          "otherAttributes": null,
+          "innerText": "Submit",
+          "splitClasses": true,
+          "string": "//button[text()='Submit']"
+        }
+      ]
+    }
+  ]
+}

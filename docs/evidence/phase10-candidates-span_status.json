@@ -1,0 +1,164 @@
+{
+  "reference": {
+    "file": "phase10-reference-span_status.json",
+    "pathLength": 8,
+    "leaf": "span.status \"Ready\"",
+    "wireLeaf": {
+      "tag": "span",
+      "id": "",
+      "classes": {},
+      "index": 0,
+      "otherAttributes": {},
+      "innerText": "Ready",
+      "children": [],
+      "parent": null
+    }
+  },
+  "html": "phase10-dom-after-span_status.html",
+  "scoreCap": 0.6,
+  "totalScoredNodes": 85,
+  "pathHeight": 7,
+  "scoreGroups": [
+    {
+      "score": 0.8,
+      "count": 4
+    },
+    {
+      "score": 0.7687074829931972,
+      "count": 2
+    },
+    {
+      "score": 0.7591836734693878,
+      "count": 78
+    },
+    {
+      "score": 0.7142857142857143,
+      "count": 1
+    }
+  ],
+  "top": [
+    {
+      "rank": 1,
+      "score": 0.8,
+      "scoreFromComponents": 0.8,
+      "lcsDistance": 7,
+      "pathHeight": 7,
+      "element": "span.b \"Should heal\"",
+      "tag": "span",
+      "id": "",
+      "classes": [
+        "b"
+      ],
+      "innerText": "Should heal",
+      "components": {
+        "tag": 100,
+        "lcs": 100,
+        "id": 50,
+        "text": 0,
+        "classes": 0,
+        "other": 30,
+        "total": 0.8
+      },
+      "css": {
+        "L1:ID+TAG": "span",
+        "L2:CLASS+TAG": "span.b",
+        "L3:CLASS+ID+PARENT+TAG": "div.meta > span.b",
+        "L4:CLASS+PARENT+POSITION+TAG": "div.meta > span.b:nth-child(2)",
+        "L5:ATTRIBUTES+CLASS+ID+PARENT+TAG": "div.meta > span.b",
+        "L6:PATH": "html > body > main > div:nth-child(5) > section:nth-child(2) > article:nth-child(3) > div:nth-child(1) > span"
+      }
+    },
+    {
+      "rank": 2,
+      "score": 0.8,
+      "scoreFromComponents": 0.8,
+      "lcsDistance": 7,
+      "pathHeight": 7,
+      "element": "span \"Locator\"",
+      "tag": "span",
+      "id": "",
+      "classes": [],
+      "innerText": "Locator",
+      "components": {
+        "tag": 100,
+        "lcs": 100,
+        "id": 50,
+        "text": 0,
+        "classes": 0,
+        "other": 30,
+        "total": 0.8
+      },
+      "css": {
+        "L1:ID+TAG": "span",
+        "L2:CLASS+TAG": "span",
+        "L3:CLASS+ID+PARENT+TAG": "div.code > span",
+        "L4:CLASS+PARENT+POSITION+TAG": "div.code > span:nth-child(1)",
+        "L5:ATTRIBUTES+CLASS+ID+PARENT+TAG": "div.code > span",
+        "L6:PATH": "html > body > main > div:nth-child(5) > section:nth-child(2) > article:nth-child(3) > div:nth-child(4) > span:nth-child(1)"
+      }
+    },
+    {
+      "rank": 3,
+      "score": 0.8,
+      "scoreFromComponents": 0.8,
+      "lcsDistance": 7,
+      "pathHeight": 7,
+      "element": "span.m.zero \"Matches 0 elements\"",
+      "tag": "span",
+      "id": "",
+      "classes": [
+        "m",
+        "zero"
+      ],
+      "innerText": "Matches 0 elements",
+      "components": {
+        "tag": 100,
+        "lcs": 100,
+        "id": 50,
+        "text": 0,
+        "classes": 0,
+        "other": 30,
+        "total": 0.8
+      },
+      "css": {
+        "L1:ID+TAG": "span",
+        "L2:CLASS+TAG": "span.m.zero",
+        "L3:CLASS+ID+PARENT+TAG": "div.code > span.m.zero",
+        "L4:CLASS+PARENT+POSITION+TAG": "div.code > span.m.zero:nth-child(3)",
+        "L5:ATTRIBUTES+CLASS+ID+PARENT+TAG": "div.code > span.m.zero",
+        "L6:PATH": "html > body > main > div:nth-child(5) > section:nth-child(2) > article:nth-child(3) > div:nth-child(4) > span:nth-child(3)"
+      }
+    }
+  ],
+  "expected": {
+    "rank": 85,
+    "score": 0.7142857142857143,
+    "scoreFromComponents": 0.714286,
+    "lcsDistance": 7,
+    "pathHeight": 7,
+    "element": "strong.status \"Ready\"",
+    "tag": "strong",
+    "id": "",
+    "classes": [
+      "status"
+    ],
+    "innerText": "Ready",
+    "components": {
+      "tag": 0,
+      "lcs": 100,
+      "id": 50,
+      "text": 30,
+      "classes": 40,
+      "other": 30,
+      "total": 0.7143
+    },
+    "css": {
+      "L1:ID+TAG": "strong",
+      "L2:CLASS+TAG": "strong.status",
+      "L3:CLASS+ID+PARENT+TAG": "div#spec-tag-change.spec > strong.status",
+      "L4:CLASS+PARENT+POSITION+TAG": "div#spec-tag-change.spec > strong.status:nth-child(1)",
+      "L5:ATTRIBUTES+CLASS+ID+PARENT+TAG": "div#spec-tag-change.spec > strong.status",
+      "L6:PATH": "html > body > main > div:nth-child(5) > section:nth-child(2) > article:nth-child(3) > div:nth-child(3) > strong"
+    }
+  }
+}

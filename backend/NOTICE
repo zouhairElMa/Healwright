@@ -1,0 +1,77 @@
+Healwright backend
+Copyright 2026 Healwright contributors
+
+This distribution contains a MODIFIED build of healenium-backend 3.5.1.
+
+--------------------------------------------------------------------------------
+1. Attributions
+--------------------------------------------------------------------------------
+
+healenium-backend 3.5.1
+  Copyright EPAM Systems. Licensed under the Apache License, Version 2.0.
+  Upstream source: https://github.com/healenium/healenium-backend
+  License text: LICENSE, embedded in this jar at META-INF/LICENSE.
+
+healenium-web 3.5.8
+  Copyright (C) 2019 EPAM. Licensed under the Apache License, Version 2.0.
+  Used as the behavioural specification for the Playwright port.
+
+tree-comparing 0.4.14
+  Copyright EPAM Systems. Licensed under the Apache License, Version 2.0.
+  Upstream source: https://github.com/healenium/tree-comparing
+  Ported to TypeScript in client/src/lcs/.
+
+healenium-selector-imitator
+  No upstream license file or license statement was found during the project
+  audit. Nothing from it is shipped here: Healwright replaces it with an
+  independent in-process TypeScript implementation in client/src/imitator/.
+
+--------------------------------------------------------------------------------
+2. Modifications to healenium-backend (updated 2026-11-23)
+--------------------------------------------------------------------------------
+
+Added, not present upstream:
+  * src/main/java/com/epam/healenium/controller/HealwrightDashboardController.java
+    Routes: "/" and "/index.html" (dashboard), "/api/config", "/api/telemetry",
+    "/api/telemetry/{uid}"; legacy "/healwright/" redirects to "/".
+    Telemetry is read from HEALWRIGHT_REPORT_DIR and every absolute directory
+    registered by the Healwright client in ~/.healwright/dirs.json (override:
+    HEALWRIGHT_REPORT_REGISTRY). No external service is added.
+  * src/main/resources/static/healwright/index.html
+    Healwright reporting dashboard, mirrored from client/scripts/report-ui.html.
+
+Modified for the Healwright distribution:
+  * src/main/resources/images/banner.txt
+    Replaced the upstream terminal banner with the Healwright identity.
+  * src/main/resources/application.yml
+    Changed visible log patterns and file names, reduced Liquibase console
+    verbosity, added HEALWRIGHT_LOG_LEVEL with HLM_LOG_LEVEL as a legacy
+    fallback, and removed the PostgreSQL password fallback.
+  * src/main/resources/db/sql/init.sql
+    Added the Healwright schema and user names for new installations. Existing
+    database names remain configurable through SPRING_POSTGRES_* variables.
+  * src/main/java/com/epam/healenium/service/impl/SettingServiceImpl.java
+    Added HEALWRIGHT_LOG_LEVEL as the public runtime setting while retaining
+    HLM_LOG_LEVEL and the internal logger hierarchy for compatibility.
+  * src/main/resources/logback-spring.xml
+    Changed visible logger formatting and rolling file names; retained the
+    internal com.epam.healenium logger and legacy logging-level fallback.
+  * settings.gradle
+    Changed the Gradle project/archive name to healwright-backend.
+  * build.gradle
+    Changed the publication group to com.healwright and added META-INF/LICENSE
+    and META-INF/NOTICE to the executable Spring Boot jar. The upstream
+    tree-comparing dependency coordinate is unchanged.
+
+--------------------------------------------------------------------------------
+3. Retained upstream compatibility identifiers
+--------------------------------------------------------------------------------
+
+The Java package com.epam.healenium, the /healenium REST routes, and legacy
+PostgreSQL identifiers remain for wire and data compatibility. New installations
+should use the Healwright database and schema names documented in backend/README.md.
+Their presence in code or configuration is not the public terminal identity and
+does not indicate endorsement by EPAM or Healenium.
+
+This NOTICE and the Apache License 2.0 are embedded in the executable jar at
+META-INF/NOTICE and META-INF/LICENSE. Keep them with any redistributed copy.

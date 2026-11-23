@@ -1,0 +1,51 @@
+{
+  "nodeDistance": [
+    {"target": "identical", "d": 4, "h": 4, "score": 1.0},
+    {"target": "identical", "d": 3, "h": 4, "score": 0.9285714285714286},
+    {"target": "identical", "d": 2, "h": 6, "score": 0.0},
+    {"target": "identical", "d": 0, "h": 0, "score": 0.0},
+    {"target": "identical", "d": 1, "h": 6, "score": 0.0},
+    {"target": "identical", "d": 4, "h": 5, "score": 0.9428571428571428},
+    {"target": "identical", "d": 3, "h": 5, "score": 0.8857142857142857},
+    {"target": "idChanged", "d": 4, "h": 4, "score": 0.7352380952380954},
+    {"target": "idChanged", "d": 3, "h": 4, "score": 0.6638095238095238},
+    {"target": "idChanged", "d": 2, "h": 6, "score": 0.0},
+    {"target": "idChanged", "d": 0, "h": 0, "score": 0.0},
+    {"target": "idChanged", "d": 1, "h": 6, "score": 0.0},
+    {"target": "idChanged", "d": 4, "h": 5, "score": 0.6780952380952381},
+    {"target": "idChanged", "d": 3, "h": 5, "score": 0.620952380952381},
+    {"target": "tagChanged", "d": 4, "h": 4, "score": 0.7142857142857143},
+    {"target": "tagChanged", "d": 3, "h": 4, "score": 0.6428571428571429},
+    {"target": "tagChanged", "d": 2, "h": 6, "score": 0.0},
+    {"target": "tagChanged", "d": 0, "h": 0, "score": 0.0},
+    {"target": "tagChanged", "d": 1, "h": 6, "score": 0.0},
+    {"target": "tagChanged", "d": 4, "h": 5, "score": 0.6571428571428571},
+    {"target": "tagChanged", "d": 3, "h": 5, "score": 0.6},
+    {"target": "empty", "d": 4, "h": 4, "score": 0.2857142857142857},
+    {"target": "empty", "d": 3, "h": 4, "score": 0.21428571428571427},
+    {"target": "empty", "d": 2, "h": 6, "score": 0.0},
+    {"target": "empty", "d": 0, "h": 0, "score": 0.0},
+    {"target": "empty", "d": 1, "h": 6, "score": 0.0},
+    {"target": "empty", "d": 4, "h": 5, "score": 0.22857142857142856},
+    {"target": "empty", "d": 3, "h": 5, "score": 0.17142857142857143}
+  ],
+  "levenshtein": [
+    {"a": "user", "b": "username", "p": 0.3, "score": 0.0},
+    {"a": "user", "b": "user", "p": 0.3, "score": 1.0},
+    {"a": "Hello", "b": "Hello world", "p": 0.3, "score": 0.0},
+    {"a": "true", "b": "false", "p": 0.3, "score": 0.0},
+    {"a": "true", "b": "true", "p": 0.3, "score": 1.0},
+    {"a": "", "b": "", "p": 0.3, "score": 1.0},
+    {"a": "abc", "b": "xyz", "p": 0.75, "score": 0.0}
+  ],
+  "lcs": [
+    {"case": "identical", "length": 4},
+    {"case": "idChanged", "length": 3},
+    {"case": "tagChanged", "length": 3}
+  ],
+  "pathFinder": {"pathLengthToCheck": 4, "candidates": [
+    {"tag": "input", "id": "user", "score": 1.0},
+    {"tag": "input", "id": "other", "score": 0.7857142857142857},
+    {"tag": "div", "id": "main", "score": 0.5}
+  ]}
+}

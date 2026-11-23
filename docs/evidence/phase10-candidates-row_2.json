@@ -1,0 +1,157 @@
+{
+  "reference": {
+    "file": "phase10-reference-row_2.json",
+    "pathLength": 8,
+    "leaf": "button#row_2 \"Delete\"",
+    "wireLeaf": {
+      "tag": "button",
+      "id": "row_2",
+      "classes": {},
+      "index": 1,
+      "otherAttributes": {},
+      "innerText": "Delete",
+      "children": [],
+      "parent": null
+    }
+  },
+  "html": "phase10-dom-after-row_2.html",
+  "scoreCap": 0.6,
+  "totalScoredNodes": 7,
+  "pathHeight": 7,
+  "scoreGroups": [
+    {
+      "score": 0.9714285714285714,
+      "count": 2
+    },
+    {
+      "score": 0.9387755102040816,
+      "count": 1
+    },
+    {
+      "score": 0.689795918367347,
+      "count": 2
+    },
+    {
+      "score": 0.6040816326530613,
+      "count": 2
+    }
+  ],
+  "top": [
+    {
+      "rank": 1,
+      "score": 0.9714285714285714,
+      "scoreFromComponents": 0.971429,
+      "lcsDistance": 7,
+      "pathHeight": 7,
+      "element": "button#row_1 \"Delete\"",
+      "tag": "button",
+      "id": "row_1",
+      "classes": {},
+      "innerText": "Delete",
+      "components": {
+        "tag": 100,
+        "lcs": 100,
+        "id": 40,
+        "text": 30,
+        "classes": 40,
+        "other": 30,
+        "total": 0.9714
+      },
+      "css": {
+        "L1:ID+TAG": "button#row_1",
+        "L2:CLASS+TAG": "button",
+        "L3:CLASS+ID+PARENT+TAG": "div#spec-look-alikes.spec > button#row_1",
+        "L4:CLASS+PARENT+POSITION+TAG": "div#spec-look-alikes.spec > button:nth-child(1)",
+        "L5:ATTRIBUTES+CLASS+ID+PARENT+TAG": "div#spec-look-alikes.spec > button#row_1",
+        "L6:PATH": "html > body > main > div:nth-child(5) > section:nth-child(3) > article:nth-child(4) > div:nth-child(3) > button:nth-child(1)"
+      }
+    },
+    {
+      "rank": 2,
+      "score": 0.9714285714285714,
+      "scoreFromComponents": 0.971429,
+      "lcsDistance": 7,
+      "pathHeight": 7,
+      "element": "button#row_3 \"Delete\"",
+      "tag": "button",
+      "id": "row_3",
+      "classes": {},
+      "innerText": "Delete",
+      "components": {
+        "tag": 100,
+        "lcs": 100,
+        "id": 40,
+        "text": 30,
+        "classes": 40,
+        "other": 30,
+        "total": 0.9714
+      },
+      "css": {
+        "L1:ID+TAG": "button#row_3",
+        "L2:CLASS+TAG": "button",
+        "L3:CLASS+ID+PARENT+TAG": "div#spec-look-alikes.spec > button#row_3",
+        "L4:CLASS+PARENT+POSITION+TAG": "div#spec-look-alikes.spec > button:nth-child(3)",
+        "L5:ATTRIBUTES+CLASS+ID+PARENT+TAG": "div#spec-look-alikes.spec > button#row_3",
+        "L6:PATH": "html > body > main > div:nth-child(5) > section:nth-child(3) > article:nth-child(4) > div:nth-child(3) > button:nth-child(3)"
+      }
+    },
+    {
+      "rank": 3,
+      "score": 0.9387755102040816,
+      "scoreFromComponents": 0.938776,
+      "lcsDistance": 7,
+      "pathHeight": 7,
+      "element": "button#row_two \"Delete\"",
+      "tag": "button",
+      "id": "row_two",
+      "classes": {},
+      "innerText": "Delete",
+      "components": {
+        "tag": 100,
+        "lcs": 100,
+        "id": 28.5714,
+        "text": 30,
+        "classes": 40,
+        "other": 30,
+        "total": 0.9388
+      },
+      "css": {
+        "L1:ID+TAG": "button#row_two",
+        "L2:CLASS+TAG": "button",
+        "L3:CLASS+ID+PARENT+TAG": "div#spec-look-alikes.spec > button#row_two",
+        "L4:CLASS+PARENT+POSITION+TAG": "div#spec-look-alikes.spec > button:nth-child(2)",
+        "L5:ATTRIBUTES+CLASS+ID+PARENT+TAG": "div#spec-look-alikes.spec > button#row_two",
+        "L6:PATH": "html > body > main > div:nth-child(5) > section:nth-child(3) > article:nth-child(4) > div:nth-child(3) > button:nth-child(2)"
+      }
+    }
+  ],
+  "expected": {
+    "rank": 3,
+    "score": 0.9387755102040816,
+    "scoreFromComponents": 0.938776,
+    "lcsDistance": 7,
+    "pathHeight": 7,
+    "element": "button#row_two \"Delete\"",
+    "tag": "button",
+    "id": "row_two",
+    "classes": {},
+    "innerText": "Delete",
+    "components": {
+      "tag": 100,
+      "lcs": 100,
+      "id": 28.5714,
+      "text": 30,
+      "classes": 40,
+      "other": 30,
+      "total": 0.9388
+    },
+    "css": {
+      "L1:ID+TAG": "button#row_two",
+      "L2:CLASS+TAG": "button",
+      "L3:CLASS+ID+PARENT+TAG": "div#spec-look-alikes.spec > button#row_two",
+      "L4:CLASS+PARENT+POSITION+TAG": "div#spec-look-alikes.spec > button:nth-child(2)",
+      "L5:ATTRIBUTES+CLASS+ID+PARENT+TAG": "div#spec-look-alikes.spec > button#row_two",
+      "L6:PATH": "html > body > main > div:nth-child(5) > section:nth-child(3) > article:nth-child(4) > div:nth-child(3) > button:nth-child(2)"
+    }
+  }
+}

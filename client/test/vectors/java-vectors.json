@@ -1,0 +1,31 @@
+{
+  "hashCode": {
+    "": 0,
+    "a": 97,
+    "abc": 96354,
+    "hello": 99162322,
+    "#user": 35922542,
+    "div.btn primary": 1604056673,
+    "//input[@id='user']": 691506229,
+    "By.cssSelector": -1877677045,
+    "findElement": -826831101,
+    "https://app/login": -1314365428,
+    "change_id": 1455259658,
+    "café": 3045921,
+    "a b  c": -1485435616,
+    " locator ": -102918550,
+    "元素": 676925,
+    "a😀b": 57849694
+  },
+  "buildKey": [
+    {"locator": "#user", "command": "findElement", "url": "", "selectorId": "283bd75976311ac897e664f16d2f0bd3"},
+    {"locator": "#user", "command": "findElement", "url": "https://app/login", "selectorId": "548354db796299ecd07c356c4628b065"},
+    {"locator": "div.btn", "command": "findElements", "url": "", "selectorId": "2e7c240660ad3f7992bb601dcbcf63c6"},
+    {"locator": "//input[@id='user']", "command": "findElement", "url": "https://app/login", "selectorId": "b5dbb93fc59490aeaa330b406ff96ad7"},
+    {"locator": " locator ", "command": "findElement", "url": " https://x ", "selectorId": "9b5b47859281877c163fbff5d0682f68"}
+  ],
+  "buildHealingKey": [
+    {"elementId": "abc123selectorid", "pageSource": "<html><body>hi</body></html>", "healingId": "3a43e3b0a0e420ee9655d372bec9005f"},
+    {"elementId": "selectorid", "pageSource": "", "healingId": "f866c3ea1a803c1e33914bbb2dd06fc1"}
+  ]
+}

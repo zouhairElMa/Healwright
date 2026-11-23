@@ -1,0 +1,170 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Healwright Test Bench</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap">
+<style>
+:root{--bg:#f2f4f6;--card:#fff;--ink:#16212b;--mute:#5b6875;--line:#d5dbe1;--teal:#0b6e78;--amber:#8a5a00;--amberbg:#fbefd2;--red:#a8231b;--redbg:#fbe1de;--green:#1b6e43;--greenbg:#dcf1e5;--blue:#2c4a8a;--bluebg:#e1e8f7;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10171d;--card:#18222b;--ink:#e6edf3;--mute:#9aa8b5;--line:#2c3945;--teal:#5fc4ce;--amber:#e8b64f;--amberbg:#3a2d10;--red:#f0877f;--redbg:#40201d;--green:#6fcf9b;--greenbg:#16352550;--blue:#9db6ee;--bluebg:#1e2a45;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#10171d;--card:#18222b;--ink:#e6edf3;--mute:#9aa8b5;--line:#2c3945;--teal:#5fc4ce;--amber:#e8b64f;--amberbg:#3a2d10;--red:#f0877f;--redbg:#40201d;--green:#6fcf9b;--greenbg:#16352550;--blue:#9db6ee;--bluebg:#1e2a45;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.5 "IBM Plex Sans",system-ui,sans-serif}
+main{max-width:860px;margin:0 auto;padding:28px 16px 64px}
+h1{font-size:28px;line-height:1.15;margin:0 0 6px;font-weight:600}
+h2{font-size:20px;margin:34px 0 2px;font-weight:600}
+h3{font-size:16px;margin:0;font-weight:600}
+.lead{color:var(--mute);margin:0 0 16px;max-width:64ch}
+.lvl-d{color:var(--mute);margin:0 0 12px;max-width:64ch}
+code,textarea{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:13px}
+.top{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px 16px;display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
+#status{color:var(--mute);font-size:14px}
+button{font:inherit;font-size:15px;font-weight:600;color:#fff;background:var(--teal);border:1px solid var(--teal);border-radius:6px;padding:9px 18px;cursor:pointer}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) button{color:#06262a}}
+button:disabled{opacity:.55;cursor:default}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.leg{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px;color:var(--mute);margin:10px 0 0}
+.leg i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+.t{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin:0 0 12px;border-left-width:4px}
+.t[data-exp=heal]{border-left-color:var(--green)}.t[data-exp=noheal]{border-left-color:var(--red)}.t[data-exp=risk]{border-left-color:var(--amber)}.t[data-exp=gap]{border-left-color:var(--blue)}
+.meta{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;justify-content:space-between}
+.b{font-size:12px;font-weight:600;border-radius:4px;padding:2px 8px}
+[data-exp=heal] .b{background:var(--greenbg);color:var(--green)}[data-exp=noheal] .b{background:var(--redbg);color:var(--red)}[data-exp=risk] .b{background:var(--amberbg);color:var(--amber)}[data-exp=gap] .b{background:var(--bluebg);color:var(--blue)}
+.note{margin:4px 0 10px;color:var(--mute);font-size:14px;max-width:68ch}
+.spec{border:1px dashed var(--line);border-radius:6px;padding:12px;margin:0 0 10px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;min-height:56px;overflow-x:auto}
+.spec input{font:inherit;font-size:14px;padding:5px 8px;border:1px solid var(--line);border-radius:5px;background:var(--bg);color:var(--ink)}
+.spec button{font-size:14px;font-weight:400;padding:6px 12px;color:var(--ink);background:var(--card);border-color:var(--line)}
+.spec iframe{border:1px solid var(--line);border-radius:5px;width:240px;height:64px;background:#fff}
+.spec .wrap{padding:6px;border:1px dotted var(--mute);border-radius:4px}
+.code{display:flex;gap:10px;align-items:baseline;margin:3px 0;overflow-x:auto}
+.code>span{color:var(--mute);font-size:13px;min-width:78px}
+.code code{background:var(--bg);padding:2px 6px;border-radius:4px;white-space:nowrap}
+.code.now code{background:var(--greenbg);color:var(--green)}
+.m{font-size:12px;font-weight:600;border-radius:4px;padding:2px 8px;white-space:nowrap}
+.m.one{background:var(--greenbg);color:var(--green)}.m.zero{background:var(--redbg);color:var(--red)}.m.many{background:var(--amberbg);color:var(--amber)}.m.na{background:var(--bluebg);color:var(--blue)}
+</style>
+</head>
+<body>
+<main>
+<h1>Healwright test bench</h1>
+<p class="lead">Run your tests on the locators below. Every locator matches exactly one element before the change. Press the button once, and all of them break together. Run your tests again and compare.</p>
+
+<div class="top">
+  <button id="change-all" disabled="">Locators changed. Reload the page to reset.</button>
+  <span id="status" aria-live="polite">After the change: 3 of 20 locators match exactly one element.</span>
+</div>
+<div class="leg">
+  <span><i style="background:var(--green)"></i>Should heal</span>
+  <span><i style="background:var(--amber)"></i>Heals, but may pick the wrong element</span>
+  <span><i style="background:var(--red)"></i>Must not heal</span>
+  <span><i style="background:var(--blue)"></i>Known limit: expect a miss</span>
+</div>
+
+<div id="levels"><section><h2>Level 1: attribute drift</h2><p class="lvl-d">One attribute changes. The easiest case for any healer.</p><article class="t" data-exp="heal" id="t-id-rename"><div class="meta"><h3>Id renamed</h3><span class="b">Should heal</span></div><p class="note">The classic case: a developer renames an id.</p><div class="spec" id="spec-id-rename"><input id="user_name_82d81" placeholder="Username"></div><div class="code"><span>Locator</span><code>#user_name</code><span class="m zero">Matches 0 elements</span></div><div class="code now"><span>Valid now</span><code>#user_name_82d81</code></div></article><article class="t" data-exp="heal" id="t-class-change"><div class="meta"><h3>Class renamed</h3><span class="b">Should heal</span></div><p class="note">A CSS class is replaced by another.</p><div class="spec" id="spec-class-change"><button class="btn-main-5lgx4">Save</button></div><div class="code"><span>Locator</span><code>.btn-primary</code><span class="m zero">Matches 0 elements</span></div><div class="code now"><span>Valid now</span><code>.btn-main-5lgx4</code></div></article><article class="t" data-exp="heal" id="t-name-attr"><div class="meta"><h3>Name attribute changed</h3><span class="b">Should heal</span></div><p class="note">Healing should keep the selector style (an attribute selector).</p><div class="spec" id="spec-name-attr"><input name="email_9akjj" placeholder="Email"></div><div class="code"><span>Locator</span><code>[name="email_addr"]</code><span class="m zero">Matches 0 elements</span></div><div class="code now"><span>Valid now</span><code>[name="email_9akjj"]</code></div></article><article class="t" data-exp="heal" id="t-testid-change"><div class="meta"><h3>data-testid changed</h3><span class="b">Should heal</span></div><p class="note">Test ids are meant to be stable, until someone renames them.</p><div class="spec" id="spec-testid-change"><button data-testid="purchase-2h780">Checkout</button></div><div class="code"><span>Locator</span><code>[data-testid="checkout"]</code><span class="m zero">Matches 0 elements</span></div><div class="code now"><span>Valid now</span><code>[data-testid="purchase-2h780"]</code></div></article></section><section><h2>Level 2: structural drift</h2><p class="lvl-d">The element stays, but its tag, parent or position changes.</p><article class="t" data-exp="heal" id="t-tag-change"><div class="meta"><h3>Tag replaced</h3><span class="b">Should heal</span></div><p class="note">Same class and text, different tag.</p><div class="spec" id="spec-tag-change"><em class="status">Ready</em></div><div class="code"><span>Locator</span><code>span.status</code><span class="m zero">Matches 0 elements</span></div><div class="code now"><span>Valid now</span><code>em.status</code></div></article><article class="t" data-exp="heal" id="t-wrapper-added"><div class="meta"><h3>Wrapper inserted</h3><span class="b">Should heal</span></div><p class="note">A direct-child selector breaks when a wrapper div appears.</p><div class="spec" id="spec-wrapper-added"><div id="form_a"><div class="wrap-9vbmy"><input class="zip" placeholder="ZIP code"></div></div></div><div class="code"><span>Locator</span><code>#form_a &gt; input.zip</code><span class="m zero">Matches 0 elements</span></div><div class="code now"><span>Valid now</span><code>#form_a .wrap-9vbmy &gt; input.zip</code></div></article><article class="t" data-exp="heal" id="t-moved"><div class="meta"><h3>Element moved to another parent</h3><span class="b">Should heal</span></div><p class="note">Same element, new parent.</p><div class="spec" id="spec-moved"><div id="boxA" class="wrap"></div><div id="boxB_5potk" class="wrap">Box B<input id="promo_7nv9k" placeholder="Promo code"></div></div><div class="code"><span>Locator</span><code>#boxA #promo</code><span class="m zero">Matches 0 elements</span></div><div class="code now"><span>Valid now</span><code>#boxB_5potk #promo_7nv9k</code></div></article><article class="t" data-exp="heal" id="t-attr-removed"><div class="meta"><h3>Attribute removed</h3><span class="b">Should heal</span></div><p class="note">The attribute the locator depends on disappears.</p><div class="spec" id="spec-attr-removed"><button id="go_09ees" class="go_6b3lq">Go</button></div><div class="code"><span>Locator</span><code>button[data-action="go"]</code><span class="m zero">Matches 0 elements</span></div><div class="code now"><span>Valid now</span><code>#go_09ees (or button.go_6b3lq)</code></div></article></section><section><h2>Level 3: hard cases</h2><p class="lvl-d">Several changes at once, look-alike neighbours, frames and shadow DOM.</p><article class="t" data-exp="heal" id="t-multi-change"><div class="meta"><h3>Id, class, text and href all change</h3><span class="b">Should heal</span></div><p class="note">Almost nothing of the original survives except position and tag.</p><div class="spec" id="spec-multi-change"><a id="support_76mao" class="link support_6a5i2" href="#support_76mao">Support 2cghv</a></div><div class="code"><span>Locator</span><code>#help_link</code><span class="m zero">Matches 0 elements</span></div><div class="code now"><span>Valid now</span><code>a.support_6a5i2</code></div></article><article class="t" data-exp="risk" id="t-look-alikes"><div class="meta"><h3>Three identical buttons, middle one renamed</h3><span class="b">Watch for wrong target</span></div><p class="note">Healing must choose the middle Delete, not the first or last. A wrong pick is the dangerous failure.</p><div class="spec" id="spec-look-alikes"><button id="row_1">Delete</button><button id="row_two_2po3q">Delete</button><button id="row_3">Delete</button></div><div class="code"><span>Locator</span><code>#row_2</code><span class="m zero">Matches 0 elements</span></div><div class="code now"><span>Valid now</span><code>#row_two_2po3q</code></div></article><article class="t" data-exp="heal" id="t-iframe"><div class="meta"><h3>Element inside an iframe</h3><span class="b">Should heal</span></div><p class="note">Needs frameLocator healing enabled.</p><div class="spec" id="spec-iframe"><iframe id="f1" title="f1" srcdoc="&lt;body style=&quot;margin:8px&quot;&gt;&lt;input id=&quot;frame_input&quot; placeholder=&quot;inside frame&quot;&gt;&lt;/body&gt;"></iframe></div><div class="code"><span>Locator</span><code>frameLocator("#f1").locator("#frame_input")</code><span class="m zero">Matches 0 elements</span></div><div class="code now"><span>Valid now</span><code>frameLocator("#f1").locator("#frame_input_7ojtb")</code></div></article><article class="t" data-exp="heal" id="t-shadow-open"><div class="meta"><h3>Open shadow DOM</h3><span class="b">Should heal</span></div><p class="note">Playwright CSS pierces open shadow roots. Needs shadow healing enabled.</p><div class="spec" id="spec-shadow-open"><div></div></div><div class="code"><span>Locator</span><code>#sh_field</code><span class="m zero">Matches 0 elements</span></div><div class="code now"><span>Valid now</span><code>#sh_field_6p9dy</code></div></article><article class="t" data-exp="risk" id="t-late-render"><div class="meta"><h3>Element reappears 3 s later with a new id</h3><span class="b">Watch for wrong target</span></div><p class="note">Tests timing. Result depends on your action timeout versus the 3 s delay.</p><div class="spec" id="spec-late-render"></div><div class="code"><span>Locator</span><code>#late</code><span class="m zero">Matches 0 elements</span></div><div class="code now"><span>Valid now</span><code>#late_1hf51 (after 3 s)</code></div></article></section><section><h2>Level 4: boundaries</h2><p class="lvl-d">Cases where healing is wrong, unsafe or not possible. A miss here is the correct result for most of them.</p><article class="t" data-exp="noheal" id="t-deleted"><div class="meta"><h3>Element deleted, similar button remains</h3><span class="b">Must not heal</span></div><p class="note">The right outcome is a failure. Healing to Cancel would be a false positive.</p><div class="spec" id="spec-deleted"><button id="cancel_8jdt0">Cancel 0mt4t</button></div><div class="code"><span>Locator</span><code>#obsolete</code><span class="m zero">Matches 0 elements</span></div><div class="code now"><span>Valid now</span><code>(no equivalent exists)</code></div></article><article class="t" data-exp="noheal" id="t-disabled"><div class="meta"><h3>Found but disabled</h3><span class="b">Must not heal</span></div><p class="note">The locator still works. Healing here would hide a real bug.</p><div class="spec" id="spec-disabled"><button id="pay" disabled="">Pay now</button></div><div class="code"><span>Locator</span><code>#pay</code><span class="m one">Matches 1 element</span></div><div class="code now"><span>Valid now</span><code>#pay  (still valid)</code></div></article><article class="t" data-exp="noheal" id="t-text-changed"><div class="meta"><h3>Text changed, assertion expects the old text</h3><span class="b">Must not heal</span></div><p class="note">The element is found but the content is wrong. This is a failure the test should report.</p><div class="spec" id="spec-text-changed"><h4 id="page_title" style="margin:0">Changed 48vq8</h4></div><div class="code"><span>Locator</span><code>expect(locator("#page_title")).toHaveText("Welcome")</code><span class="m one">Matches 1 element</span></div><div class="code now"><span>Valid now</span><code>#page_title  (still valid)</code></div></article><article class="t" data-exp="risk" id="t-ambiguous"><div class="meta"><h3>Locator now matches two elements</h3><span class="b">Watch for wrong target</span></div><p class="note">Strict mode violation. After the change this is the only locator that matches two elements, on purpose. The tool must pick the original, not the new field.</p><div class="spec" id="spec-ambiguous"><input class="qty" id="qty_b_1hbtv" placeholder="Quantity (copy)"><input class="qty" id="qty_a_90w9n" placeholder="Quantity"></div><div class="code"><span>Locator</span><code>input.qty</code><span class="m many">Matches 2 elements</span></div><div class="code now"><span>Valid now</span><code>#qty_a_90w9n (the original)</code></div></article><article class="t" data-exp="gap" id="t-silent-misfire"><div class="meta"><h3>Positional XPath points to the wrong element</h3><span class="b">Known limit</span></div><p class="note">Nothing fails, so nothing heals. The test silently acts on the Name field instead of Email.</p><div class="spec" id="spec-silent-misfire"><div id="xp"><input class="c_2c4wx" placeholder="Nickname 5vc0u"><input class="a" placeholder="Name"><input class="b" placeholder="Email"></div></div><div class="code"><span>Locator</span><code>//div[@id='xp']/input[2]</code><span class="m one">Matches 1 element</span></div><div class="code now"><span>Valid now</span><code>//div[@id='xp']/input[3]</code></div></article><article class="t" data-exp="gap" id="t-getby-direct"><div class="meta"><h3>Page-level getByRole, text changes</h3><span class="b">Known limit</span></div><p class="note">Direct getBy calls on the page are not wrapped, so no healing is expected.</p><div class="spec" id="spec-getby-direct"><button>Send 65rgk</button></div><div class="code"><span>Locator</span><code>page.getByRole("button", { name: "Submit" })</code><span class="m zero">Matches 0 elements</span></div><div class="code now"><span>Valid now</span><code>page.getByRole("button", { name: "Send 65rgk" })</code></div></article><article class="t" data-exp="gap" id="t-shadow-closed"><div class="meta"><h3>Closed shadow DOM</h3><span class="b">Known limit</span></div><p class="note">Playwright cannot reach a closed root, so this locator fails before and after the change.</p><div class="spec" id="spec-shadow-closed"><div></div></div><div class="code"><span>Locator</span><code>#cs_field</code><span class="m na">Hidden from Playwright</span></div><div class="code now"><span>Valid now</span><code>#cs_field_71sqg (unreachable)</code></div></article><article class="t" data-exp="gap" id="t-iframe-shadow"><div class="meta"><h3>Shadow DOM inside an iframe</h3><span class="b">Known limit</span></div><p class="note">Frame healing and shadow healing are not combined.</p><div class="spec" id="spec-iframe-shadow"><iframe id="f2" title="f2" srcdoc="&lt;body style=&quot;margin:8px&quot;&gt;&lt;div id=&quot;h&quot;&gt;&lt;/div&gt;&lt;script&gt;document.getElementById(&quot;h&quot;).attachShadow({mode:&quot;open&quot;}).innerHTML='&lt;input id=&quot;fs_field&quot; placeholder=&quot;frame + shadow&quot;&gt;'&lt;/script&gt;&lt;/body&gt;"></iframe></div><div class="code"><span>Locator</span><code>frameLocator("#f2").locator("#fs_field")</code><span class="m zero">Matches 0 elements</span></div><div class="code now"><span>Valid now</span><code>frameLocator("#f2").locator("#fs_field_5esk6")</code></div></article></section></div>
+</main>
+
+<script>
+(function(){
+var LABEL={heal:"Should heal",risk:"Watch for wrong target",noheal:"Must not heal",gap:"Known limit"};
+var LV=[
+ [1,"Level 1: attribute drift","One attribute changes. The easiest case for any healer."],
+ [2,"Level 2: structural drift","The element stays, but its tag, parent or position changes."],
+ [3,"Level 3: hard cases","Several changes at once, look-alike neighbours, frames and shadow DOM."],
+ [4,"Level 4: boundaries","Cases where healing is wrong, unsafe or not possible. A miss here is the correct result for most of them."]
+];
+var closed={},timers={},changed=false;
+function q(r,s){return r.querySelector(s)}
+function cnt(s){return document.querySelectorAll(s).length}
+function token(){return Math.floor(Math.random()*0xFFFFFF).toString(36).padStart(5,"0")}
+function setNext(t,value){t.next=value;var code=document.querySelector("#t-"+t.id+" .now code");if(code)code.textContent=value}
+function ifr(r,o){r.innerHTML='<iframe id="'+o.id+'" title="'+o.id+'"></iframe>';q(r,"iframe").srcdoc=o.doc}
+function inFrame(r,fn){var f=q(r,"iframe");function go(){try{fn(f.contentDocument)}catch(e){}}var d=f.contentDocument;if(d&&d.readyState==="complete"&&d.body&&d.body.children.length)go();else f.addEventListener("load",go,{once:true})}
+function fcnt(id,sel,shadowHost){var f=document.getElementById(id);try{var d=f.contentDocument;if(shadowHost){var h=d.getElementById(shadowHost);return h&&h.shadowRoot?h.shadowRoot.querySelectorAll(sel).length:0}return d.querySelectorAll(sel).length}catch(e){return 0}}
+var T=[
+{id:"id-rename",l:1,t:"Id renamed",e:"heal",loc:"#user_name",next:"#user_name_v2",n:"The classic case: a developer renames an id.",
+ c:function(){return cnt("#user_name")},i:function(r){r.innerHTML='<input id="user_name" placeholder="Username">'},m:function(r){var id="user_name_"+token();q(r,"input").id=id;setNext(this,"#"+id)}},
+{id:"class-change",l:1,t:"Class renamed",e:"heal",loc:".btn-primary",next:".btn-main",n:"A CSS class is replaced by another.",
+ c:function(){return cnt(".btn-primary")},i:function(r){r.innerHTML='<button class="btn-primary">Save</button>'},m:function(r){var cls="btn-main-"+token();q(r,"button").className=cls;setNext(this,"."+cls)}},
+{id:"name-attr",l:1,t:"Name attribute changed",e:"heal",loc:'[name="email_addr"]',next:'[name="email"]',n:"Healing should keep the selector style (an attribute selector).",
+ c:function(){return cnt('[name="email_addr"]')},i:function(r){r.innerHTML='<input name="email_addr" placeholder="Email">'},m:function(r){var name="email_"+token();q(r,"input").name=name;setNext(this,'[name="'+name+'"]')}},
+{id:"testid-change",l:1,t:"data-testid changed",e:"heal",loc:'[data-testid="checkout"]',next:'[data-testid="purchase"]',n:"Test ids are meant to be stable, until someone renames them.",
+ c:function(){return cnt('[data-testid="checkout"]')},i:function(r){r.innerHTML='<button data-testid="checkout">Checkout</button>'},m:function(r){var id="purchase-"+token();q(r,"button").setAttribute("data-testid",id);setNext(this,'[data-testid="'+id+'"]')}},
+
+{id:"tag-change",l:2,t:"Tag replaced",e:"heal",loc:"span.status",next:"strong.status",n:"Same class and text, different tag.",
+ c:function(){return cnt("span.status")},i:function(r){r.innerHTML='<span class="status">Ready</span>'},m:function(r){var tag=["strong","em","b"][Math.floor(Math.random()*3)],s=q(r,"span"),n=document.createElement(tag);n.className="status";n.textContent=s.textContent;s.replaceWith(n);setNext(this,tag+".status")}},
+{id:"wrapper-added",l:2,t:"Wrapper inserted",e:"heal",loc:"#form_a > input.zip",next:"#form_a input.zip",n:"A direct-child selector breaks when a wrapper div appears.",
+ c:function(){return cnt("#form_a > input.zip")},i:function(r){r.innerHTML='<div id="form_a"><input class="zip" placeholder="ZIP code"></div>'},m:function(r){var i=q(r,"input"),w=document.createElement("div"),cls="wrap-"+token();w.className=cls;i.replaceWith(w);w.appendChild(i);setNext(this,"#form_a ."+cls+" > input.zip")}},
+{id:"moved",l:2,t:"Element moved to another parent",e:"heal",loc:"#boxA #promo",next:"#boxB #promo",n:"Same element, new parent.",
+ c:function(){return cnt("#boxA #promo")},i:function(r){r.innerHTML='<div id="boxA" class="wrap"><input id="promo" placeholder="Promo code"></div><div id="boxB" class="wrap">Box B</div>'},m:function(r){var box="boxB_"+token(),promo="promo_"+token(),parent=q(r,"#boxB"),input=q(r,"#promo");parent.id=box;input.id=promo;parent.appendChild(input);setNext(this,"#"+box+" #"+promo)}},
+{id:"attr-removed",l:2,t:"Attribute removed",e:"heal",loc:'button[data-action="go"]',next:"#go  (or button.go)",n:"The attribute the locator depends on disappears.",
+ c:function(){return cnt('button[data-action="go"]')},i:function(r){r.innerHTML='<button id="go" class="go" data-action="go">Go</button>'},m:function(r){var button=q(r,"button"),id="go_"+token(),cls="go_"+token();button.id=id;button.className=cls;button.removeAttribute("data-action");setNext(this,"#"+id+" (or button."+cls+")")}},
+
+{id:"multi-change",l:3,t:"Id, class, text and href all change",e:"heal",loc:"#help_link",next:"a.support",n:"Almost nothing of the original survives except position and tag.",
+ c:function(){return cnt("#help_link")},i:function(r){r.innerHTML='<a id="help_link" class="link help" href="#help">Help</a>'},m:function(r){var a=q(r,"a"),id="support_"+token(),cls="support_"+token();a.id=id;a.className="link "+cls;a.textContent="Support "+token();a.href="#"+id;setNext(this,"a."+cls)}},
+{id:"look-alikes",l:3,t:"Three identical buttons, middle one renamed",e:"risk",loc:"#row_2",next:"#row_two",n:"Healing must choose the middle Delete, not the first or last. A wrong pick is the dangerous failure.",
+ c:function(){return cnt("#row_2")},i:function(r){r.innerHTML='<button id="row_1">Delete</button><button id="row_2">Delete</button><button id="row_3">Delete</button>'},m:function(r){var id="row_two_"+token();q(r,"#row_2").id=id;setNext(this,"#"+id)}},
+{id:"iframe",l:3,t:"Element inside an iframe",e:"heal",loc:'frameLocator("#f1").locator("#frame_input")',next:'frameLocator("#f1").locator("#frame_input_v2")',n:"Needs frameLocator healing enabled.",
+ c:function(){return fcnt("f1","#frame_input")},i:function(r){ifr(r,{id:"f1",doc:'<body style="margin:8px"><input id="frame_input" placeholder="inside frame"></body>'})},m:function(r){var id="frame_input_"+token();inFrame(r,function(d){d.getElementById("frame_input").id=id});setNext(this,'frameLocator("#f1").locator("#'+id+'")')}},
+{id:"shadow-open",l:3,t:"Open shadow DOM",e:"heal",loc:"#sh_field",next:"#sh_field_v2",n:"Playwright CSS pierces open shadow roots. Needs shadow healing enabled.",
+ c:function(){var h=document.getElementById("spec-shadow-open").firstChild;return h&&h.shadowRoot?h.shadowRoot.querySelectorAll("#sh_field").length:0},i:function(r){r.innerHTML="";var h=document.createElement("div");r.appendChild(h);h.attachShadow({mode:"open"}).innerHTML='<input id="sh_field" placeholder="in shadow root">'},m:function(r){var id="sh_field_"+token();r.firstChild.shadowRoot.querySelector("input").id=id;setNext(this,"#"+id)}},
+{id:"late-render",l:3,t:"Element reappears 3 s later with a new id",e:"risk",loc:"#late",next:"#late_v2  (after 3 s)",n:"Tests timing. Result depends on your action timeout versus the 3 s delay.",
+ c:function(){return cnt("#late")},i:function(r){r.innerHTML='<input id="late" placeholder="Late field">'},m:function(r){var i=q(r,"input"),id="late_"+token();if(i)i.remove();setNext(this,"#"+id+" (after 3 s)");timers.late=setTimeout(function(){var n=document.createElement("input");n.id=id;n.placeholder="Late field";r.appendChild(n)},3000)}},
+
+{id:"deleted",l:4,t:"Element deleted, similar button remains",e:"noheal",loc:"#obsolete",next:"(no equivalent exists)",n:"The right outcome is a failure. Healing to Cancel would be a false positive.",
+ c:function(){return cnt("#obsolete")},i:function(r){r.innerHTML='<button id="obsolete">Archive</button><button id="cancel_btn">Cancel</button>'},m:function(r){var cancel=q(r,"#cancel_btn");cancel.id="cancel_"+token();cancel.textContent="Cancel "+token();q(r,"#obsolete").remove()}},
+{id:"disabled",l:4,t:"Found but disabled",e:"noheal",loc:"#pay",next:"#pay  (still valid)",n:"The locator still works. Healing here would hide a real bug.",
+ c:function(){return cnt("#pay")},i:function(r){r.innerHTML='<button id="pay">Pay now</button>'},m:function(r){q(r,"#pay").disabled=true}},
+{id:"text-changed",l:4,t:"Text changed, assertion expects the old text",e:"noheal",loc:'expect(locator("#page_title")).toHaveText("Welcome")',next:"#page_title  (still valid)",n:"The element is found but the content is wrong. This is a failure the test should report.",
+ c:function(){return cnt("#page_title")},i:function(r){r.innerHTML='<h4 id="page_title" style="margin:0">Welcome</h4>'},m:function(r){q(r,"#page_title").textContent="Changed "+token()}},
+{id:"ambiguous",l:4,t:"Locator now matches two elements",e:"risk",loc:"input.qty",next:"#qty_a  (the original)",n:"Strict mode violation. After the change this is the only locator that matches two elements, on purpose. The tool must pick the original, not the new field.",
+ c:function(){return cnt("input.qty")},i:function(r){r.innerHTML='<input class="qty" id="qty_a" placeholder="Quantity">'},m:function(r){var original=q(r,"input"),originalId="qty_a_"+token(),copy=document.createElement("input");original.id=originalId;copy.className="qty";copy.id="qty_b_"+token();copy.placeholder="Quantity (copy)";r.insertBefore(copy,r.firstChild);setNext(this,"#"+originalId+" (the original)")}},
+{id:"silent-misfire",l:4,t:"Positional XPath points to the wrong element",e:"gap",loc:"//div[@id='xp']/input[2]",next:"//div[@id='xp']/input[3]",n:"Nothing fails, so nothing heals. The test silently acts on the Name field instead of Email.",
+ c:function(){return document.evaluate("count(//div[@id='xp']/input[2])",document,null,XPathResult.NUMBER_TYPE,null).numberValue},i:function(r){r.innerHTML='<div id="xp"><input class="a" placeholder="Name"><input class="b" placeholder="Email"></div>'},m:function(r){var n=document.createElement("input"),x=q(r,"#xp"),index=Math.floor(Math.random()*2),inputs=x.querySelectorAll("input");n.className="c_"+token();n.placeholder="Nickname "+token();x.insertBefore(n,inputs[index]);setNext(this,"//div[@id='xp']/input[3]")}},
+{id:"getby-direct",l:4,t:"Page-level getByRole, text changes",e:"gap",loc:'page.getByRole("button", { name: "Submit" })',next:'page.getByRole("button", { name: "Send" })',n:"Direct getBy calls on the page are not wrapped, so no healing is expected.",
+ c:function(){return Array.prototype.filter.call(document.querySelectorAll("button"),function(b){return b.textContent.trim()==="Submit"}).length},i:function(r){r.innerHTML='<button>Submit</button>'},m:function(r){var label="Send "+token();q(r,"button").textContent=label;setNext(this,'page.getByRole("button", { name: "'+label+'" })')}},
+{id:"shadow-closed",l:4,t:"Closed shadow DOM",e:"gap",loc:"#cs_field",next:"#cs_field_v2  (unreachable)",n:"Playwright cannot reach a closed root, so this locator fails before and after the change.",
+ c:function(){return -1},i:function(r){r.innerHTML="";var h=document.createElement("div");r.appendChild(h);var s=h.attachShadow({mode:"closed"});s.innerHTML='<input id="cs_field" placeholder="closed root">';closed.cs=s},m:function(r){var id="cs_field_"+token();closed.cs.querySelector("input").id=id;setNext(this,"#"+id+" (unreachable)")}},
+{id:"iframe-shadow",l:4,t:"Shadow DOM inside an iframe",e:"gap",loc:'frameLocator("#f2").locator("#fs_field")',next:'frameLocator("#f2").locator("#fs_field_v2")',n:"Frame healing and shadow healing are not combined.",
+ c:function(){return fcnt("f2","#fs_field","h")},i:function(r){ifr(r,{id:"f2",doc:'<body style="margin:8px"><div id="h"></div><script>document.getElementById("h").attachShadow({mode:"open"}).innerHTML=\'<input id="fs_field" placeholder="frame + shadow">\'<\/script></body>'})},m:function(r){var id="fs_field_"+token();inFrame(r,function(d){d.getElementById("h").shadowRoot.querySelector("input").id=id});setNext(this,'frameLocator("#f2").locator("#'+id+'")')}}
+];
+function h(tag,cls,txt){var e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e}
+function get(id){return T.filter(function(t){return t.id===id})[0]}
+function root(id){return document.getElementById("spec-"+id)}
+var el=document.getElementById("levels");
+LV.forEach(function(L){
+  var sec=h("section");sec.appendChild(h("h2",null,L[1]));sec.appendChild(h("p","lvl-d",L[2]));
+  T.filter(function(t){return t.l===L[0]}).forEach(function(t){
+    var a=h("article","t");a.dataset.exp=t.e;a.id="t-"+t.id;
+    var m=h("div","meta");m.appendChild(h("h3",null,t.t));m.appendChild(h("span","b",LABEL[t.e]));a.appendChild(m);
+    a.appendChild(h("p","note",t.n));
+    var sp=h("div","spec");sp.id="spec-"+t.id;a.appendChild(sp);
+    var c1=h("div","code");c1.appendChild(h("span",null,"Locator"));c1.appendChild(h("code",null,t.loc));c1.appendChild(h("span","m",""));a.appendChild(c1);
+    var c2=h("div","code now");c2.hidden=true;c2.appendChild(h("span",null,"Valid now"));c2.appendChild(h("code",null,t.next));a.appendChild(c2);
+    sec.appendChild(a);
+  });
+  el.appendChild(sec);
+});
+function refresh(){
+  var ones=0,total=0;
+  T.forEach(function(t){
+    var n=t.c(),b=document.querySelector("#t-"+t.id+" .m");
+    if(n<0){b.className="m na";b.textContent="Hidden from Playwright";return}
+    total++;if(n===1)ones++;
+    b.className="m "+(n===1?"one":n===0?"zero":"many");b.textContent="Matches "+n+(n===1?" element":" elements");
+  });
+  document.getElementById("status").textContent=(changed?"After the change: ":"Before the change: ")+ones+" of "+total+" locators match exactly one element."+(changed?"":" The closed shadow DOM case is hidden from Playwright by design.");
+}
+function changeAll(){
+  if(changed)return;changed=true;
+  T.forEach(function(t){t.m(root(t.id));document.querySelector("#t-"+t.id+" .now").hidden=false});
+  var b=document.getElementById("change-all");b.disabled=true;b.textContent="Locators changed. Reload the page to reset.";
+  refresh();
+}
+document.getElementById("change-all").onclick=changeAll;
+T.forEach(function(t){t.i(root(t.id))});
+refresh();setInterval(refresh,500);
+window.bench={changeAll:changeAll,tests:T.map(function(t){return t.id})};
+})();
+</script>
+
+</body></html>

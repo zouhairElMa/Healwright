@@ -1,0 +1,82 @@
+Healwright
+Copyright 2026 Healwright contributors
+
+This product includes a clean-room TypeScript implementation of the Healenium
+self-healing specification for Playwright.
+
+================================================================================
+Attributions and source licenses
+================================================================================
+
+1. Healenium — EPAM Systems (Apache-2.0)
+
+   healenium-web
+     Copyright (C) 2019 EPAM. Licensed under the Apache License, Version 2.0.
+     Used as the behavioral specification for the Playwright port.
+
+   healenium-backend 3.5.1
+     Copyright EPAM Systems. Licensed under the Apache License, Version 2.0.
+     Upstream source: https://github.com/healenium/healenium-backend
+
+     The backend is modified under Apache-2.0 sections 2 and 4 to produce the
+     self-contained Healwright backend jar and dashboard. Modifications updated
+     on 2026-11-23 include:
+
+       * Added backend/src/main/java/com/epam/healenium/controller/
+         HealwrightDashboardController.java for the root dashboard, configuration,
+         telemetry aggregation, and rewrite administration.
+       * Added backend/src/main/resources/static/healwright/index.html for the
+         Healwright reporting dashboard.
+       * Modified backend/src/main/resources/images/banner.txt, application.yml,
+         and logback-spring.xml for the Healwright terminal identity and logging.
+       * Modified backend/settings.gradle and backend/build.gradle for the
+         Healwright artifact name and embedded META-INF/LICENSE and META-INF/NOTICE.
+       * Removed the PostgreSQL password fallback from application.yml.
+
+     The Java package com.epam.healenium, the /healenium REST routes, and legacy
+     PostgreSQL identifiers are retained for wire and data compatibility. Their
+     presence does not indicate endorsement by EPAM or Healenium.
+
+   tree-comparing 0.4.14
+     Copyright EPAM Systems. Licensed under the Apache License, Version 2.0.
+     Upstream source: https://github.com/healenium/tree-comparing
+
+     Healwright's client/src/lcs/ implementation is a TypeScript port of the
+     tree-comparing PathFinder, node, and score algorithms. EPAM attribution and
+     Apache-2.0 compatibility are preserved.
+
+2. healenium-selector-imitator
+
+   No upstream license file or license statement was found during the project
+   audit. All rights are reserved by default. No Python code from that project is
+   shipped. Healwright's client/src/imitator/ implementation is an independent
+   clean-room TypeScript implementation based on the public API contract and
+   observable behavior.
+
+3. REA (morluto/rea) — MIT
+
+   Copyright (c) 2026 morluto. REA was used as a runtime-evidence tool during
+   project validation. No REA code is redistributed as a runtime dependency.
+
+4. parse5 — MIT
+
+   Parse5 is the HTML parser used by client/src/capture/parse-tree.ts. Its MIT
+   license is compatible with Apache-2.0.
+
+5. healenium-test-env
+
+   The upstream demonstration site was used only as a validation reference. Its
+   license remains NOT VERIFIED. No test-env source file is redistributed in the
+   npm package or backend jar.
+
+================================================================================
+Trademark notice
+================================================================================
+
+Healwright aims for functional compatibility with Healenium, not code identity.
+Known differences include single-action replay, closed shadow roots, direct
+getBy* locators, and the documented Playwright integration limits.
+
+Healenium and EPAM are trademarks of their respective owners. Their use here is
+descriptive and identifies the origin of the specification and backend, in
+accordance with section 6 of the Apache License 2.0.

@@ -1,0 +1,101 @@
+server:
+  port: ${SPRING_SERVER_PORT:7878}
+  tomcat:
+    max-swallow-size: -1
+  # Enable forwarded headers Spring Boot for link generation
+  forward-headers-strategy: framework
+
+spring:
+  banner:
+    location: /images/banner.txt
+  servlet.multipart:
+    max-file-size: -1
+    max-request-size: -1
+  main.allow-bean-definition-overriding: true
+  output.ansi.enabled: DETECT
+  jpa:
+    properties.hibernate:
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+      default_schema: ${SPRING_POSTGRES_SCHEMA:healenium}
+      temp.use_jdbc_metadata_defaults: false
+      jdbc.batch_size: 40
+      order_inserts: true
+    open-in-view: false
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://${SPRING_POSTGRES_DB_HOST:localhost}:${SPRING_POSTGRES_DB_PORT:5432}/${SPRING_POSTGRES_DB:healenium}?currentSchema=${SPRING_POSTGRES_SCHEMA:healenium}
+    username: ${SPRING_POSTGRES_USER:healwright_user}
+    password: ${SPRING_POSTGRES_PASSWORD}
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      maximumPoolSize: ${MAXIMUM_POOL_SIZE:6}
+      minimumIdle: 4
+      schema: ${SPRING_POSTGRES_SCHEMA:healenium}
+    jpa:
+      database-platform: org.hibernate.dialect.PostgreSQLDialect
+      packages_to_scan: com.epam.healenium.model
+      generate-ddl: false
+      hibernate:
+        ddl-auto: validate
+        naming.strategy: org.hibernate.cfg.EJB3NamingStrategy
+        use-new-id-generator-mappings: true
+      properties:
+        hibernate.default_schema: public
+        hibernate.format_sql: true
+    jmx:
+      enabled: false
+  liquibase:
+    change-log: classpath:/db/changelog/changelog-main.xml
+    enabled: true
+    default-schema: ${SPRING_POSTGRES_SCHEMA:healenium}
+
+app:
+  host: ${SPRING_HOST_NAME:localhost}
+  port: ${SPRING_SERVER_PORT:7878}
+  selenium.host: ${SPRING_SELENIUM_HOST:localhost}
+  url:
+    page-source: http://${SPRING_CONTAINER_NAME:localhost}:${app.port}/pages
+    report: healenium/report
+  selector:
+    key:
+      url-for-key: ${KEY_SELECTOR_URL:false}
+      path-for-key: ${KEY_SELECTOR_PATH:false}
+  metrics:
+    allow: ${COLLECT_METRICS:true}
+  healing:
+    elements: ${FIND_ELEMENTS_AUTO_HEALING:false}
+
+cloud:
+  aws:
+    region:
+      static: eu-central-1
+    stack:
+      auto: false
+
+logging:
+  level:
+    liquibase: WARN
+    org.springframework.web: INFO
+    org.springframework.security: INFO
+    org.springframework.cloud.gateway: INFO
+    ROOT: ${SPRING_LOG_LEVEL:INFO}
+    org.springframework: INFO
+    org.mongodb.driver.connection: WARN
+    healenium: ${HEALWRIGHT_LOG_LEVEL:${HLM_LOG_LEVEL:INFO}}
+  pattern:
+    console: '%d{yyyy-MM-dd HH:mm:ss.SSS} %5p ${PID:- } --- [%t] %logger{0} : %m%n%wEx'
+    file: '%d{yyyy-MM-dd HH:mm:ss.SSS} %5p ${PID:- } --- [%t] %logger{0} : %m%n%wEx'
+  file:
+    name: ./logs/healwright-backend.log
+  logback:
+    rollingpolicy:
+      file-name-pattern: ./logs/healwright-backend-%d{yyyy-MM-dd}.%i.log.gz
+      max-file-size: 10MB
+      max-history: 10
+      total-size-cap: 100MB
+
+# Proxy service configuration
+proxy:
+  service:
+    url: ${PROXY_SERVICE_URL:http://localhost:8085}
