@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.2.2 - 2026-11-24
+
+- Refined the GitHub, documentation, and npm presentation with the Healwright logo and wordmark, reporting screenshots, and explicit Apache-2.0 and trademark notices.
+- Corrected the before/after visual to use the native Playwright logo on the left and the native Healwright mark without its wordmark on the right.
+- Added Java 21 and PostgreSQL dependency badges and the project author's LinkedIn link.
+- Expanded the origin story around an anonymized client consulting assignment, local/no-LLM healing, confidentiality constraints, DOM analysis, telemetry, reporting, and reversible source rewriting.
+- Added the project story and acceptance-testing methodology, including Three-Point Estimation, historical campaign aggregates, testing workflow, and separate final 0.2.1 benchmark evidence.
+- Packaged eight publication assets inside the npm tarball so the npm README renders them reliably.
+- Kept runtime behavior and the verified 0.2.1 production defaults unchanged.
+
 ## 0.2.1 - 2026-11-24
 
 - Made safe source rewriting automatic by default while preserving the backend directory allowlist and reversible journals.

@@ -1,5 +1,13 @@
 title: Healwright
 description: Self-healing locators and resilient Playwright tests
+url: https://zouhairelma.github.io
+baseurl: /Healwright
+logo: /assets/healwright-logo.webp
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/healwright-social-preview.png
 theme: minima
 markdown: kramdown
 exclude:

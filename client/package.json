@@ -1,6 +1,6 @@
 {
   "name": "@zouhair_elmattad/healwright",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Self-healing locators and resilient Playwright tests with a local reporting dashboard",
   "keywords": [
     "playwright",
@@ -29,6 +29,7 @@
   },
   "files": [
     "dist",
+    "assets",
     "scripts/doctor.mjs",
     "scripts/run-backend.mjs",
     "scripts/report-server.mjs",

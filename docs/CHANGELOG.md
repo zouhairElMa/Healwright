@@ -5,6 +5,15 @@ title: Changelog
 
 # Changelog
 
+## 0.2.2 - 2026-11-24
+
+- Refined the documentation home with the Healwright logo and wordmark, corrected before/after visual, expanded client-consulting story, industrial workflow, and reporting example.
+- Corrected the before/after visual to use the native Playwright logo and the native Healwright mark without its wordmark.
+- Added Java 21 and PostgreSQL dependency badges, LinkedIn, and an Apache-2.0 and trademark presentation.
+- Added the [project story](story.md) and [acceptance-testing methodology](acceptance-testing.md), with historical campaign aggregates kept separate from final benchmark and live-verification evidence.
+- Added reporting captions that distinguish illustrative dashboard data from release benchmark evidence.
+- Kept runtime behavior and the verified 0.2.1 production defaults unchanged.
+
 ## 0.2.1 - 2026-11-24
 
 - Made safe source rewriting automatic by default while preserving the backend directory allowlist and reversible journals.

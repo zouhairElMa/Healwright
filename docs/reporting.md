@@ -9,6 +9,14 @@ title: Reporting
 
 The backend jar serves the dashboard at <http://localhost:7878/>. It displays sessions, test files, locators, candidates, scores, screenshots, timings, and replay outcomes.
 
+![Reporting overview with execution KPIs, filters, file summaries, refusal reasons, and execution rows](assets/reporting-overview.jpg)
+
+*Illustrative local session. These counts are not the final 0.2.1 benchmark.*
+
+Open an execution to inspect the exact failed and healed locator, captured visual evidence, score, timing, and source diff:
+
+![Healing detail with replay evidence and an exact source-code change](assets/reporting-detail.jpg)
+
 The dashboard reads:
 
 - `HEALWRIGHT_REPORT_DIR`.

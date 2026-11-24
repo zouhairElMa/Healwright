@@ -1,6 +1,41 @@
-# @zouhair_elmattad/healwright
+<p align="center">
+  <img src="assets/healwright-logo.webp" alt="Healwright logo" width="720">
+</p>
 
-Self-healing locators and resilient Playwright tests with a local reporting backend.
+<p align="center"><strong>Self-healing locators for Playwright — local, measured, and reversible.</strong></p>
+
+<p align="center">
+  <img src="https://img.shields.io/npm/v/@zouhair_elmattad/healwright.svg" alt="npm version">
+  <img src="https://img.shields.io/npm/dm/@zouhair_elmattad/healwright.svg" alt="npm downloads">
+  <img src="https://img.shields.io/badge/license-Apache--2.0-blue.svg" alt="Apache-2.0 license">
+  <img src="https://img.shields.io/badge/node-%3E%3D20-brightgreen.svg" alt="Node.js 20 or newer">
+  <img src="https://img.shields.io/badge/playwright-%3E%3D1.40-green.svg" alt="Playwright 1.40 or newer">
+  <img src="https://img.shields.io/badge/Java-21-orange.svg" alt="Java 21">
+  <img src="https://img.shields.io/badge/PostgreSQL-required-blue.svg" alt="PostgreSQL required">
+</p>
+
+<p align="center">
+  <a href="https://zouhairelma.github.io/Healwright/">Documentation</a> ·
+  <a href="https://github.com/zouhairElMa/Healwright">GitHub</a> ·
+  <a href="https://github.com/zouhairElMa/Healwright/releases">Releases</a> ·
+  <a href="https://www.linkedin.com/in/zel2351/">LinkedIn</a>
+</p>
+
+<p align="center">
+  <img src="assets/healwright-before-after.png" alt="Before Healwright, a DOM change breaks the locator. After Healwright, the locator is healed, the action is replayed, and evidence is recorded." width="100%">
+</p>
+
+> 🎭 **Now, the mask on the right is healed!** Finally 😷, it has got its smile back thanks to Healwright. 😁
+
+Self-healing locators and resilient Playwright tests with a local reporting backend. Healwright runs inside the Playwright process and can heal a failed locator, replay the action once, capture evidence, and safely rewrite measured source callsites.
+
+## Why local healing?
+
+Healwright grew from a client consulting challenge: stabilize flaky Playwright regression suites without increasing locator maintenance, automation cost, or delivery time. External and LLM-based healing services also raised token-cost and confidentiality concerns when client policies restricted sending test code or application data outside the project environment.
+
+The result is a locally executable workflow built around a machine-learning classification model, comparative HTML DOM analysis, confidence scoring, visual evidence, and telemetry. Core healing does not require an LLM or an Internet connection. It refuses ambiguous repairs rather than clicking a plausible but incorrect target, and it supports runtime recovery plus reversible source-code changes.
+
+Read the [project story](https://github.com/zouhairElMa/Healwright/blob/main/docs/story.md) and [acceptance-testing methodology](https://github.com/zouhairElMa/Healwright/blob/main/docs/acceptance-testing.md).
 
 ## Requirements
 
@@ -14,6 +49,28 @@ Docker is not required at runtime.
 ## Default profile
 
 Healing is enabled with `scoreCap: 0.6`, one recovery attempt, measured `adaptive` scoring, a 2-second action timeout, reporting enabled, and automatic source rewriting. The backend launcher defaults to port `7878`, database and schema `healwright`, user `healwright_user`, metrics disabled, the project report directory, and the project rewrite allowlist. The verified Playwright profile keeps a 120-second total test timeout.
+
+Version `0.2.2` refines publication assets and documentation only; its runtime code and defaults match the verified `0.2.1` package.
+
+## Industrial workflow
+
+- **Locator healing:** failed-action detection, alternative candidates, confidence scoring, visual evidence, and one controlled replay.
+- **DOM resilience:** iframe remounting, structural changes, open shadow roots, CSS, XPath, and assertions within documented limits.
+- **Source healing:** exact diffs, allowlisted automatic or confirmed writes, reversible journals, and original-locator restoration.
+- **Traceability:** local events for failures, candidates, scores, decisions, timings, replay outcomes, and source positions.
+- **Analytics:** session, file, attempt, refusal, capture, and source-change reporting with filters and search.
+
+## Acceptance at a glance
+
+The historical acceptance campaign covered **640 executions** and **815 healing attempts**, with **712 healed**, **103 refused**, and an **87.4% measured success rate**. Average score was **0.88** and average healing time **145 ms**. The campaign used a Three-Point Estimation frame and ISTQB-aligned scenarios; these figures are distinct from the final release benchmark.
+
+The final 0.2.1 benchmark remains **119/128 passed**, with 9 known failures and IF-04 disclosed. See [Acceptance testing](https://github.com/zouhairElMa/Healwright/blob/main/docs/acceptance-testing.md) for the complete method and evidence boundaries.
+
+## Reporting dashboard
+
+![Healwright reporting dashboard showing executions, healing attempts, healed and refused locators, filters, and source-code actions](assets/reporting-overview.jpg)
+
+The local dashboard exposes sessions, candidates, scores, refusal reasons, captures, timings, and exact source diffs. The screenshot is an illustrative local session, not the final 0.2.1 benchmark.
 
 ## Install
 
@@ -147,13 +204,18 @@ npx healwright-rewrite revert --scope last
 ## Documentation
 
 - [Repository](https://github.com/zouhairElMa/Healwright#readme)
+- [Project story](https://github.com/zouhairElMa/Healwright/blob/main/docs/story.md)
+- [Acceptance testing](https://github.com/zouhairElMa/Healwright/blob/main/docs/acceptance-testing.md)
 - [Getting started](https://github.com/zouhairElMa/Healwright/blob/main/docs/getting-started.md)
 - [Configuration](https://github.com/zouhairElMa/Healwright/blob/main/docs/configuration.md)
 - [Source rewriting](https://github.com/zouhairElMa/Healwright/blob/main/docs/rewriting.md)
 - [Backend](https://github.com/zouhairElMa/Healwright/blob/main/docs/backend.md)
 - [Known limitations](https://github.com/zouhairElMa/Healwright/blob/main/docs/limitations.md)
 - [Security](https://github.com/zouhairElMa/Healwright/blob/main/docs/security.md)
+- [LinkedIn — project author](https://www.linkedin.com/in/zel2351/)
 
-## License
+## License and attribution
 
-Apache-2.0. See `LICENSE` and `NOTICE` in this package.
+Apache-2.0. See [LICENSE](https://github.com/zouhairElMa/Healwright/blob/main/LICENSE) and [NOTICE](https://github.com/zouhairElMa/Healwright/blob/main/NOTICE) for the license text and upstream attributions.
+
+Playwright and Microsoft are trademarks of their respective owners. Healwright is an independent project and is not affiliated with or endorsed by Microsoft.
