@@ -1,6 +1,6 @@
 {
   "name": "healwright",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "description": "Healwright adds self-healing locators and resilient Playwright tests with a local Java backend.",
   "license": "Apache-2.0",

@@ -10,6 +10,9 @@ playwright-report/
 logs/
 screenshots/
 *.log
+!docs/evidence/final-0.2.1-benchmark.log
+!docs/evidence/final-0.2.1-if04-diagnostic.log
+!docs/evidence/live-testmuai-0.2.1-defaults.log
 *.tgz
 .env
 .env.*

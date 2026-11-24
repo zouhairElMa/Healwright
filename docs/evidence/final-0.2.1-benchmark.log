@@ -1,0 +1,406 @@
+
+Running 128 tests using 1 worker
+
+[1/128] tests/selfHealingTest.spec.ts:91:3 › Precondition › manifest has 124 scenarios at generation 0
+[2/128] tests/selfHealingTest.spec.ts:102:3 › Level 1: Cosmetic › [L1][main][css-id][heal] Save Draft button id mutated (L1-01)
+[3/128] tests/selfHealingTest.spec.ts:110:3 › Level 1: Cosmetic › [L1][main][css-class][heal] Publish button class mutated (L1-02)
+[4/128] tests/selfHealingTest.spec.ts:118:3 › Level 1: Cosmetic › [L1][main][getByTestId][heal] Search input testid mutated (L1-03)
+[5/128] tests/selfHealingTest.spec.ts:126:3 › Level 1: Cosmetic › [L1][main][css-name][heal] Username input name mutated (L1-04)
+[6/128] tests/selfHealingTest.spec.ts:134:3 › Level 1: Cosmetic › [L1][main][getByPlaceholder][heal] Promo input placeholder mutated (L1-05)
+[7/128] tests/selfHealingTest.spec.ts:142:3 › Level 1: Cosmetic › [L1][main][getByTitle][heal] PDF button title mutated (L1-06)
+[8/128] tests/selfHealingTest.spec.ts:150:3 › Level 1: Cosmetic › [L1][main][getByAltText][heal] Emblem image alt mutated (L1-07)
+[9/128] tests/selfHealingTest.spec.ts:158:3 › Level 1: Cosmetic › [L1][main][css-href-contains][heal] Pricing link href mutated (L1-08)
+[10/128] tests/selfHealingTest.spec.ts:166:3 › Level 1: Cosmetic › [L1][main][css-href-starts][heal] Docs link href prefix mutated (L1-09)
+[11/128] tests/selfHealingTest.spec.ts:174:3 › Level 1: Cosmetic › [L1][main][css-href-ends][heal] CSV export link href suffix mutated (L1-10)
+[12/128] tests/selfHealingTest.spec.ts:182:3 › Level 1: Cosmetic › [L1][main][getByRole-aria][heal] Archive icon button aria-label mutated (L1-11)
+[13/128] tests/selfHealingTest.spec.ts:190:3 › Level 1: Cosmetic › [L1][main][css-custom-testattr][heal] Email input data-qa mutated (L1-12)
+[14/128] tests/selfHealingTest.spec.ts:198:3 › Level 1: Cosmetic › [L1][main][css-id][heal] Notes textarea id mutated (L1-13)
+[15/128] tests/selfHealingTest.spec.ts:206:3 › Level 1: Cosmetic › [L1][main][css-class][heal] Agree checkbox class mutated (L1-14)
+[16/128] tests/selfHealingTest.spec.ts:214:3 › Level 1: Cosmetic › [L1][main][getByTestId][heal] Country select testid mutated (L1-15)
+[17/128] tests/selfHealingTest.spec.ts:222:3 › Level 1: Cosmetic › [L1][main][css-attr][heal] Quantity input aria-describedby mutated (L1-16)
+[18/128] tests/selfHealingTest.spec.ts:235:3 › Level 2: Attribute-level › [L2][main][getByTestId][heal] TestId renamed to data-qa (L2-01)
+[19/128] tests/selfHealingTest.spec.ts:243:3 › Level 2: Attribute-level › [L2][main][css-attr][heal] Test attribute stripped (L2-02)
+[20/128] tests/selfHealingTest.spec.ts:251:3 › Level 2: Attribute-level › [L2][main][getByLabel][heal] Label for/id pairing and text mutated (L2-03)
+[21/128] tests/selfHealingTest.spec.ts:259:3 › Level 2: Attribute-level › [L2][main][getByPlaceholder][heal] Placeholder moved to aria-label (L2-04)
+[22/128] tests/selfHealingTest.spec.ts:267:3 › Level 2: Attribute-level › [L2][main][css-multi-class][heal] Multi-class button dblclick (L2-05)
+[23/128] tests/selfHealingTest.spec.ts:275:3 › Level 2: Attribute-level › [L2][main][css-type-name][heal] Input type and name mutated (L2-06)
+  1) tests/selfHealingTest.spec.ts:275:3 › Level 2: Attribute-level › [L2][main][css-type-name][heal] Input type and name mutated (L2-06) 
+
+    TimeoutError: locator.pressSequentially: Timeout 2000ms exceeded.
+    Call log:
+      - waiting for locator('input[type="text"][name="l2_city"]')
+
+
+      277 |     await healedPage.locator('input[type="text"][name="l2_city"]').pressSequentially('Rabat');
+      278 |     await breakAll(page);
+    > 279 |     await healedPage.locator('input[type="text"][name="l2_city"]').pressSequentially('Casablanca');
+          |     ^
+      280 |     expect(await readState(page, 'l2_06')).toMatchObject({ value: 'Casablanca' });
+      281 |   });
+      282 |
+        at invoke (/private/tmp/healwright-final-bench.kLVrFf/node_modules/@zouhair_elmattad/healwright/src/playwright/wrapper.ts:692:20)
+        at runAction (/private/tmp/healwright-final-bench.kLVrFf/node_modules/@zouhair_elmattad/healwright/src/playwright/wrapper.ts:766:28)
+        at /private/tmp/healwright-final-bench.kLVrFf/tests/selfHealingTest.spec.ts:279:5
+
+    Error Context: test-results/selfHealingTest-Level-2-At-caf97-ype-and-name-mutated-L2-06-/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/selfHealingTest-Level-2-At-caf97-ype-and-name-mutated-L2-06-/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/selfHealingTest-Level-2-At-caf97-ype-and-name-mutated-L2-06-/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[24/128] tests/selfHealingTest.spec.ts:283:3 › Level 2: Attribute-level › [L2][main][getByRole-exact][heal] Button case and punctuation changed (L2-07)
+[25/128] tests/selfHealingTest.spec.ts:291:3 › Level 2: Attribute-level › [L2][main][css-attr][heal] data-action moved to parent container (L2-08)
+[26/128] tests/selfHealingTest.spec.ts:299:3 › Level 2: Attribute-level › [L2][main][getByTitle][heal] Title moved to data-tooltip (L2-09)
+[27/128] tests/selfHealingTest.spec.ts:307:3 › Level 2: Attribute-level › [L2][main][css-id][heal] Password input id mutated (L2-10)
+[28/128] tests/selfHealingTest.spec.ts:315:3 › Level 2: Attribute-level › [L2][main][getByRole][heal] Checkbox label reworded (L2-11)
+[29/128] tests/selfHealingTest.spec.ts:323:3 › Level 2: Attribute-level › [L2][main][getByRole][heal] Radio label and name mutated (L2-12)
+[30/128] tests/selfHealingTest.spec.ts:331:3 › Level 2: Attribute-level › [L2][main][getByRole][heal] Range slider aria-label mutated (L2-13)
+[31/128] tests/selfHealingTest.spec.ts:339:3 › Level 2: Attribute-level › [L2][main][css-id][heal] Color input id mutated (L2-14)
+[32/128] tests/selfHealingTest.spec.ts:347:3 › Level 2: Attribute-level › [L2][main][css-name][heal] Date input name mutated (L2-15)
+[33/128] tests/selfHealingTest.spec.ts:355:3 › Level 2: Attribute-level › [L2][main][getByTestId][heal] File upload testid moved to data-cy (L2-16)
+[34/128] tests/selfHealingTest.spec.ts:363:3 › Level 2: Attribute-level › [L2][main][getByRole][heal] Right-click context button name mutated (L2-17)
+[35/128] tests/selfHealingTest.spec.ts:371:3 › Level 2: Attribute-level › [L2][main][css-attr][heal] aria-labelledby target id mutated (L2-18)
+[36/128] tests/selfHealingTest.spec.ts:384:3 › Level 3: Semantic-level › [L3][main][getByRole][heal] Button tag and text changed with role kept (L3-01)
+[37/128] tests/selfHealingTest.spec.ts:392:3 › Level 3: Semantic-level › [L3][main][getByText-exact][heal] Text split across child nodes and tag changed (L3-02)
+[38/128] tests/selfHealingTest.spec.ts:400:3 › Level 3: Semantic-level › [L3][main][css-nth-child][heal] List item shifted by injected siblings (L3-03)
+[39/128] tests/selfHealingTest.spec.ts:408:3 › Level 3: Semantic-level › [L3][main][css-nth-of-type][heal] Button shifted by preceding button (L3-04)
+[40/128] tests/selfHealingTest.spec.ts:416:3 › Level 3: Semantic-level › [L3][main][getByRole-level][heal] Heading level h2 changed to h3 (L3-05)
+[41/128] tests/selfHealingTest.spec.ts:424:3 › Level 3: Semantic-level › [L3][main][getByRole][heal] Link changed to span role=button (L3-06)
+[42/128] tests/selfHealingTest.spec.ts:432:3 › Level 3: Semantic-level › [L3][main][getByRole-state][heal] Switch text rephrased and toggled (L3-07)
+[43/128] tests/selfHealingTest.spec.ts:440:3 › Level 3: Semantic-level › [L3][main][getByRole][heal] Tab text rephrased (L3-08)
+[44/128] tests/selfHealingTest.spec.ts:448:3 › Level 3: Semantic-level › [L3][main][getByRole][heal] Accordion button text rephrased (L3-09)
+[45/128] tests/selfHealingTest.spec.ts:456:3 › Level 3: Semantic-level › [L3][main][css-has-text][heal] Container tag div->section and text rephrased (L3-10)
+[46/128] tests/selfHealingTest.spec.ts:464:3 › Level 3: Semantic-level › [L3][main][css-not][heal] Form id changed and extra inputs injected (L3-11)
+[47/128] tests/selfHealingTest.spec.ts:472:3 › Level 3: Semantic-level › [L3][main][getByText-regex][heal] Currency text rephrased (L3-12)
+[48/128] tests/selfHealingTest.spec.ts:480:3 › Level 3: Semantic-level › [L3][main][xpath-rel][heal] XPath wrapper id and button index shifted (L3-13)
+[49/128] tests/selfHealingTest.spec.ts:488:3 › Level 3: Semantic-level › [L3][main][xpath-axis][heal] Following-sibling span text changed (L3-14)
+[50/128] tests/selfHealingTest.spec.ts:496:3 › Level 3: Semantic-level › [L3][main][getByRole][heal] Textarea replaced by contenteditable div (L3-15)
+[51/128] tests/selfHealingTest.spec.ts:504:3 › Level 3: Semantic-level › [L3][main][getByRole][heal] Select All checkbox label rephrased (L3-16)
+[52/128] tests/selfHealingTest.spec.ts:512:3 › Level 3: Semantic-level › [L3][main][getByRole][heal] Combobox aria-label rephrased (L3-17)
+[53/128] tests/selfHealingTest.spec.ts:520:3 › Level 3: Semantic-level › [L3][main][css-class][heal] Hover menu class and tag changed (L3-18)
+[54/128] tests/selfHealingTest.spec.ts:533:3 › Level 4: Structural › [L4][main][css-direct-child][heal] Button wrapped in extra divs (L4-01)
+[55/128] tests/selfHealingTest.spec.ts:541:3 › Level 4: Structural › [L4][main][css-deep-chain][heal] Deep nesting flattened (L4-02)
+[56/128] tests/selfHealingTest.spec.ts:549:3 › Level 4: Structural › [L4][main][css-section-scope][heal] Button reparented to another section (L4-03)
+[57/128] tests/selfHealingTest.spec.ts:557:3 › Level 4: Structural › [L4][main][nth][heal] List converted to div grid and shifted (L4-04)
+[58/128] tests/selfHealingTest.spec.ts:565:3 › Level 4: Structural › [L4][main][css-table-col][heal] Table columns reordered (L4-05)
+[59/128] tests/selfHealingTest.spec.ts:573:3 › Level 4: Structural › [L4][main][css-portal-scope][heal] Element moved to portal at end of body (L4-06)
+[60/128] tests/selfHealingTest.spec.ts:581:3 › Level 4: Structural › [L4][main][filter-hasText][heal] Row class renamed (L4-07)
+[61/128] tests/selfHealingTest.spec.ts:589:3 › Level 4: Structural › [L4][main][xpath-abs][heal] Absolute XPath broken by wrapper (L4-08)
+[62/128] tests/selfHealingTest.spec.ts:597:3 › Level 4: Structural › [L4][main][filter-has][heal] Badge removed and parent class renamed (L4-09)
+[63/128] tests/selfHealingTest.spec.ts:605:3 › Level 4: Structural › [L4][main][locator-and][heal] Combined .and() locator attributes changed (L4-10)
+[64/128] tests/selfHealingTest.spec.ts:613:3 › Level 4: Structural › [L4][main][locator-or][heal] Combined .or() classes changed (L4-11)
+[65/128] tests/selfHealingTest.spec.ts:621:3 › Level 4: Structural › [L4][main][parent-axis][heal] Parent axis broken by extra wrapper (L4-12)
+[66/128] tests/selfHealingTest.spec.ts:629:3 › Level 4: Structural › [L4][main][first][heal] DOM order reversed from first() (L4-13)
+[67/128] tests/selfHealingTest.spec.ts:637:3 › Level 4: Structural › [L4][main][last][heal] DOM order reversed from last() (L4-14)
+[68/128] tests/selfHealingTest.spec.ts:645:3 › Level 4: Structural › [L4][main][css-id][heal] Native dialog trigger wrapped & id changed (L4-15)
+[69/128] tests/selfHealingTest.spec.ts:654:3 › Level 4: Structural › [L4][main][css-id][heal] Drag source wrapped & id changed (L4-16)
+[70/128] tests/selfHealingTest.spec.ts:662:3 › Level 4: Structural › [L4][main][css-svg][heal] SVG circle classes & wrapper changed (L4-17)
+[71/128] tests/selfHealingTest.spec.ts:670:3 › Level 4: Structural › [L4][main][css-scroll][heal] Scrollable container item class changed (L4-18)
+[72/128] tests/selfHealingTest.spec.ts:683:3 › Level 5: Composite & Adversarial › [L5][main][css-class-decoy][risk] Look-alike decoy placed before target (L5-01)
+[73/128] tests/selfHealingTest.spec.ts:692:3 › Level 5: Composite & Adversarial › [L5][main][css-id-swap][risk] Sibling identity swap (L5-02)
+[74/128] tests/selfHealingTest.spec.ts:701:3 › Level 5: Composite & Adversarial › [L5][main][css-id-recreate][heal] Input detached/recreated with new id (L5-03)
+[75/128] tests/selfHealingTest.spec.ts:709:3 › Level 5: Composite & Adversarial › [L5][main][css-class-rerender][heal] Subtree rerendered & wrapped (L5-04)
+[76/128] tests/selfHealingTest.spec.ts:717:3 › Level 5: Composite & Adversarial › [L5][main][css-dup-id][risk] Duplicate id decoy injected before target (L5-05)
+[77/128] tests/selfHealingTest.spec.ts:726:3 › Level 5: Composite & Adversarial › [L5][main][css-hidden-twin][risk] Hidden twin with old class before target (L5-06)
+[78/128] tests/selfHealingTest.spec.ts:735:3 › Level 5: Composite & Adversarial › [L5][main][nth-repeated][risk] Repeated rows reordered & classes changed (L5-07)
+[79/128] tests/selfHealingTest.spec.ts:744:3 › Level 5: Composite & Adversarial › [L5][main][css-dynamic-attr][heal] Rotating dynamic attribute (L5-08)
+[80/128] tests/selfHealingTest.spec.ts:752:3 › Level 5: Composite & Adversarial › [L5][main][getByRole-decoy][risk] Role+name decoy placed before target (L5-09)
+[81/128] tests/selfHealingTest.spec.ts:761:3 › Level 5: Composite & Adversarial › [L5][main][getByLabel-decoy][risk] Duplicate label decoy before target (L5-10)
+[82/128] tests/selfHealingTest.spec.ts:770:3 › Level 5: Composite & Adversarial › [L5][main][xpath-decoy][risk] XPath decoy div injected before target (L5-11)
+[83/128] tests/selfHealingTest.spec.ts:779:3 › Level 5: Composite & Adversarial › [L5][main][getByText-pseudo][heal] Text moved to CSS ::before pseudo-element (L5-12)
+[84/128] tests/selfHealingTest.spec.ts:787:3 › Level 5: Composite & Adversarial › [L5][main][getByRole-icon][heal] Text replaced by icon and aria-label changed (L5-13)
+[85/128] tests/selfHealingTest.spec.ts:795:3 › Level 5: Composite & Adversarial › [L5][main][css-class-decoy][risk] Combobox option decoy before target (L5-14)
+[86/128] tests/selfHealingTest.spec.ts:804:3 › Level 5: Composite & Adversarial › [L5][main][css-class-decoy][risk] Tree leaf decoy before target (L5-15)
+[87/128] tests/selfHealingTest.spec.ts:813:3 › Level 5: Composite & Adversarial › [L5][main][css-class-decoy][risk] Stepper Next decoy before target (L5-16)
+[88/128] tests/selfHealingTest.spec.ts:822:3 › Level 5: Composite & Adversarial › [L5][main][css-class-decoy][risk] Breadcrumb link->button with decoy (L5-17)
+[89/128] tests/selfHealingTest.spec.ts:831:3 › Level 5: Composite & Adversarial › [L5][main][css-id][heal] Toast undo moved to portal (L5-18)
+[90/128] tests/selfHealingTest.spec.ts:844:3 › Level 6: Extreme › [L6][main][getByRole][heal] Localized FR/ES/AR + role/tag/wrap change (L6-01)
+[91/128] tests/selfHealingTest.spec.ts:852:3 › Level 6: Extreme › [L6][main][getByPlaceholder][heal] Search input localized + type changed (L6-02)
+[92/128] tests/selfHealingTest.spec.ts:860:3 › Level 6: Extreme › [L6][main][getByText][heal] Save button localized + tag button->a (L6-03)
+[93/128] tests/selfHealingTest.spec.ts:868:3 › Level 6: Extreme › [L6][main][css-class-decoy][risk] English decoy before localized target (L6-04)
+[94/128] tests/selfHealingTest.spec.ts:877:3 › Level 6: Extreme › [L6][main][css-id][heal] Confirm dialog trigger localized & restructured (L6-05)
+[95/128] tests/selfHealingTest.spec.ts:886:3 › Level 6: Extreme › [L6][main][css-id][heal] Popup trigger localized & tag changed (L6-06)
+[96/128] tests/selfHealingTest.spec.ts:894:3 › Level 6: Extreme › [L6][main][css-id][heal] Download link localized & id changed (L6-07)
+[97/128] tests/selfHealingTest.spec.ts:902:3 › Level 6: Extreme › [L6][main][getByLabel][heal] Work Email localized & wrapped (L6-08)
+[98/128] tests/selfHealingTest.spec.ts:910:3 › Level 6: Extreme › [L6][main][css-id][heal] FAB moved to portal & localized (L6-09)
+[99/128] tests/selfHealingTest.spec.ts:918:3 › Level 6: Extreme › [L6][main][getByRole][heal] Pagination Next localized & button->a (L6-10)
+[100/128] tests/selfHealingTest.spec.ts:926:3 › Level 6: Extreme › [L6][main][css-card-nth][risk] Card grid shuffled & localized (L6-11)
+[101/128] tests/selfHealingTest.spec.ts:935:3 › Level 6: Extreme › [L6][main][css-table-cell][risk] Table rows/cols shuffled & localized (L6-12)
+[102/128] tests/selfHealingTest.spec.ts:949:3 › Iframes › [L3][iframe][frame-getByRole][heal] Iframe id & button name changed (IF-01)
+[103/128] tests/selfHealingTest.spec.ts:957:3 › Iframes › [L3][iframe][frame-getByPlaceholder][heal] Iframe title & placeholder changed (IF-02)
+[104/128] tests/selfHealingTest.spec.ts:965:3 › Iframes › [L4][iframe][frame-css][heal] Iframe remounted & button wrapped (IF-03)
+[105/128] tests/selfHealingTest.spec.ts:973:3 › Iframes › [L4][nested-iframe][nested-frame-testid][heal] 2-level nested iframe ids & testid changed (IF-04)
+  2) tests/selfHealingTest.spec.ts:973:3 › Iframes › [L4][nested-iframe][nested-frame-testid][heal] 2-level nested iframe ids & testid changed (IF-04) 
+
+    TimeoutError: locator.click: Timeout 2000ms exceeded.
+    Call log:
+      - waiting for locator('#if-outer').contentFrame().locator('#if-inner').contentFrame().getByTestId('if-nested-btn')
+
+
+      975 |     await healedPage.frameLocator('#if-outer').frameLocator('#if-inner').getByTestId('if-nested-btn').click();
+      976 |     await breakAll(page);
+    > 977 |     await healedPage.frameLocator('#if-outer').frameLocator('#if-inner').getByTestId('if-nested-btn').click();
+          |     ^
+      978 |     expect(await readState(page, 'if_04')).toMatchObject({ clicks: 2 });
+      979 |   });
+      980 |
+        at invoke (/private/tmp/healwright-final-bench.kLVrFf/node_modules/@zouhair_elmattad/healwright/src/playwright/wrapper.ts:692:20)
+        at runAction (/private/tmp/healwright-final-bench.kLVrFf/node_modules/@zouhair_elmattad/healwright/src/playwright/wrapper.ts:766:28)
+        at /private/tmp/healwright-final-bench.kLVrFf/tests/selfHealingTest.spec.ts:977:5
+
+    Error Context: test-results/selfHealingTest-Iframes-L4-c7dde-e-ids-testid-changed-IF-04-/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/selfHealingTest-Iframes-L4-c7dde-e-ids-testid-changed-IF-04-/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/selfHealingTest-Iframes-L4-c7dde-e-ids-testid-changed-IF-04-/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[106/128] tests/selfHealingTest.spec.ts:981:3 › Iframes › [L5][nested-iframe][nested3-frame-css-decoy][risk] 3-level nested iframe with decoy (IF-05)
+  3) tests/selfHealingTest.spec.ts:981:3 › Iframes › [L5][nested-iframe][nested3-frame-css-decoy][risk] 3-level nested iframe with decoy (IF-05) 
+
+    TimeoutError: locator.click: Timeout 2000ms exceeded.
+    Call log:
+      - waiting for locator('#if-l1').contentFrame().locator('#if-l2').contentFrame().locator('#if-l3').contentFrame().locator('.if-deep-btn')
+
+
+      983 |     await healedPage.frameLocator('#if-l1').frameLocator('#if-l2').frameLocator('#if-l3').locator('.if-deep-btn').click();
+      984 |     await breakAll(page);
+    > 985 |     await healedPage.frameLocator('#if-l1').frameLocator('#if-l2').frameLocator('#if-l3').locator('.if-deep-btn').click();
+          |     ^
+      986 |     expect(await readState(page, 'if_05')).toMatchObject({ clicks: 2 });
+      987 |     expect(await readState(page, 'if_05_d')).toMatchObject({ clicks: 0 });
+      988 |   });
+        at invoke (/private/tmp/healwright-final-bench.kLVrFf/node_modules/@zouhair_elmattad/healwright/src/playwright/wrapper.ts:692:20)
+        at runAction (/private/tmp/healwright-final-bench.kLVrFf/node_modules/@zouhair_elmattad/healwright/src/playwright/wrapper.ts:766:28)
+        at /private/tmp/healwright-final-bench.kLVrFf/tests/selfHealingTest.spec.ts:985:5
+
+    Error Context: test-results/selfHealingTest-Iframes-L5-a4d58-ed-iframe-with-decoy-IF-05-/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/selfHealingTest-Iframes-L5-a4d58-ed-iframe-with-decoy-IF-05-/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/selfHealingTest-Iframes-L5-a4d58-ed-iframe-with-decoy-IF-05-/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[107/128] tests/selfHealingTest.spec.ts:990:3 › Iframes › [L5][iframe-shadow][frame-shadow-css][heal] Shadow DOM inside iframe (IF-06)
+  4) tests/selfHealingTest.spec.ts:990:3 › Iframes › [L5][iframe-shadow][frame-shadow-css][heal] Shadow DOM inside iframe (IF-06) 
+
+    TimeoutError: locator.click: Timeout 2000ms exceeded.
+    Call log:
+      - waiting for locator('iframe#frm_GQuCng').contentFrame().locator('sh-widget button.if-sh-btn')
+
+
+      992 |     await healedPage.frameLocator('#if-sh-frame').locator('sh-widget button.if-sh-btn').click();
+      993 |     await breakAll(page);
+    > 994 |     await healedPage.frameLocator('#if-sh-frame').locator('sh-widget button.if-sh-btn').click();
+          |     ^
+      995 |     expect(await readState(page, 'if_06')).toMatchObject({ clicks: 2 });
+      996 |   });
+      997 |
+        at invoke (/private/tmp/healwright-final-bench.kLVrFf/node_modules/@zouhair_elmattad/healwright/src/playwright/wrapper.ts:692:20)
+        at runAction (/private/tmp/healwright-final-bench.kLVrFf/node_modules/@zouhair_elmattad/healwright/src/playwright/wrapper.ts:798:34)
+        at /private/tmp/healwright-final-bench.kLVrFf/tests/selfHealingTest.spec.ts:994:5
+
+    Error Context: test-results/selfHealingTest-Iframes-L5-9d8c9-ow-DOM-inside-iframe-IF-06-/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/selfHealingTest-Iframes-L5-9d8c9-ow-DOM-inside-iframe-IF-06-/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/selfHealingTest-Iframes-L5-9d8c9-ow-DOM-inside-iframe-IF-06-/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[108/128] tests/selfHealingTest.spec.ts:998:3 › Iframes › [L6][iframe-boundary][main-to-iframe][heal] Element moved from main DOM into iframe (IF-07)
+  5) tests/selfHealingTest.spec.ts:998:3 › Iframes › [L6][iframe-boundary][main-to-iframe][heal] Element moved from main DOM into iframe (IF-07) 
+
+    Error: expect(received).toMatchObject(expected)
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+    -   "clicks": 2,
+    +   "clicks": 1,
+      }
+
+      1001 |     await breakAll(page);
+      1002 |     await healedPage.locator('#if-cross-btn').click();
+    > 1003 |     expect(await readState(page, 'if_07')).toMatchObject({ clicks: 2 });
+           |                                            ^
+      1004 |   });
+      1005 |
+      1006 |   test('[L6][nested-iframe][nested-depth-change][risk] Iframe nesting depth 2->3 with decoy (IF-08)', async ({ page, healedPage }) => {
+        at /private/tmp/healwright-final-bench.kLVrFf/tests/selfHealingTest.spec.ts:1003:44
+
+    Error Context: test-results/selfHealingTest-Iframes-L6-6ff26-main-DOM-into-iframe-IF-07-/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/selfHealingTest-Iframes-L6-6ff26-main-DOM-into-iframe-IF-07-/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/selfHealingTest-Iframes-L6-6ff26-main-DOM-into-iframe-IF-07-/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[109/128] tests/selfHealingTest.spec.ts:1006:3 › Iframes › [L6][nested-iframe][nested-depth-change][risk] Iframe nesting depth 2->3 with decoy (IF-08)
+  6) tests/selfHealingTest.spec.ts:1006:3 › Iframes › [L6][nested-iframe][nested-depth-change][risk] Iframe nesting depth 2->3 with decoy (IF-08) 
+
+    TimeoutError: locator.click: Timeout 2000ms exceeded.
+    Call log:
+      - waiting for locator('#if-d-outer').contentFrame().locator('#if-d-inner').contentFrame().locator('button.if-d-btn')
+
+
+      1008 |     await healedPage.frameLocator('#if-d-outer').frameLocator('#if-d-inner').locator('button.if-d-btn').click();
+      1009 |     await breakAll(page);
+    > 1010 |     await healedPage.frameLocator('#if-d-outer').frameLocator('#if-d-inner').locator('button.if-d-btn').click();
+           |     ^
+      1011 |     expect(await readState(page, 'if_08')).toMatchObject({ clicks: 2 });
+      1012 |     expect(await readState(page, 'if_08_d')).toMatchObject({ clicks: 0 });
+      1013 |   });
+        at invoke (/private/tmp/healwright-final-bench.kLVrFf/node_modules/@zouhair_elmattad/healwright/src/playwright/wrapper.ts:692:20)
+        at runAction (/private/tmp/healwright-final-bench.kLVrFf/node_modules/@zouhair_elmattad/healwright/src/playwright/wrapper.ts:766:28)
+        at /private/tmp/healwright-final-bench.kLVrFf/tests/selfHealingTest.spec.ts:1010:5
+
+    Error Context: test-results/selfHealingTest-Iframes-L6-5182b-epth-2--3-with-decoy-IF-08-/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/selfHealingTest-Iframes-L6-5182b-epth-2--3-with-decoy-IF-08-/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/selfHealingTest-Iframes-L6-5182b-epth-2--3-with-decoy-IF-08-/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[110/128] tests/selfHealingTest.spec.ts:1020:3 › Shadow DOM › [L3][shadow-dom][shadow-css][heal] Open shadow button tag & class changed (SH-01)
+[111/128] tests/selfHealingTest.spec.ts:1028:3 › Shadow DOM › [L3][shadow-dom][shadow-getByLabel][heal] Open shadow input label changed (SH-02)
+[112/128] tests/selfHealingTest.spec.ts:1036:3 › Shadow DOM › [L4][shadow-dom][shadow-host-rename][heal] Shadow host tag renamed & wrapped (SH-03)
+[113/128] tests/selfHealingTest.spec.ts:1044:3 › Shadow DOM › [L4][shadow-slotted][shadow-slot][heal] Slotted content moved between slots (SH-04)
+  7) tests/selfHealingTest.spec.ts:1044:3 › Shadow DOM › [L4][shadow-slotted][shadow-slot][heal] Slotted content moved between slots (SH-04) 
+
+    TimeoutError: locator.click: Timeout 2000ms exceeded.
+    Call log:
+      - waiting for locator('sh-slot-box [slot="actions"]')
+
+
+      1046 |     await healedPage.locator('sh-slot-box [slot="actions"]').click();
+      1047 |     await breakAll(page);
+    > 1048 |     await healedPage.locator('sh-slot-box [slot="actions"]').click();
+           |     ^
+      1049 |     expect(await readState(page, 'sh_04')).toMatchObject({ clicks: 2 });
+      1050 |   });
+      1051 |
+        at invoke (/private/tmp/healwright-final-bench.kLVrFf/node_modules/@zouhair_elmattad/healwright/src/playwright/wrapper.ts:692:20)
+        at runAction (/private/tmp/healwright-final-bench.kLVrFf/node_modules/@zouhair_elmattad/healwright/src/playwright/wrapper.ts:766:28)
+        at /private/tmp/healwright-final-bench.kLVrFf/tests/selfHealingTest.spec.ts:1048:5
+
+    Error Context: test-results/selfHealingTest-Shadow-DOM-08bf5--moved-between-slots-SH-04-/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/selfHealingTest-Shadow-DOM-08bf5--moved-between-slots-SH-04-/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/selfHealingTest-Shadow-DOM-08bf5--moved-between-slots-SH-04-/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[114/128] tests/selfHealingTest.spec.ts:1052:3 › Shadow DOM › [L5][nested-shadow][nested-shadow-decoy][risk] 2-level nested shadow with decoy (SH-05)
+[115/128] tests/selfHealingTest.spec.ts:1061:3 › Shadow DOM › [L5][shadow-boundary][light-to-shadow][heal] Element moved from light DOM into shadow root (SH-06)
+[116/128] tests/selfHealingTest.spec.ts:1069:3 › Shadow DOM › [L6][nested-shadow][shadow-depth-change][heal] Shadow nesting depth 2->3 & localized (SH-07)
+[117/128] tests/selfHealingTest.spec.ts:1077:3 › Shadow DOM › [L6][shadow-iframe][shadow-to-iframe][heal] Iframe inside Shadow DOM (SH-08)
+  8) tests/selfHealingTest.spec.ts:1077:3 › Shadow DOM › [L6][shadow-iframe][shadow-to-iframe][heal] Iframe inside Shadow DOM (SH-08) 
+
+    TimeoutError: locator.click: Timeout 2000ms exceeded.
+    Call log:
+      - waiting for locator('sh-with-iframe').locator('#sh-inner-if').contentFrame().locator('button.sh-if-btn')
+
+
+      1077 |   test('[L6][shadow-iframe][shadow-to-iframe][heal] Iframe inside Shadow DOM (SH-08)', async ({ page, healedPage }) => {
+      1078 |     await open(page, 8108);
+    > 1079 |     await healedPage.locator('sh-with-iframe').frameLocator('#sh-inner-if').locator('button.sh-if-btn').click();
+           |                                                                                                         ^
+      1080 |     await breakAll(page);
+      1081 |     await healedPage.locator('sh-with-iframe').frameLocator('#sh-inner-if').locator('button.sh-if-btn').click();
+      1082 |     expect(await readState(page, 'sh_08')).toMatchObject({ clicks: 2 });
+        at /private/tmp/healwright-final-bench.kLVrFf/tests/selfHealingTest.spec.ts:1079:105
+
+    Error Context: test-results/selfHealingTest-Shadow-DOM-00020-me-inside-Shadow-DOM-SH-08-/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/selfHealingTest-Shadow-DOM-00020-me-inside-Shadow-DOM-SH-08-/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/selfHealingTest-Shadow-DOM-00020-me-inside-Shadow-DOM-SH-08-/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[118/128] tests/selfHealingTest.spec.ts:1090:3 › Negative Controls › [NC][main][css-id][no-heal] Genuinely removed button must fail (NC-01)
+[119/128] tests/selfHealingTest.spec.ts:1098:3 › Negative Controls › [NC][main][css-id][no-heal] Button replaced by unrelated paragraph must fail (NC-02)
+[120/128] tests/selfHealingTest.spec.ts:1106:3 › Negative Controls › [NC][closed-shadow][css-class][no-heal] Element moved to closed shadow root is unreachable (NC-03)
+[121/128] tests/selfHealingTest.spec.ts:1114:3 › Negative Controls › [NC][main][css-id][no-heal] Removed input must not heal to unrelated input (NC-04)
+[122/128] tests/selfHealingTest.spec.ts:1123:3 › Negative Controls › [NC][iframe][frame-css][no-heal] Removed iframe must fail (NC-05)
+[123/128] tests/selfHealingTest.spec.ts:1131:3 › Negative Controls › [NC][shadow-dom][shadow-css][no-heal] Removed shadow host must fail (NC-06)
+[124/128] tests/selfHealingTest.spec.ts:1139:3 › Negative Controls › [NC][main][getByLabel][no-heal] Removed checkbox must not heal to spam decoy (NC-07)
+[125/128] tests/selfHealingTest.spec.ts:1148:3 › Negative Controls › [NC][main][getByRole][no-heal] Button replaced by inert span must fail (NC-08)
+[126/128] tests/selfHealingTest.spec.ts:1161:3 › Multi-Generation & Reload › [MultiGen][heal] Chain of 4 cumulative mutations (L1-01, L3-01, L4-06)
+  9) tests/selfHealingTest.spec.ts:1161:3 › Multi-Generation & Reload › [MultiGen][heal] Chain of 4 cumulative mutations (L1-01, L3-01, L4-06) 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: 'Submit Order' })
+
+
+      1168 |       await breakAll(page);
+      1169 |       await healedPage.locator('#l1-submit-btn').click();
+    > 1170 |       await healedPage.getByRole('button', { name: 'Submit Order' }).click();
+           |       ^
+      1171 |       await healedPage.locator('#l4-portal-host .l4-portal-btn').click();
+      1172 |     }
+      1173 |
+        at invoke (/private/tmp/healwright-final-bench.kLVrFf/node_modules/@zouhair_elmattad/healwright/src/playwright/wrapper.ts:692:20)
+        at runAction (/private/tmp/healwright-final-bench.kLVrFf/node_modules/@zouhair_elmattad/healwright/src/playwright/wrapper.ts:766:28)
+        at /private/tmp/healwright-final-bench.kLVrFf/tests/selfHealingTest.spec.ts:1170:7
+
+    Error Context: test-results/selfHealingTest-Multi-Gene-6275a-utations-L1-01-L3-01-L4-06-/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/selfHealingTest-Multi-Gene-6275a-utations-L1-01-L3-01-L4-06-/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/selfHealingTest-Multi-Gene-6275a-utations-L1-01-L3-01-L4-06-/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[127/128] tests/selfHealingTest.spec.ts:1179:3 › Multi-Generation & Reload › [Reload][heal] Mutated state persists across reload and heals (L2-03, L5-01)
+[128/128] tests/selfHealingTest.spec.ts:1196:3 › Multi-Generation & Reload › [Reload][heal] breakAll -> reload -> breakAll -> heal (L1-03, L4-01)
+  9 failed
+    tests/selfHealingTest.spec.ts:275:3 › Level 2: Attribute-level › [L2][main][css-type-name][heal] Input type and name mutated (L2-06) 
+    tests/selfHealingTest.spec.ts:973:3 › Iframes › [L4][nested-iframe][nested-frame-testid][heal] 2-level nested iframe ids & testid changed (IF-04) 
+    tests/selfHealingTest.spec.ts:981:3 › Iframes › [L5][nested-iframe][nested3-frame-css-decoy][risk] 3-level nested iframe with decoy (IF-05) 
+    tests/selfHealingTest.spec.ts:990:3 › Iframes › [L5][iframe-shadow][frame-shadow-css][heal] Shadow DOM inside iframe (IF-06) 
+    tests/selfHealingTest.spec.ts:998:3 › Iframes › [L6][iframe-boundary][main-to-iframe][heal] Element moved from main DOM into iframe (IF-07) 
+    tests/selfHealingTest.spec.ts:1006:3 › Iframes › [L6][nested-iframe][nested-depth-change][risk] Iframe nesting depth 2->3 with decoy (IF-08) 
+    tests/selfHealingTest.spec.ts:1044:3 › Shadow DOM › [L4][shadow-slotted][shadow-slot][heal] Slotted content moved between slots (SH-04) 
+    tests/selfHealingTest.spec.ts:1077:3 › Shadow DOM › [L6][shadow-iframe][shadow-to-iframe][heal] Iframe inside Shadow DOM (SH-08) 
+    tests/selfHealingTest.spec.ts:1161:3 › Multi-Generation & Reload › [MultiGen][heal] Chain of 4 cumulative mutations (L1-01, L3-01, L4-06) 
+  119 passed (5.9m)

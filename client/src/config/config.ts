@@ -89,21 +89,21 @@ export interface HealwrightConfig {
    * healing. Default false.
    */
   reportOnly: boolean;
+  /** Default Playwright action timeout in milliseconds. */
   actionTimeout?: number;
   /**
    * Phase-24: write healed locators back into the Playwright source.
-   * 'off' (default) never writes. 'auto' posts the session to the backend rewrite endpoint when
-   * the report closes (session end), so every safely healed locator of that test is rewritten
-   * once, with a journaled transaction that `healwright-rewrite revert` can undo byte-for-byte.
-   * The semi-automatic paths (dashboard buttons, `healwright-rewrite apply`) work regardless of
-   * this setting: they are explicit user actions.
+   * 'auto' (default) posts the session to the backend rewrite endpoint when the report closes,
+   * so every safely healed locator of that test is rewritten once, with a journaled transaction
+   * that `healwright-rewrite revert` can undo byte-for-byte. The backend still requires an explicit
+   * HEALWRIGHT_APPLY_ROOTS allowlist. 'off' disables automatic writes. Report-only sessions never
+   * rewrite source. Dashboard buttons and `healwright-rewrite apply` remain explicit user actions.
    */
   sourceRewrite: 'off' | 'auto';
   /**
-   * Phase-12/16 candidate scoring profile. 'healenium' (default) and its 'healwright' alias keep
-   * the tree-comparing 0.4.14 formula and score byte-for-byte; 'improved' enables the F1..F5 fixes
-   * below; 'adaptive' (opt-in, phase 16) decides from preserved signals and captured neighbour
-   * context instead of indexWeight, and refuses when no candidate is uniquely supported.
+   * Candidate scoring profile. 'adaptive' (default) decides from preserved signals and captured
+   * neighbour context, and refuses when no candidate is uniquely supported. 'healenium' and its
+   * 'healwright' alias retain the legacy tree-comparing formula; 'improved' enables F1..F5 below.
    */
   scoring: ScoringMode;
   /**
@@ -123,6 +123,7 @@ export const DEFAULT_CONFIG: HealwrightConfig = {
   findElementsAutoHealing: false,
   keySelectorUrl: false,
   serverUrl: 'http://localhost:7878',
+  actionTimeout: 2_000,
   collectMetrics: false,
   imitatorMode: 'in-process',
   localXPathFallback: true,
@@ -132,8 +133,8 @@ export const DEFAULT_CONFIG: HealwrightConfig = {
   identityGuard: true,
   reporting: true,
   reportOnly: false,
-  sourceRewrite: 'off',
-  scoring: 'healenium',
+  sourceRewrite: 'auto',
+  scoring: 'adaptive',
   improvements: { ...DEFAULT_IMPROVEMENTS },
 };
 

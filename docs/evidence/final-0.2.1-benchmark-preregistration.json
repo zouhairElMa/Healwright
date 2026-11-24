@@ -1,0 +1,1752 @@
+{
+  "frozenAt": "2026-11-24T03:27:40.814Z",
+  "purpose": "Validate the final public 0.2.1 package with production scoring and action-timeout defaults, without explicit overrides, before any publication.",
+  "package": {
+    "name": "@zouhair_elmattad/healwright",
+    "version": "0.2.1",
+    "tarball": "zouhair_elmattad-healwright-0.2.1.tgz",
+    "sha256": "3c4036a530e50c3594b9d131613b7e18e309f4dba471dcd7d694364a6050b7d3",
+    "entries": 157,
+    "verifiedDefaults": {
+      "scoring": "adaptive",
+      "actionTimeout": 2000,
+      "scoreCap": 0.6,
+      "sourceRewrite": "auto"
+    }
+  },
+  "backend": {
+    "jar": "healwright-backend-3.5.1.jar",
+    "sha256": "8df43d918aaa455e9c2440259a082432b7bdb746abf0cc604c9f954e7beeae26",
+    "port": 7878,
+    "database": "healenium",
+    "schema": "healwright_bench_021_20261124032437",
+    "user": "healenium_user",
+    "metrics": false,
+    "freshSchemaSelectorRowsBeforeRun": 0,
+    "reportDir": "/private/tmp/healwright-final-bench.kLVrFf/.healwright/reports"
+  },
+  "benchmark": {
+    "source": "/Users/zouhair/Downloads/healwright-test",
+    "isolatedCopy": "/private/tmp/healwright-final-bench.kLVrFf",
+    "spec": "tests/selfHealingTest.spec.ts",
+    "page": "bench/index.html",
+    "command": "npx playwright test tests/selfHealingTest.spec.ts --workers=1 --reporter=line",
+    "workers": 1,
+    "fullyParallel": true,
+    "retries": 0,
+    "testTimeoutMs": 30000,
+    "expectTimeoutMs": 3000,
+    "browser": "chromium",
+    "headless": true,
+    "trace": "retain-on-failure",
+    "explicitOverrides": {
+      "scoring": null,
+      "actionTimeout": null,
+      "nativePlaywrightActionTimeout": null,
+      "HLM_SCORING": null,
+      "HEALWRIGHT_SCORING": null,
+      "HEALWRIGHT_ACTION_TIMEOUT": null,
+      "sourceRewrite": "off",
+      "sourceRewriteReason": "Benchmark isolation only: prevents automatic source edits from changing the frozen cases. The packaged auto default is verified separately.",
+      "scoreCap": 0.6,
+      "reportOnly": false,
+      "localXPathFallback": true,
+      "frameHealing": true,
+      "shadowHealing": true,
+      "assertionHealing": true,
+      "imitatorMode": "in-process"
+    },
+    "frozenInputs": {
+      "tests/selfHealingTest.spec.ts": "466c94dc8585fbf8630533bbe0fcb8e86b0786064b0340aff3e578967e622e4e",
+      "tests/fixtures.ts": "ba3238a334b6641d99044702d79f53b8c6967562634e1775fc7e422c2eb98d1d",
+      "playwright.config.ts": "4755fdc7c5bd2e8174827f58e5aa545561c138286bf87e27a32e778351cb089b",
+      "bench/index.html": "53425fa4f7273f4f2b463307e1459787d2923fcb91408429e12c102f60d97390",
+      "package.json": "d0623fa146a885693b7c34587eb56ee672e14d84869b5346b28e083d45d2ec8a",
+      "package-lock.json": "ef3a8f033c5cbdd9c95cfbef0265942f2545fe9a7d200da90198ff597ab94500",
+      "prereg-list.json": "e7c1cdf933441ef50ba5d5e51989d116c1be5f8948f5a7a3033d50ec996ed2ad"
+    }
+  },
+  "baseline": {
+    "source": "Phase 20 adaptive measurement, 128 tests, workers=1, scoreCap=0.6",
+    "sourceSha256": "25dc8724c56389388b9519501d805afe273303f4f97df9398a422a9423d57024",
+    "expected": {
+      "total": 128,
+      "passed": 85,
+      "failed": 43
+    },
+    "rule": "Exact per-case outcomes are frozen below. Any difference must be disclosed and classified; no product or benchmark code may be changed after measurement without a new preregistration."
+  },
+  "acceptance": {
+    "exactOutcomeMatchRequired": true,
+    "expectedPassed": 85,
+    "expectedFailed": 43,
+    "unexpectedRegressions": 0,
+    "note": "The 43 baseline failures are known benchmark boundaries/refusals, not a claim that the product is perfect."
+  },
+  "cases": [
+    {
+      "order": 1,
+      "id": "be7aff4e55e94ba47568-3714f77e8e726810d29c",
+      "title": "Precondition › manifest has 124 scenarios at generation 0",
+      "titlePath": [
+        "Precondition",
+        "manifest has 124 scenarios at generation 0"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 91,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 2,
+      "id": "be7aff4e55e94ba47568-1f04965ea90641315bef",
+      "title": "Level 1: Cosmetic › [L1][main][css-id][heal] Save Draft button id mutated (L1-01)",
+      "titlePath": [
+        "Level 1: Cosmetic",
+        "[L1][main][css-id][heal] Save Draft button id mutated (L1-01)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 102,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 3,
+      "id": "be7aff4e55e94ba47568-b44ad648eaea7ba857b9",
+      "title": "Level 1: Cosmetic › [L1][main][css-class][heal] Publish button class mutated (L1-02)",
+      "titlePath": [
+        "Level 1: Cosmetic",
+        "[L1][main][css-class][heal] Publish button class mutated (L1-02)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 110,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 4,
+      "id": "be7aff4e55e94ba47568-0d95e466421a3dbf40f6",
+      "title": "Level 1: Cosmetic › [L1][main][getByTestId][heal] Search input testid mutated (L1-03)",
+      "titlePath": [
+        "Level 1: Cosmetic",
+        "[L1][main][getByTestId][heal] Search input testid mutated (L1-03)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 118,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 5,
+      "id": "be7aff4e55e94ba47568-885eeba106f18f1b5193",
+      "title": "Level 1: Cosmetic › [L1][main][css-name][heal] Username input name mutated (L1-04)",
+      "titlePath": [
+        "Level 1: Cosmetic",
+        "[L1][main][css-name][heal] Username input name mutated (L1-04)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 126,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 6,
+      "id": "be7aff4e55e94ba47568-11a59ab8fafbab20ea5d",
+      "title": "Level 1: Cosmetic › [L1][main][getByPlaceholder][heal] Promo input placeholder mutated (L1-05)",
+      "titlePath": [
+        "Level 1: Cosmetic",
+        "[L1][main][getByPlaceholder][heal] Promo input placeholder mutated (L1-05)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 134,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 7,
+      "id": "be7aff4e55e94ba47568-80bcbdd5059ebda288c1",
+      "title": "Level 1: Cosmetic › [L1][main][getByTitle][heal] PDF button title mutated (L1-06)",
+      "titlePath": [
+        "Level 1: Cosmetic",
+        "[L1][main][getByTitle][heal] PDF button title mutated (L1-06)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 142,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 8,
+      "id": "be7aff4e55e94ba47568-929f39f349e931b9732b",
+      "title": "Level 1: Cosmetic › [L1][main][getByAltText][heal] Emblem image alt mutated (L1-07)",
+      "titlePath": [
+        "Level 1: Cosmetic",
+        "[L1][main][getByAltText][heal] Emblem image alt mutated (L1-07)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 150,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 9,
+      "id": "be7aff4e55e94ba47568-487a412019b610b0d2eb",
+      "title": "Level 1: Cosmetic › [L1][main][css-href-contains][heal] Pricing link href mutated (L1-08)",
+      "titlePath": [
+        "Level 1: Cosmetic",
+        "[L1][main][css-href-contains][heal] Pricing link href mutated (L1-08)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 158,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 10,
+      "id": "be7aff4e55e94ba47568-dc872ce291ec2cf7b3c8",
+      "title": "Level 1: Cosmetic › [L1][main][css-href-starts][heal] Docs link href prefix mutated (L1-09)",
+      "titlePath": [
+        "Level 1: Cosmetic",
+        "[L1][main][css-href-starts][heal] Docs link href prefix mutated (L1-09)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 166,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 11,
+      "id": "be7aff4e55e94ba47568-fde154a82620429c2aab",
+      "title": "Level 1: Cosmetic › [L1][main][css-href-ends][heal] CSV export link href suffix mutated (L1-10)",
+      "titlePath": [
+        "Level 1: Cosmetic",
+        "[L1][main][css-href-ends][heal] CSV export link href suffix mutated (L1-10)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 174,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 12,
+      "id": "be7aff4e55e94ba47568-9b9bde17bf432c7d4e5b",
+      "title": "Level 1: Cosmetic › [L1][main][getByRole-aria][heal] Archive icon button aria-label mutated (L1-11)",
+      "titlePath": [
+        "Level 1: Cosmetic",
+        "[L1][main][getByRole-aria][heal] Archive icon button aria-label mutated (L1-11)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 182,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 13,
+      "id": "be7aff4e55e94ba47568-74e3a6577f0818ada546",
+      "title": "Level 1: Cosmetic › [L1][main][css-custom-testattr][heal] Email input data-qa mutated (L1-12)",
+      "titlePath": [
+        "Level 1: Cosmetic",
+        "[L1][main][css-custom-testattr][heal] Email input data-qa mutated (L1-12)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 190,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 14,
+      "id": "be7aff4e55e94ba47568-57cb6c7c2be4c9c5f1c6",
+      "title": "Level 1: Cosmetic › [L1][main][css-id][heal] Notes textarea id mutated (L1-13)",
+      "titlePath": [
+        "Level 1: Cosmetic",
+        "[L1][main][css-id][heal] Notes textarea id mutated (L1-13)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 198,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 15,
+      "id": "be7aff4e55e94ba47568-324a528d207ad647184b",
+      "title": "Level 1: Cosmetic › [L1][main][css-class][heal] Agree checkbox class mutated (L1-14)",
+      "titlePath": [
+        "Level 1: Cosmetic",
+        "[L1][main][css-class][heal] Agree checkbox class mutated (L1-14)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 206,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 16,
+      "id": "be7aff4e55e94ba47568-e5fa07d13ff1dc5efb3f",
+      "title": "Level 1: Cosmetic › [L1][main][getByTestId][heal] Country select testid mutated (L1-15)",
+      "titlePath": [
+        "Level 1: Cosmetic",
+        "[L1][main][getByTestId][heal] Country select testid mutated (L1-15)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 214,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 17,
+      "id": "be7aff4e55e94ba47568-17723de4cfc2d6e36a0e",
+      "title": "Level 1: Cosmetic › [L1][main][css-attr][heal] Quantity input aria-describedby mutated (L1-16)",
+      "titlePath": [
+        "Level 1: Cosmetic",
+        "[L1][main][css-attr][heal] Quantity input aria-describedby mutated (L1-16)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 222,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 18,
+      "id": "be7aff4e55e94ba47568-ec43970737982668dc5f",
+      "title": "Level 2: Attribute-level › [L2][main][getByTestId][heal] TestId renamed to data-qa (L2-01)",
+      "titlePath": [
+        "Level 2: Attribute-level",
+        "[L2][main][getByTestId][heal] TestId renamed to data-qa (L2-01)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 235,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 19,
+      "id": "be7aff4e55e94ba47568-67d05216fbc84446f212",
+      "title": "Level 2: Attribute-level › [L2][main][css-attr][heal] Test attribute stripped (L2-02)",
+      "titlePath": [
+        "Level 2: Attribute-level",
+        "[L2][main][css-attr][heal] Test attribute stripped (L2-02)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 243,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 20,
+      "id": "be7aff4e55e94ba47568-4df7f458bba36aa7f677",
+      "title": "Level 2: Attribute-level › [L2][main][getByLabel][heal] Label for/id pairing and text mutated (L2-03)",
+      "titlePath": [
+        "Level 2: Attribute-level",
+        "[L2][main][getByLabel][heal] Label for/id pairing and text mutated (L2-03)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 251,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 21,
+      "id": "be7aff4e55e94ba47568-0de2d764d31b71c10aae",
+      "title": "Level 2: Attribute-level › [L2][main][getByPlaceholder][heal] Placeholder moved to aria-label (L2-04)",
+      "titlePath": [
+        "Level 2: Attribute-level",
+        "[L2][main][getByPlaceholder][heal] Placeholder moved to aria-label (L2-04)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 259,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 22,
+      "id": "be7aff4e55e94ba47568-f89e654b296e414bdf51",
+      "title": "Level 2: Attribute-level › [L2][main][css-multi-class][heal] Multi-class button dblclick (L2-05)",
+      "titlePath": [
+        "Level 2: Attribute-level",
+        "[L2][main][css-multi-class][heal] Multi-class button dblclick (L2-05)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 267,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 23,
+      "id": "be7aff4e55e94ba47568-0bc87efd47269a1a988a",
+      "title": "Level 2: Attribute-level › [L2][main][css-type-name][heal] Input type and name mutated (L2-06)",
+      "titlePath": [
+        "Level 2: Attribute-level",
+        "[L2][main][css-type-name][heal] Input type and name mutated (L2-06)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 275,
+      "column": 3,
+      "expectedStatus": "failed"
+    },
+    {
+      "order": 24,
+      "id": "be7aff4e55e94ba47568-6d65839defdbf4634c0a",
+      "title": "Level 2: Attribute-level › [L2][main][getByRole-exact][heal] Button case and punctuation changed (L2-07)",
+      "titlePath": [
+        "Level 2: Attribute-level",
+        "[L2][main][getByRole-exact][heal] Button case and punctuation changed (L2-07)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 283,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 25,
+      "id": "be7aff4e55e94ba47568-0ed0c883650a51d3d94e",
+      "title": "Level 2: Attribute-level › [L2][main][css-attr][heal] data-action moved to parent container (L2-08)",
+      "titlePath": [
+        "Level 2: Attribute-level",
+        "[L2][main][css-attr][heal] data-action moved to parent container (L2-08)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 291,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 26,
+      "id": "be7aff4e55e94ba47568-9251f3b26e0a894b350b",
+      "title": "Level 2: Attribute-level › [L2][main][getByTitle][heal] Title moved to data-tooltip (L2-09)",
+      "titlePath": [
+        "Level 2: Attribute-level",
+        "[L2][main][getByTitle][heal] Title moved to data-tooltip (L2-09)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 299,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 27,
+      "id": "be7aff4e55e94ba47568-0c3d5dd617a73727bc42",
+      "title": "Level 2: Attribute-level › [L2][main][css-id][heal] Password input id mutated (L2-10)",
+      "titlePath": [
+        "Level 2: Attribute-level",
+        "[L2][main][css-id][heal] Password input id mutated (L2-10)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 307,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 28,
+      "id": "be7aff4e55e94ba47568-3277782492f7d0877e33",
+      "title": "Level 2: Attribute-level › [L2][main][getByRole][heal] Checkbox label reworded (L2-11)",
+      "titlePath": [
+        "Level 2: Attribute-level",
+        "[L2][main][getByRole][heal] Checkbox label reworded (L2-11)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 315,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 29,
+      "id": "be7aff4e55e94ba47568-966932c52002db7a1c6a",
+      "title": "Level 2: Attribute-level › [L2][main][getByRole][heal] Radio label and name mutated (L2-12)",
+      "titlePath": [
+        "Level 2: Attribute-level",
+        "[L2][main][getByRole][heal] Radio label and name mutated (L2-12)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 323,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 30,
+      "id": "be7aff4e55e94ba47568-f492a3f7eb598c533129",
+      "title": "Level 2: Attribute-level › [L2][main][getByRole][heal] Range slider aria-label mutated (L2-13)",
+      "titlePath": [
+        "Level 2: Attribute-level",
+        "[L2][main][getByRole][heal] Range slider aria-label mutated (L2-13)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 331,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 31,
+      "id": "be7aff4e55e94ba47568-5f8381a67ab5a04b2f5b",
+      "title": "Level 2: Attribute-level › [L2][main][css-id][heal] Color input id mutated (L2-14)",
+      "titlePath": [
+        "Level 2: Attribute-level",
+        "[L2][main][css-id][heal] Color input id mutated (L2-14)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 339,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 32,
+      "id": "be7aff4e55e94ba47568-90d4c45858f7de54a1d2",
+      "title": "Level 2: Attribute-level › [L2][main][css-name][heal] Date input name mutated (L2-15)",
+      "titlePath": [
+        "Level 2: Attribute-level",
+        "[L2][main][css-name][heal] Date input name mutated (L2-15)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 347,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 33,
+      "id": "be7aff4e55e94ba47568-ca2f05e89548ee632677",
+      "title": "Level 2: Attribute-level › [L2][main][getByTestId][heal] File upload testid moved to data-cy (L2-16)",
+      "titlePath": [
+        "Level 2: Attribute-level",
+        "[L2][main][getByTestId][heal] File upload testid moved to data-cy (L2-16)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 355,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 34,
+      "id": "be7aff4e55e94ba47568-bbf0acddddc6b74f350c",
+      "title": "Level 2: Attribute-level › [L2][main][getByRole][heal] Right-click context button name mutated (L2-17)",
+      "titlePath": [
+        "Level 2: Attribute-level",
+        "[L2][main][getByRole][heal] Right-click context button name mutated (L2-17)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 363,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 35,
+      "id": "be7aff4e55e94ba47568-d80449c26c6080d16cc3",
+      "title": "Level 2: Attribute-level › [L2][main][css-attr][heal] aria-labelledby target id mutated (L2-18)",
+      "titlePath": [
+        "Level 2: Attribute-level",
+        "[L2][main][css-attr][heal] aria-labelledby target id mutated (L2-18)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 371,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 36,
+      "id": "be7aff4e55e94ba47568-b8ba97a8a7ed74487f7e",
+      "title": "Level 3: Semantic-level › [L3][main][getByRole][heal] Button tag and text changed with role kept (L3-01)",
+      "titlePath": [
+        "Level 3: Semantic-level",
+        "[L3][main][getByRole][heal] Button tag and text changed with role kept (L3-01)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 384,
+      "column": 3,
+      "expectedStatus": "failed"
+    },
+    {
+      "order": 37,
+      "id": "be7aff4e55e94ba47568-e7de48147ca515a5a4d1",
+      "title": "Level 3: Semantic-level › [L3][main][getByText-exact][heal] Text split across child nodes and tag changed (L3-02)",
+      "titlePath": [
+        "Level 3: Semantic-level",
+        "[L3][main][getByText-exact][heal] Text split across child nodes and tag changed (L3-02)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 392,
+      "column": 3,
+      "expectedStatus": "failed"
+    },
+    {
+      "order": 38,
+      "id": "be7aff4e55e94ba47568-50ce8fb509e4542f8d52",
+      "title": "Level 3: Semantic-level › [L3][main][css-nth-child][heal] List item shifted by injected siblings (L3-03)",
+      "titlePath": [
+        "Level 3: Semantic-level",
+        "[L3][main][css-nth-child][heal] List item shifted by injected siblings (L3-03)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 400,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 39,
+      "id": "be7aff4e55e94ba47568-258f04e86dc5c4c4840a",
+      "title": "Level 3: Semantic-level › [L3][main][css-nth-of-type][heal] Button shifted by preceding button (L3-04)",
+      "titlePath": [
+        "Level 3: Semantic-level",
+        "[L3][main][css-nth-of-type][heal] Button shifted by preceding button (L3-04)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 408,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 40,
+      "id": "be7aff4e55e94ba47568-3bfb7faf7642c840e82c",
+      "title": "Level 3: Semantic-level › [L3][main][getByRole-level][heal] Heading level h2 changed to h3 (L3-05)",
+      "titlePath": [
+        "Level 3: Semantic-level",
+        "[L3][main][getByRole-level][heal] Heading level h2 changed to h3 (L3-05)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 416,
+      "column": 3,
+      "expectedStatus": "failed"
+    },
+    {
+      "order": 41,
+      "id": "be7aff4e55e94ba47568-6ecbfdc4708849b9fa76",
+      "title": "Level 3: Semantic-level › [L3][main][getByRole][heal] Link changed to span role=button (L3-06)",
+      "titlePath": [
+        "Level 3: Semantic-level",
+        "[L3][main][getByRole][heal] Link changed to span role=button (L3-06)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 424,
+      "column": 3,
+      "expectedStatus": "failed"
+    },
+    {
+      "order": 42,
+      "id": "be7aff4e55e94ba47568-51582b02c94bbe29a899",
+      "title": "Level 3: Semantic-level › [L3][main][getByRole-state][heal] Switch text rephrased and toggled (L3-07)",
+      "titlePath": [
+        "Level 3: Semantic-level",
+        "[L3][main][getByRole-state][heal] Switch text rephrased and toggled (L3-07)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 432,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 43,
+      "id": "be7aff4e55e94ba47568-080f3557f1eac0b9d549",
+      "title": "Level 3: Semantic-level › [L3][main][getByRole][heal] Tab text rephrased (L3-08)",
+      "titlePath": [
+        "Level 3: Semantic-level",
+        "[L3][main][getByRole][heal] Tab text rephrased (L3-08)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 440,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 44,
+      "id": "be7aff4e55e94ba47568-55a0efc356c479fe72c0",
+      "title": "Level 3: Semantic-level › [L3][main][getByRole][heal] Accordion button text rephrased (L3-09)",
+      "titlePath": [
+        "Level 3: Semantic-level",
+        "[L3][main][getByRole][heal] Accordion button text rephrased (L3-09)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 448,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 45,
+      "id": "be7aff4e55e94ba47568-dda4a93dc4f6e7e78cea",
+      "title": "Level 3: Semantic-level › [L3][main][css-has-text][heal] Container tag div->section and text rephrased (L3-10)",
+      "titlePath": [
+        "Level 3: Semantic-level",
+        "[L3][main][css-has-text][heal] Container tag div->section and text rephrased (L3-10)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 456,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 46,
+      "id": "be7aff4e55e94ba47568-b1b76c51bfc03cde5891",
+      "title": "Level 3: Semantic-level › [L3][main][css-not][heal] Form id changed and extra inputs injected (L3-11)",
+      "titlePath": [
+        "Level 3: Semantic-level",
+        "[L3][main][css-not][heal] Form id changed and extra inputs injected (L3-11)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 464,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 47,
+      "id": "be7aff4e55e94ba47568-cf82cbea3b4ce62af14e",
+      "title": "Level 3: Semantic-level › [L3][main][getByText-regex][heal] Currency text rephrased (L3-12)",
+      "titlePath": [
+        "Level 3: Semantic-level",
+        "[L3][main][getByText-regex][heal] Currency text rephrased (L3-12)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 472,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 48,
+      "id": "be7aff4e55e94ba47568-71958cd2e17ff3aa5a4d",
+      "title": "Level 3: Semantic-level › [L3][main][xpath-rel][heal] XPath wrapper id and button index shifted (L3-13)",
+      "titlePath": [
+        "Level 3: Semantic-level",
+        "[L3][main][xpath-rel][heal] XPath wrapper id and button index shifted (L3-13)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 480,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 49,
+      "id": "be7aff4e55e94ba47568-99cfc41df40ba241c0ef",
+      "title": "Level 3: Semantic-level › [L3][main][xpath-axis][heal] Following-sibling span text changed (L3-14)",
+      "titlePath": [
+        "Level 3: Semantic-level",
+        "[L3][main][xpath-axis][heal] Following-sibling span text changed (L3-14)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 488,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 50,
+      "id": "be7aff4e55e94ba47568-48f1356227cc9e1cafc7",
+      "title": "Level 3: Semantic-level › [L3][main][getByRole][heal] Textarea replaced by contenteditable div (L3-15)",
+      "titlePath": [
+        "Level 3: Semantic-level",
+        "[L3][main][getByRole][heal] Textarea replaced by contenteditable div (L3-15)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 496,
+      "column": 3,
+      "expectedStatus": "failed"
+    },
+    {
+      "order": 51,
+      "id": "be7aff4e55e94ba47568-8a38fa7fd88d7ea3f954",
+      "title": "Level 3: Semantic-level › [L3][main][getByRole][heal] Select All checkbox label rephrased (L3-16)",
+      "titlePath": [
+        "Level 3: Semantic-level",
+        "[L3][main][getByRole][heal] Select All checkbox label rephrased (L3-16)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 504,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 52,
+      "id": "be7aff4e55e94ba47568-b1766fa6b461c51304df",
+      "title": "Level 3: Semantic-level › [L3][main][getByRole][heal] Combobox aria-label rephrased (L3-17)",
+      "titlePath": [
+        "Level 3: Semantic-level",
+        "[L3][main][getByRole][heal] Combobox aria-label rephrased (L3-17)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 512,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 53,
+      "id": "be7aff4e55e94ba47568-4fd28c810efb80df4dc0",
+      "title": "Level 3: Semantic-level › [L3][main][css-class][heal] Hover menu class and tag changed (L3-18)",
+      "titlePath": [
+        "Level 3: Semantic-level",
+        "[L3][main][css-class][heal] Hover menu class and tag changed (L3-18)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 520,
+      "column": 3,
+      "expectedStatus": "failed"
+    },
+    {
+      "order": 54,
+      "id": "be7aff4e55e94ba47568-3a04aaf1f56f5538ffb8",
+      "title": "Level 4: Structural › [L4][main][css-direct-child][heal] Button wrapped in extra divs (L4-01)",
+      "titlePath": [
+        "Level 4: Structural",
+        "[L4][main][css-direct-child][heal] Button wrapped in extra divs (L4-01)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 533,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 55,
+      "id": "be7aff4e55e94ba47568-81188f71ff87c7b5dfa5",
+      "title": "Level 4: Structural › [L4][main][css-deep-chain][heal] Deep nesting flattened (L4-02)",
+      "titlePath": [
+        "Level 4: Structural",
+        "[L4][main][css-deep-chain][heal] Deep nesting flattened (L4-02)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 541,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 56,
+      "id": "be7aff4e55e94ba47568-306833e46e7a98b8d7d3",
+      "title": "Level 4: Structural › [L4][main][css-section-scope][heal] Button reparented to another section (L4-03)",
+      "titlePath": [
+        "Level 4: Structural",
+        "[L4][main][css-section-scope][heal] Button reparented to another section (L4-03)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 549,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 57,
+      "id": "be7aff4e55e94ba47568-1a3f0757df7c46c10332",
+      "title": "Level 4: Structural › [L4][main][nth][heal] List converted to div grid and shifted (L4-04)",
+      "titlePath": [
+        "Level 4: Structural",
+        "[L4][main][nth][heal] List converted to div grid and shifted (L4-04)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 557,
+      "column": 3,
+      "expectedStatus": "failed"
+    },
+    {
+      "order": 58,
+      "id": "be7aff4e55e94ba47568-0d6131db599fe30cb99a",
+      "title": "Level 4: Structural › [L4][main][css-table-col][heal] Table columns reordered (L4-05)",
+      "titlePath": [
+        "Level 4: Structural",
+        "[L4][main][css-table-col][heal] Table columns reordered (L4-05)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 565,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 59,
+      "id": "be7aff4e55e94ba47568-df73ee83d71038421f81",
+      "title": "Level 4: Structural › [L4][main][css-portal-scope][heal] Element moved to portal at end of body (L4-06)",
+      "titlePath": [
+        "Level 4: Structural",
+        "[L4][main][css-portal-scope][heal] Element moved to portal at end of body (L4-06)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 573,
+      "column": 3,
+      "expectedStatus": "failed"
+    },
+    {
+      "order": 60,
+      "id": "be7aff4e55e94ba47568-f39a8d26a54c667de814",
+      "title": "Level 4: Structural › [L4][main][filter-hasText][heal] Row class renamed (L4-07)",
+      "titlePath": [
+        "Level 4: Structural",
+        "[L4][main][filter-hasText][heal] Row class renamed (L4-07)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 581,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 61,
+      "id": "be7aff4e55e94ba47568-6cfc92d37b963549b672",
+      "title": "Level 4: Structural › [L4][main][xpath-abs][heal] Absolute XPath broken by wrapper (L4-08)",
+      "titlePath": [
+        "Level 4: Structural",
+        "[L4][main][xpath-abs][heal] Absolute XPath broken by wrapper (L4-08)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 589,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 62,
+      "id": "be7aff4e55e94ba47568-e5f29133823d9fa86ad4",
+      "title": "Level 4: Structural › [L4][main][filter-has][heal] Badge removed and parent class renamed (L4-09)",
+      "titlePath": [
+        "Level 4: Structural",
+        "[L4][main][filter-has][heal] Badge removed and parent class renamed (L4-09)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 597,
+      "column": 3,
+      "expectedStatus": "failed"
+    },
+    {
+      "order": 63,
+      "id": "be7aff4e55e94ba47568-5cf59753a50097151a5f",
+      "title": "Level 4: Structural › [L4][main][locator-and][heal] Combined .and() locator attributes changed (L4-10)",
+      "titlePath": [
+        "Level 4: Structural",
+        "[L4][main][locator-and][heal] Combined .and() locator attributes changed (L4-10)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 605,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 64,
+      "id": "be7aff4e55e94ba47568-0c4b3a31851206e5eb80",
+      "title": "Level 4: Structural › [L4][main][locator-or][heal] Combined .or() classes changed (L4-11)",
+      "titlePath": [
+        "Level 4: Structural",
+        "[L4][main][locator-or][heal] Combined .or() classes changed (L4-11)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 613,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 65,
+      "id": "be7aff4e55e94ba47568-86ff836311210a3cac01",
+      "title": "Level 4: Structural › [L4][main][parent-axis][heal] Parent axis broken by extra wrapper (L4-12)",
+      "titlePath": [
+        "Level 4: Structural",
+        "[L4][main][parent-axis][heal] Parent axis broken by extra wrapper (L4-12)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 621,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 66,
+      "id": "be7aff4e55e94ba47568-d7809f614b6d008b89fd",
+      "title": "Level 4: Structural › [L4][main][first][heal] DOM order reversed from first() (L4-13)",
+      "titlePath": [
+        "Level 4: Structural",
+        "[L4][main][first][heal] DOM order reversed from first() (L4-13)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 629,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 67,
+      "id": "be7aff4e55e94ba47568-3002688d044762a9593b",
+      "title": "Level 4: Structural › [L4][main][last][heal] DOM order reversed from last() (L4-14)",
+      "titlePath": [
+        "Level 4: Structural",
+        "[L4][main][last][heal] DOM order reversed from last() (L4-14)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 637,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 68,
+      "id": "be7aff4e55e94ba47568-8182fd40da8c186126d2",
+      "title": "Level 4: Structural › [L4][main][css-id][heal] Native dialog trigger wrapped & id changed (L4-15)",
+      "titlePath": [
+        "Level 4: Structural",
+        "[L4][main][css-id][heal] Native dialog trigger wrapped & id changed (L4-15)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 645,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 69,
+      "id": "be7aff4e55e94ba47568-b50d2dc40cf9594fa04c",
+      "title": "Level 4: Structural › [L4][main][css-id][heal] Drag source wrapped & id changed (L4-16)",
+      "titlePath": [
+        "Level 4: Structural",
+        "[L4][main][css-id][heal] Drag source wrapped & id changed (L4-16)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 654,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 70,
+      "id": "be7aff4e55e94ba47568-0423efd97f44deeb7d88",
+      "title": "Level 4: Structural › [L4][main][css-svg][heal] SVG circle classes & wrapper changed (L4-17)",
+      "titlePath": [
+        "Level 4: Structural",
+        "[L4][main][css-svg][heal] SVG circle classes & wrapper changed (L4-17)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 662,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 71,
+      "id": "be7aff4e55e94ba47568-07ba3a52c7d832f8dca9",
+      "title": "Level 4: Structural › [L4][main][css-scroll][heal] Scrollable container item class changed (L4-18)",
+      "titlePath": [
+        "Level 4: Structural",
+        "[L4][main][css-scroll][heal] Scrollable container item class changed (L4-18)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 670,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 72,
+      "id": "be7aff4e55e94ba47568-948d9a52a23ee1bb7aee",
+      "title": "Level 5: Composite & Adversarial › [L5][main][css-class-decoy][risk] Look-alike decoy placed before target (L5-01)",
+      "titlePath": [
+        "Level 5: Composite & Adversarial",
+        "[L5][main][css-class-decoy][risk] Look-alike decoy placed before target (L5-01)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 683,
+      "column": 3,
+      "expectedStatus": "failed"
+    },
+    {
+      "order": 73,
+      "id": "be7aff4e55e94ba47568-4ce7129d983f20e46387",
+      "title": "Level 5: Composite & Adversarial › [L5][main][css-id-swap][risk] Sibling identity swap (L5-02)",
+      "titlePath": [
+        "Level 5: Composite & Adversarial",
+        "[L5][main][css-id-swap][risk] Sibling identity swap (L5-02)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 692,
+      "column": 3,
+      "expectedStatus": "failed"
+    },
+    {
+      "order": 74,
+      "id": "be7aff4e55e94ba47568-825bc4d78c0d48565a31",
+      "title": "Level 5: Composite & Adversarial › [L5][main][css-id-recreate][heal] Input detached/recreated with new id (L5-03)",
+      "titlePath": [
+        "Level 5: Composite & Adversarial",
+        "[L5][main][css-id-recreate][heal] Input detached/recreated with new id (L5-03)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 701,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 75,
+      "id": "be7aff4e55e94ba47568-2098ddb1da9035f40244",
+      "title": "Level 5: Composite & Adversarial › [L5][main][css-class-rerender][heal] Subtree rerendered & wrapped (L5-04)",
+      "titlePath": [
+        "Level 5: Composite & Adversarial",
+        "[L5][main][css-class-rerender][heal] Subtree rerendered & wrapped (L5-04)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 709,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 76,
+      "id": "be7aff4e55e94ba47568-963bb1a329f22c90cf4f",
+      "title": "Level 5: Composite & Adversarial › [L5][main][css-dup-id][risk] Duplicate id decoy injected before target (L5-05)",
+      "titlePath": [
+        "Level 5: Composite & Adversarial",
+        "[L5][main][css-dup-id][risk] Duplicate id decoy injected before target (L5-05)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 717,
+      "column": 3,
+      "expectedStatus": "failed"
+    },
+    {
+      "order": 77,
+      "id": "be7aff4e55e94ba47568-90432ca3344e876b5d21",
+      "title": "Level 5: Composite & Adversarial › [L5][main][css-hidden-twin][risk] Hidden twin with old class before target (L5-06)",
+      "titlePath": [
+        "Level 5: Composite & Adversarial",
+        "[L5][main][css-hidden-twin][risk] Hidden twin with old class before target (L5-06)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 726,
+      "column": 3,
+      "expectedStatus": "failed"
+    },
+    {
+      "order": 78,
+      "id": "be7aff4e55e94ba47568-f20d52dde5fa3645625f",
+      "title": "Level 5: Composite & Adversarial › [L5][main][nth-repeated][risk] Repeated rows reordered & classes changed (L5-07)",
+      "titlePath": [
+        "Level 5: Composite & Adversarial",
+        "[L5][main][nth-repeated][risk] Repeated rows reordered & classes changed (L5-07)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 735,
+      "column": 3,
+      "expectedStatus": "failed"
+    },
+    {
+      "order": 79,
+      "id": "be7aff4e55e94ba47568-44303457ea56ee8ea72b",
+      "title": "Level 5: Composite & Adversarial › [L5][main][css-dynamic-attr][heal] Rotating dynamic attribute (L5-08)",
+      "titlePath": [
+        "Level 5: Composite & Adversarial",
+        "[L5][main][css-dynamic-attr][heal] Rotating dynamic attribute (L5-08)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 744,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 80,
+      "id": "be7aff4e55e94ba47568-5ed936d994ad903aaf63",
+      "title": "Level 5: Composite & Adversarial › [L5][main][getByRole-decoy][risk] Role+name decoy placed before target (L5-09)",
+      "titlePath": [
+        "Level 5: Composite & Adversarial",
+        "[L5][main][getByRole-decoy][risk] Role+name decoy placed before target (L5-09)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 752,
+      "column": 3,
+      "expectedStatus": "failed"
+    },
+    {
+      "order": 81,
+      "id": "be7aff4e55e94ba47568-31d3d1a4f6ef40e65eea",
+      "title": "Level 5: Composite & Adversarial › [L5][main][getByLabel-decoy][risk] Duplicate label decoy before target (L5-10)",
+      "titlePath": [
+        "Level 5: Composite & Adversarial",
+        "[L5][main][getByLabel-decoy][risk] Duplicate label decoy before target (L5-10)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 761,
+      "column": 3,
+      "expectedStatus": "failed"
+    },
+    {
+      "order": 82,
+      "id": "be7aff4e55e94ba47568-e47f2e3c4aaf7ac23900",
+      "title": "Level 5: Composite & Adversarial › [L5][main][xpath-decoy][risk] XPath decoy div injected before target (L5-11)",
+      "titlePath": [
+        "Level 5: Composite & Adversarial",
+        "[L5][main][xpath-decoy][risk] XPath decoy div injected before target (L5-11)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 770,
+      "column": 3,
+      "expectedStatus": "failed"
+    },
+    {
+      "order": 83,
+      "id": "be7aff4e55e94ba47568-c3107040452e101b7037",
+      "title": "Level 5: Composite & Adversarial › [L5][main][getByText-pseudo][heal] Text moved to CSS ::before pseudo-element (L5-12)",
+      "titlePath": [
+        "Level 5: Composite & Adversarial",
+        "[L5][main][getByText-pseudo][heal] Text moved to CSS ::before pseudo-element (L5-12)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 779,
+      "column": 3,
+      "expectedStatus": "failed"
+    },
+    {
+      "order": 84,
+      "id": "be7aff4e55e94ba47568-5c5aef8c4f4bd8a1ee31",
+      "title": "Level 5: Composite & Adversarial › [L5][main][getByRole-icon][heal] Text replaced by icon and aria-label changed (L5-13)",
+      "titlePath": [
+        "Level 5: Composite & Adversarial",
+        "[L5][main][getByRole-icon][heal] Text replaced by icon and aria-label changed (L5-13)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 787,
+      "column": 3,
+      "expectedStatus": "failed"
+    },
+    {
+      "order": 85,
+      "id": "be7aff4e55e94ba47568-a91dde6da5b399ca713f",
+      "title": "Level 5: Composite & Adversarial › [L5][main][css-class-decoy][risk] Combobox option decoy before target (L5-14)",
+      "titlePath": [
+        "Level 5: Composite & Adversarial",
+        "[L5][main][css-class-decoy][risk] Combobox option decoy before target (L5-14)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 795,
+      "column": 3,
+      "expectedStatus": "failed"
+    },
+    {
+      "order": 86,
+      "id": "be7aff4e55e94ba47568-dbf9f52e8002888aa212",
+      "title": "Level 5: Composite & Adversarial › [L5][main][css-class-decoy][risk] Tree leaf decoy before target (L5-15)",
+      "titlePath": [
+        "Level 5: Composite & Adversarial",
+        "[L5][main][css-class-decoy][risk] Tree leaf decoy before target (L5-15)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 804,
+      "column": 3,
+      "expectedStatus": "failed"
+    },
+    {
+      "order": 87,
+      "id": "be7aff4e55e94ba47568-e3b7bc73d83422ec5987",
+      "title": "Level 5: Composite & Adversarial › [L5][main][css-class-decoy][risk] Stepper Next decoy before target (L5-16)",
+      "titlePath": [
+        "Level 5: Composite & Adversarial",
+        "[L5][main][css-class-decoy][risk] Stepper Next decoy before target (L5-16)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 813,
+      "column": 3,
+      "expectedStatus": "failed"
+    },
+    {
+      "order": 88,
+      "id": "be7aff4e55e94ba47568-a6799a1e9bf0f51cc267",
+      "title": "Level 5: Composite & Adversarial › [L5][main][css-class-decoy][risk] Breadcrumb link->button with decoy (L5-17)",
+      "titlePath": [
+        "Level 5: Composite & Adversarial",
+        "[L5][main][css-class-decoy][risk] Breadcrumb link->button with decoy (L5-17)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 822,
+      "column": 3,
+      "expectedStatus": "failed"
+    },
+    {
+      "order": 89,
+      "id": "be7aff4e55e94ba47568-a3117c7bb17d0bcbf1fb",
+      "title": "Level 5: Composite & Adversarial › [L5][main][css-id][heal] Toast undo moved to portal (L5-18)",
+      "titlePath": [
+        "Level 5: Composite & Adversarial",
+        "[L5][main][css-id][heal] Toast undo moved to portal (L5-18)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 831,
+      "column": 3,
+      "expectedStatus": "failed"
+    },
+    {
+      "order": 90,
+      "id": "be7aff4e55e94ba47568-f34caad927e4f8771113",
+      "title": "Level 6: Extreme › [L6][main][getByRole][heal] Localized FR/ES/AR + role/tag/wrap change (L6-01)",
+      "titlePath": [
+        "Level 6: Extreme",
+        "[L6][main][getByRole][heal] Localized FR/ES/AR + role/tag/wrap change (L6-01)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 844,
+      "column": 3,
+      "expectedStatus": "failed"
+    },
+    {
+      "order": 91,
+      "id": "be7aff4e55e94ba47568-b19ed2ebf3befa6dad19",
+      "title": "Level 6: Extreme › [L6][main][getByPlaceholder][heal] Search input localized + type changed (L6-02)",
+      "titlePath": [
+        "Level 6: Extreme",
+        "[L6][main][getByPlaceholder][heal] Search input localized + type changed (L6-02)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 852,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 92,
+      "id": "be7aff4e55e94ba47568-db255c37658474f67edc",
+      "title": "Level 6: Extreme › [L6][main][getByText][heal] Save button localized + tag button->a (L6-03)",
+      "titlePath": [
+        "Level 6: Extreme",
+        "[L6][main][getByText][heal] Save button localized + tag button->a (L6-03)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 860,
+      "column": 3,
+      "expectedStatus": "failed"
+    },
+    {
+      "order": 93,
+      "id": "be7aff4e55e94ba47568-ff32e314a815c6a0f6aa",
+      "title": "Level 6: Extreme › [L6][main][css-class-decoy][risk] English decoy before localized target (L6-04)",
+      "titlePath": [
+        "Level 6: Extreme",
+        "[L6][main][css-class-decoy][risk] English decoy before localized target (L6-04)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 868,
+      "column": 3,
+      "expectedStatus": "failed"
+    },
+    {
+      "order": 94,
+      "id": "be7aff4e55e94ba47568-6f8f5e8e301e68bfee84",
+      "title": "Level 6: Extreme › [L6][main][css-id][heal] Confirm dialog trigger localized & restructured (L6-05)",
+      "titlePath": [
+        "Level 6: Extreme",
+        "[L6][main][css-id][heal] Confirm dialog trigger localized & restructured (L6-05)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 877,
+      "column": 3,
+      "expectedStatus": "failed"
+    },
+    {
+      "order": 95,
+      "id": "be7aff4e55e94ba47568-428a09214c03c997dea7",
+      "title": "Level 6: Extreme › [L6][main][css-id][heal] Popup trigger localized & tag changed (L6-06)",
+      "titlePath": [
+        "Level 6: Extreme",
+        "[L6][main][css-id][heal] Popup trigger localized & tag changed (L6-06)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 886,
+      "column": 3,
+      "expectedStatus": "failed"
+    },
+    {
+      "order": 96,
+      "id": "be7aff4e55e94ba47568-7bb896dd4cb8b7eac42d",
+      "title": "Level 6: Extreme › [L6][main][css-id][heal] Download link localized & id changed (L6-07)",
+      "titlePath": [
+        "Level 6: Extreme",
+        "[L6][main][css-id][heal] Download link localized & id changed (L6-07)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 894,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 97,
+      "id": "be7aff4e55e94ba47568-f8bea99c4e1ab8c8f105",
+      "title": "Level 6: Extreme › [L6][main][getByLabel][heal] Work Email localized & wrapped (L6-08)",
+      "titlePath": [
+        "Level 6: Extreme",
+        "[L6][main][getByLabel][heal] Work Email localized & wrapped (L6-08)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 902,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 98,
+      "id": "be7aff4e55e94ba47568-876f1a24002e910365fe",
+      "title": "Level 6: Extreme › [L6][main][css-id][heal] FAB moved to portal & localized (L6-09)",
+      "titlePath": [
+        "Level 6: Extreme",
+        "[L6][main][css-id][heal] FAB moved to portal & localized (L6-09)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 910,
+      "column": 3,
+      "expectedStatus": "failed"
+    },
+    {
+      "order": 99,
+      "id": "be7aff4e55e94ba47568-27128c4cf7b018d725cf",
+      "title": "Level 6: Extreme › [L6][main][getByRole][heal] Pagination Next localized & button->a (L6-10)",
+      "titlePath": [
+        "Level 6: Extreme",
+        "[L6][main][getByRole][heal] Pagination Next localized & button->a (L6-10)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 918,
+      "column": 3,
+      "expectedStatus": "failed"
+    },
+    {
+      "order": 100,
+      "id": "be7aff4e55e94ba47568-078b1c844c9f87f328e4",
+      "title": "Level 6: Extreme › [L6][main][css-card-nth][risk] Card grid shuffled & localized (L6-11)",
+      "titlePath": [
+        "Level 6: Extreme",
+        "[L6][main][css-card-nth][risk] Card grid shuffled & localized (L6-11)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 926,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 101,
+      "id": "be7aff4e55e94ba47568-7943968e58fd7863afc0",
+      "title": "Level 6: Extreme › [L6][main][css-table-cell][risk] Table rows/cols shuffled & localized (L6-12)",
+      "titlePath": [
+        "Level 6: Extreme",
+        "[L6][main][css-table-cell][risk] Table rows/cols shuffled & localized (L6-12)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 935,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 102,
+      "id": "be7aff4e55e94ba47568-263cac2730edbeb5cba5",
+      "title": "Iframes › [L3][iframe][frame-getByRole][heal] Iframe id & button name changed (IF-01)",
+      "titlePath": [
+        "Iframes",
+        "[L3][iframe][frame-getByRole][heal] Iframe id & button name changed (IF-01)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 949,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 103,
+      "id": "be7aff4e55e94ba47568-37dcfef2015d83ba9a7a",
+      "title": "Iframes › [L3][iframe][frame-getByPlaceholder][heal] Iframe title & placeholder changed (IF-02)",
+      "titlePath": [
+        "Iframes",
+        "[L3][iframe][frame-getByPlaceholder][heal] Iframe title & placeholder changed (IF-02)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 957,
+      "column": 3,
+      "expectedStatus": "failed"
+    },
+    {
+      "order": 104,
+      "id": "be7aff4e55e94ba47568-06af799d4ff7feb2ee55",
+      "title": "Iframes › [L4][iframe][frame-css][heal] Iframe remounted & button wrapped (IF-03)",
+      "titlePath": [
+        "Iframes",
+        "[L4][iframe][frame-css][heal] Iframe remounted & button wrapped (IF-03)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 965,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 105,
+      "id": "be7aff4e55e94ba47568-3b2dda7217f93bf54d72",
+      "title": "Iframes › [L4][nested-iframe][nested-frame-testid][heal] 2-level nested iframe ids & testid changed (IF-04)",
+      "titlePath": [
+        "Iframes",
+        "[L4][nested-iframe][nested-frame-testid][heal] 2-level nested iframe ids & testid changed (IF-04)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 973,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 106,
+      "id": "be7aff4e55e94ba47568-f7601b157c98d991c954",
+      "title": "Iframes › [L5][nested-iframe][nested3-frame-css-decoy][risk] 3-level nested iframe with decoy (IF-05)",
+      "titlePath": [
+        "Iframes",
+        "[L5][nested-iframe][nested3-frame-css-decoy][risk] 3-level nested iframe with decoy (IF-05)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 981,
+      "column": 3,
+      "expectedStatus": "failed"
+    },
+    {
+      "order": 107,
+      "id": "be7aff4e55e94ba47568-aba66310ac62a9eeb7f4",
+      "title": "Iframes › [L5][iframe-shadow][frame-shadow-css][heal] Shadow DOM inside iframe (IF-06)",
+      "titlePath": [
+        "Iframes",
+        "[L5][iframe-shadow][frame-shadow-css][heal] Shadow DOM inside iframe (IF-06)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 990,
+      "column": 3,
+      "expectedStatus": "failed"
+    },
+    {
+      "order": 108,
+      "id": "be7aff4e55e94ba47568-5d4dcc5c64c34adedb80",
+      "title": "Iframes › [L6][iframe-boundary][main-to-iframe][heal] Element moved from main DOM into iframe (IF-07)",
+      "titlePath": [
+        "Iframes",
+        "[L6][iframe-boundary][main-to-iframe][heal] Element moved from main DOM into iframe (IF-07)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 998,
+      "column": 3,
+      "expectedStatus": "failed"
+    },
+    {
+      "order": 109,
+      "id": "be7aff4e55e94ba47568-446ebf5bd3cb9d1e9866",
+      "title": "Iframes › [L6][nested-iframe][nested-depth-change][risk] Iframe nesting depth 2->3 with decoy (IF-08)",
+      "titlePath": [
+        "Iframes",
+        "[L6][nested-iframe][nested-depth-change][risk] Iframe nesting depth 2->3 with decoy (IF-08)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 1006,
+      "column": 3,
+      "expectedStatus": "failed"
+    },
+    {
+      "order": 110,
+      "id": "be7aff4e55e94ba47568-1964e3dbcec57699fa25",
+      "title": "Shadow DOM › [L3][shadow-dom][shadow-css][heal] Open shadow button tag & class changed (SH-01)",
+      "titlePath": [
+        "Shadow DOM",
+        "[L3][shadow-dom][shadow-css][heal] Open shadow button tag & class changed (SH-01)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 1020,
+      "column": 3,
+      "expectedStatus": "failed"
+    },
+    {
+      "order": 111,
+      "id": "be7aff4e55e94ba47568-8c385a5b7adfd54f58cf",
+      "title": "Shadow DOM › [L3][shadow-dom][shadow-getByLabel][heal] Open shadow input label changed (SH-02)",
+      "titlePath": [
+        "Shadow DOM",
+        "[L3][shadow-dom][shadow-getByLabel][heal] Open shadow input label changed (SH-02)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 1028,
+      "column": 3,
+      "expectedStatus": "failed"
+    },
+    {
+      "order": 112,
+      "id": "be7aff4e55e94ba47568-3b005a57d072cc90ce37",
+      "title": "Shadow DOM › [L4][shadow-dom][shadow-host-rename][heal] Shadow host tag renamed & wrapped (SH-03)",
+      "titlePath": [
+        "Shadow DOM",
+        "[L4][shadow-dom][shadow-host-rename][heal] Shadow host tag renamed & wrapped (SH-03)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 1036,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 113,
+      "id": "be7aff4e55e94ba47568-4c4801f1e2c28be51d2a",
+      "title": "Shadow DOM › [L4][shadow-slotted][shadow-slot][heal] Slotted content moved between slots (SH-04)",
+      "titlePath": [
+        "Shadow DOM",
+        "[L4][shadow-slotted][shadow-slot][heal] Slotted content moved between slots (SH-04)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 1044,
+      "column": 3,
+      "expectedStatus": "failed"
+    },
+    {
+      "order": 114,
+      "id": "be7aff4e55e94ba47568-124f169345f125af1856",
+      "title": "Shadow DOM › [L5][nested-shadow][nested-shadow-decoy][risk] 2-level nested shadow with decoy (SH-05)",
+      "titlePath": [
+        "Shadow DOM",
+        "[L5][nested-shadow][nested-shadow-decoy][risk] 2-level nested shadow with decoy (SH-05)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 1052,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 115,
+      "id": "be7aff4e55e94ba47568-c237423a3ffdcea66526",
+      "title": "Shadow DOM › [L5][shadow-boundary][light-to-shadow][heal] Element moved from light DOM into shadow root (SH-06)",
+      "titlePath": [
+        "Shadow DOM",
+        "[L5][shadow-boundary][light-to-shadow][heal] Element moved from light DOM into shadow root (SH-06)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 1061,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 116,
+      "id": "be7aff4e55e94ba47568-37b07fcad648e615abb0",
+      "title": "Shadow DOM › [L6][nested-shadow][shadow-depth-change][heal] Shadow nesting depth 2->3 & localized (SH-07)",
+      "titlePath": [
+        "Shadow DOM",
+        "[L6][nested-shadow][shadow-depth-change][heal] Shadow nesting depth 2->3 & localized (SH-07)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 1069,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 117,
+      "id": "be7aff4e55e94ba47568-97fe42805176cfd73c8f",
+      "title": "Shadow DOM › [L6][shadow-iframe][shadow-to-iframe][heal] Iframe inside Shadow DOM (SH-08)",
+      "titlePath": [
+        "Shadow DOM",
+        "[L6][shadow-iframe][shadow-to-iframe][heal] Iframe inside Shadow DOM (SH-08)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 1077,
+      "column": 3,
+      "expectedStatus": "failed"
+    },
+    {
+      "order": 118,
+      "id": "be7aff4e55e94ba47568-bb523b6822e2c2f53c8c",
+      "title": "Negative Controls › [NC][main][css-id][no-heal] Genuinely removed button must fail (NC-01)",
+      "titlePath": [
+        "Negative Controls",
+        "[NC][main][css-id][no-heal] Genuinely removed button must fail (NC-01)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 1090,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 119,
+      "id": "be7aff4e55e94ba47568-dc23ff945ba731cca922",
+      "title": "Negative Controls › [NC][main][css-id][no-heal] Button replaced by unrelated paragraph must fail (NC-02)",
+      "titlePath": [
+        "Negative Controls",
+        "[NC][main][css-id][no-heal] Button replaced by unrelated paragraph must fail (NC-02)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 1098,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 120,
+      "id": "be7aff4e55e94ba47568-8704f8eb07753615b4f6",
+      "title": "Negative Controls › [NC][closed-shadow][css-class][no-heal] Element moved to closed shadow root is unreachable (NC-03)",
+      "titlePath": [
+        "Negative Controls",
+        "[NC][closed-shadow][css-class][no-heal] Element moved to closed shadow root is unreachable (NC-03)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 1106,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 121,
+      "id": "be7aff4e55e94ba47568-4ecec1365f95a9cd4a4e",
+      "title": "Negative Controls › [NC][main][css-id][no-heal] Removed input must not heal to unrelated input (NC-04)",
+      "titlePath": [
+        "Negative Controls",
+        "[NC][main][css-id][no-heal] Removed input must not heal to unrelated input (NC-04)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 1114,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 122,
+      "id": "be7aff4e55e94ba47568-77b0c08268f44fc68dca",
+      "title": "Negative Controls › [NC][iframe][frame-css][no-heal] Removed iframe must fail (NC-05)",
+      "titlePath": [
+        "Negative Controls",
+        "[NC][iframe][frame-css][no-heal] Removed iframe must fail (NC-05)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 1123,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 123,
+      "id": "be7aff4e55e94ba47568-5e9f6212faf0feb39a55",
+      "title": "Negative Controls › [NC][shadow-dom][shadow-css][no-heal] Removed shadow host must fail (NC-06)",
+      "titlePath": [
+        "Negative Controls",
+        "[NC][shadow-dom][shadow-css][no-heal] Removed shadow host must fail (NC-06)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 1131,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 124,
+      "id": "be7aff4e55e94ba47568-6a6ed6b78cda2eafd21d",
+      "title": "Negative Controls › [NC][main][getByLabel][no-heal] Removed checkbox must not heal to spam decoy (NC-07)",
+      "titlePath": [
+        "Negative Controls",
+        "[NC][main][getByLabel][no-heal] Removed checkbox must not heal to spam decoy (NC-07)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 1139,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 125,
+      "id": "be7aff4e55e94ba47568-4a437f24374e1e85f4ea",
+      "title": "Negative Controls › [NC][main][getByRole][no-heal] Button replaced by inert span must fail (NC-08)",
+      "titlePath": [
+        "Negative Controls",
+        "[NC][main][getByRole][no-heal] Button replaced by inert span must fail (NC-08)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 1148,
+      "column": 3,
+      "expectedStatus": "passed"
+    },
+    {
+      "order": 126,
+      "id": "be7aff4e55e94ba47568-a9dd1fa01678357c2eac",
+      "title": "Multi-Generation & Reload › [MultiGen][heal] Chain of 4 cumulative mutations (L1-01, L3-01, L4-06)",
+      "titlePath": [
+        "Multi-Generation & Reload",
+        "[MultiGen][heal] Chain of 4 cumulative mutations (L1-01, L3-01, L4-06)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 1161,
+      "column": 3,
+      "expectedStatus": "failed"
+    },
+    {
+      "order": 127,
+      "id": "be7aff4e55e94ba47568-1d95280da4ec82629bb3",
+      "title": "Multi-Generation & Reload › [Reload][heal] Mutated state persists across reload and heals (L2-03, L5-01)",
+      "titlePath": [
+        "Multi-Generation & Reload",
+        "[Reload][heal] Mutated state persists across reload and heals (L2-03, L5-01)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 1179,
+      "column": 3,
+      "expectedStatus": "failed"
+    },
+    {
+      "order": 128,
+      "id": "be7aff4e55e94ba47568-867eb85cbb5bfc5b7e93",
+      "title": "Multi-Generation & Reload › [Reload][heal] breakAll -> reload -> breakAll -> heal (L1-03, L4-01)",
+      "titlePath": [
+        "Multi-Generation & Reload",
+        "[Reload][heal] breakAll -> reload -> breakAll -> heal (L1-03, L4-01)"
+      ],
+      "file": "selfHealingTest.spec.ts",
+      "line": 1196,
+      "column": 3,
+      "expectedStatus": "passed"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { DEFAULT_CONFIG, resolveConfig } from '../src/config/config.js';
 
-describe('DEFAULT_CONFIG (phase-3 §6, Healenium application.conf)', () => {
+describe('DEFAULT_CONFIG (recommended production profile)', () => {
   it('matches the validated defaults', () => {
     expect(DEFAULT_CONFIG).toEqual({
       healEnabled: true,
@@ -13,6 +13,7 @@ describe('DEFAULT_CONFIG (phase-3 §6, Healenium application.conf)', () => {
       findElementsAutoHealing: false,
       keySelectorUrl: false,
       serverUrl: 'http://localhost:7878',
+      actionTimeout: 2_000,
       collectMetrics: false,
       imitatorMode: 'in-process',
       localXPathFallback: true,
@@ -22,8 +23,8 @@ describe('DEFAULT_CONFIG (phase-3 §6, Healenium application.conf)', () => {
       identityGuard: true,
       reporting: true,
       reportOnly: false,
-      sourceRewrite: 'off',
-      scoring: 'healenium',
+      sourceRewrite: 'auto',
+      scoring: 'adaptive',
       improvements: {
         emptyNeutrality: true,
         positionTiebreak: true,
@@ -40,6 +41,10 @@ describe('DEFAULT_CONFIG (phase-3 §6, Healenium application.conf)', () => {
 
   it('resolveConfig() with no args returns the defaults', () => {
     expect(resolveConfig({}, {})).toEqual(DEFAULT_CONFIG);
+  });
+
+  it('defaults to a 2000 ms Playwright action timeout', () => {
+    expect(resolveConfig({}, {}).actionTimeout).toBe(2_000);
   });
 });
 
@@ -181,10 +186,11 @@ describe('Phase-6 improvement flags (measured, disableable)', () => {
   });
 });
 
-describe('Phase-12 scoring profile (default stays healenium)', () => {
-  it('defaults to healenium with every fix available but inert', () => {
+describe('scoring profiles (adaptive default, legacy opt-in)', () => {
+  it('defaults to adaptive without changing the score cap or improvement values', () => {
     const config = resolveConfig({}, {});
-    expect(config.scoring).toBe('healenium');
+    expect(config.scoring).toBe('adaptive');
+    expect(config.scoreCap).toBe(0.6);
     expect(config.improvements).toEqual({
       emptyNeutrality: true,
       positionTiebreak: true,
@@ -198,8 +204,8 @@ describe('Phase-12 scoring profile (default stays healenium)', () => {
     });
   });
 
-  it('accepts the Healwright scoring alias without changing the frozen default', () => {
-    expect(resolveConfig({}, {}).scoring).toBe('healenium');
+  it('keeps the legacy healenium profile and healwright alias selectable', () => {
+    expect(resolveConfig({ scoring: 'healenium' }, {}).scoring).toBe('healenium');
     expect(resolveConfig({ scoring: 'healwright' }, {}).scoring).toBe('healwright');
     expect(resolveConfig({}, { HEALWRIGHT_SCORING: 'Healwright' }).scoring).toBe('healwright');
   });
@@ -210,8 +216,7 @@ describe('Phase-12 scoring profile (default stays healenium)', () => {
     expect(() => resolveConfig({}, { HEALWRIGHT_SCORING: 'smart' })).toThrow(/Invalid scoring mode/);
   });
 
-  it('selects the opt-in adaptive mode without changing the default', () => {
-    expect(resolveConfig({}, {}).scoring).toBe('healenium');
+  it('still accepts adaptive explicitly as the production profile', () => {
     expect(resolveConfig({ scoring: 'adaptive' }, {}).scoring).toBe('adaptive');
     expect(resolveConfig({}, { HEALWRIGHT_SCORING: 'Adaptive' }).scoring).toBe('adaptive');
   });
@@ -295,11 +300,11 @@ describe('Phase-12 scoring profile (default stays healenium)', () => {
     expect(() => resolveConfig({}, { HEALWRIGHT_REPORT_ONLY: 'yes' })).toThrow(/Invalid boolean/);
   });
 
-  it('reads sourceRewrite from env and defaults to off', () => {
-    expect(resolveConfig({}, {}).sourceRewrite).toBe('off');
-    expect(resolveConfig({}, { HEALWRIGHT_SOURCE_REWRITE: 'auto' }).sourceRewrite).toBe('auto');
-    expect(resolveConfig({ sourceRewrite: 'auto' }, { HEALWRIGHT_SOURCE_REWRITE: 'off' })
-      .sourceRewrite).toBe('auto');
+  it('reads sourceRewrite from env and defaults to auto', () => {
+    expect(resolveConfig({}, {}).sourceRewrite).toBe('auto');
+    expect(resolveConfig({}, { HEALWRIGHT_SOURCE_REWRITE: 'off' }).sourceRewrite).toBe('off');
+    expect(resolveConfig({ sourceRewrite: 'off' }, { HEALWRIGHT_SOURCE_REWRITE: 'auto' })
+      .sourceRewrite).toBe('off');
     expect(() => resolveConfig({}, { HEALWRIGHT_SOURCE_REWRITE: 'semi' }))
       .toThrow(/Invalid source rewrite mode/);
   });

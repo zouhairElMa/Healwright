@@ -10,6 +10,8 @@ export default defineConfig({
     hookTimeout: 60000,
     fileParallelism: false,
     env: {
+      HEALWRIGHT_ACTION_TIMEOUT: '10000',
+      HEALWRIGHT_SCORING: 'healenium',
       HEALWRIGHT_REPORT_REGISTRY: join(tmpdir(), `hw-vitest-int-${process.pid}`, 'dirs.json'),
     },
   },

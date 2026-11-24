@@ -28,11 +28,12 @@ Important options:
 | `healEnabled` | Enable or disable healing. |
 | `scoreCap` | Maximum accepted candidate score. |
 | `recoveryTries` | Number of replay attempts. Default: `1`. |
-| `reportOnly` | Record proposals without applying them. |
+| `reportOnly` | Record proposals without replaying them or rewriting source. |
 | `reportDir` | Local JSONL telemetry directory. |
+| `actionTimeout` | Playwright default action timeout in milliseconds. Default: `2_000`. |
 | `disableHealingFor` | Exact selector strings excluded from healing. |
-| `sourceRewrite` | `off` by default; `auto` enables session-end rewriting. |
-| `scoring` | Legacy, improved, or adaptive profile. |
+| `sourceRewrite` | `auto` by default; `off` disables session-end rewriting. The backend allowlist is still required. |
+| `scoring` | `adaptive` by default; `healenium`, `healwright`, and `improved` remain selectable. |
 
 ## Playwright fixture
 

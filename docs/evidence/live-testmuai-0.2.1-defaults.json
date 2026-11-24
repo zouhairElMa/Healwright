@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "measuredAt": "2026-11-24T04:21:16Z",
+  "status": "PASSED",
+  "package": {
+    "name": "@zouhair_elmattad/healwright",
+    "version": "0.2.1",
+    "tarballSha256": "3c4036a530e50c3594b9d131613b7e18e309f4dba471dcd7d694364a6050b7d3",
+    "verifiedInstalledDefaults": {
+      "scoring": "adaptive",
+      "actionTimeout": 2000,
+      "scoreCap": 0.6,
+      "sourceRewrite": "auto"
+    },
+    "testOverrides": {
+      "scoring": null,
+      "actionTimeout": null,
+      "nativePlaywrightActionTimeout": null,
+      "sourceRewrite": null
+    }
+  },
+  "scenario": {
+    "url": "https://www.testmuai.com/selenium-playground/auto-healing/",
+    "test": "testmuai defaults: heals #username -> #lambdatest and replays fill",
+    "command": "npx playwright test --reporter=line",
+    "workers": 1,
+    "durationSeconds": 19.8,
+    "backendPort": 7888,
+    "databaseSchema": "healwright_live_021_20261124033319",
+    "databaseRows": {
+      "selector": 2,
+      "healing": 4,
+      "healingResult": 4,
+      "report": 1
+    }
+  },
+  "telemetry": {
+    "sessionId": "2b2d4990-8b1b-4c64-b68b-507f597e578c",
+    "jsonlFile": "2b2d4990-8b1b-4c64-b68b-507f597e578c.jsonl",
+    "jsonlSha256": "ea89326afafa3c1ebc73607c42843dfeaf316493d79d4163171d1a877bb02838",
+    "eventCounts": {
+      "report.opening": 1,
+      "report.meta": 1,
+      "report.opened": 1,
+      "heal.success": 4,
+      "replay.ok": 4,
+      "report.closing": 1,
+      "report.closed": 1,
+      "rewrite.auto": 1
+    },
+    "healSuccesses": 4,
+    "replayOk": 4,
+    "healedLocators": [
+      "#lambdatest"
+    ],
+    "scoringModes": [
+      "adaptive"
+    ]
+  },
+  "automaticSourceRewrite": {
+    "sourceRewriteExplicitlyConfigured": false,
+    "event": {
+      "ts": "2026-11-24T04:21:35.786Z",
+      "sessionId": "2b2d4990-8b1b-4c64-b68b-507f597e578c",
+      "event": "rewrite.auto",
+      "ok": true,
+      "transactionId": "tx-20261124-042135-780-31c01067ac7cb8d2",
+      "applied": 4,
+      "skipped": 1
+    },
+    "transactionId": "tx-20261124-042135-780-31c01067ac7cb8d2"
+  },
+  "revert": {
+    "command": "healwright-rewrite revert --server http://127.0.0.1:7888 --scope transaction --transaction tx-20261124-042135-780-31c01067ac7cb8d2 --json",
+    "restoredCount": 4,
+    "conflicts": [],
+    "file": "/tmp/healwright-live-defaults-0.2.1.ISrBvU/tests/example.spec.ts",
+    "restoredSha256": "0ac91c64ca754ca6fdd9ef4ee62879acda3706f794016eee472f7c3681088734",
+    "backupSha256": "0ac91c64ca754ca6fdd9ef4ee62879acda3706f794016eee472f7c3681088734",
+    "byteIdentical": true
+  },
+  "notes": [
+    "This verifies the final npm package defaults, not an explicit scoring or timeout override.",
+    "The backend ran with the final jar and a fresh isolated PostgreSQL schema.",
+    "Automatic rewrite was applied and then reverted through the backend journal; the test source is byte-identical to its backup."
+  ]
+}

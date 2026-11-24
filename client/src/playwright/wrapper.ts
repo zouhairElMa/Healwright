@@ -180,6 +180,9 @@ export function heal(page: Page, options: HealOptions = {}): Page {
   if (!config.healEnabled) {
     return page;
   }
+  if (config.actionTimeout !== undefined) {
+    page.setDefaultTimeout(config.actionTimeout);
+  }
   const logger = options.logger ?? silentLogger;
   const sessionId = options.sessionId ?? randomUUID();
   const client =
@@ -194,10 +197,10 @@ export function heal(page: Page, options: HealOptions = {}): Page {
   // Best-effort: load enable/disable maps; an unavailable backend must not block actions.
   void engine.loadSession().catch(() => undefined);
 
-  // Phase-24: automatic source rewrite. Runs once, at session end, on the completed JSONL file.
-  // Best-effort: a backend refusal is recorded in the telemetry and never fails the test run.
+  // Automatic source rewrite runs once, at session end, on the completed JSONL file.
+  // Report-only sessions stay read-only; backend refusals are recorded and never fail the test.
   const runAutoRewrite = async (): Promise<void> => {
-    if (config.sourceRewrite !== 'auto') {
+    if (config.sourceRewrite !== 'auto' || config.reportOnly) {
       return;
     }
     if (!config.reporting) {

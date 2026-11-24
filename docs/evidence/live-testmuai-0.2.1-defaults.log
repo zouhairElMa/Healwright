@@ -1,0 +1,5 @@
+
+Running 1 test using 1 worker
+
+[1/1] [chromium] › tests/example.spec.ts:17:1 › testmuai defaults: heals #username -> #lambdatest and replays fill
+  1 passed (19.8s)

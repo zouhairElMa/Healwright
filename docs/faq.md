@@ -17,9 +17,9 @@ No. The npm package contains the Playwright client and CLI tools. The backend is
 
 No. Docker is not required to run the backend. It is used only by the Testcontainers backend test suite.
 
-## Why is the default scoring value called `healenium`?
+## Which scoring profile is used by default?
 
-The string identifies the legacy scoring formula retained for compatibility. It is not the public product name and does not indicate a runtime dependency on a separate service. New configurations can use the equivalent `healwright` alias.
+`adaptive` is the default because it produced the best measured results on the frozen benchmark, including safe refusals for ambiguous and negative-control cases. The legacy `healenium` profile and its equivalent `healwright` alias remain available for compatibility; `improved` remains available for controlled evaluations. The default `scoreCap` is still `0.6`.
 
 ## How do I audit healing without applying it?
 
@@ -27,7 +27,7 @@ Set `reportOnly: true` or `HEALWRIGHT_REPORT_ONLY=true`.
 
 ## Does Healwright rewrite my tests automatically?
 
-No. Source rewriting is disabled by default. It requires an explicit backend allowlist and can be run in dry-run mode first.
+Yes, for safely healed measured string-literal callsites. The backend must still be started with `HEALWRIGHT_APPLY_ROOTS` set to the Playwright project root; the standard `healwright-backend` launcher sets it to the current directory. Every write is journaled and reversible. Set `sourceRewrite: 'off'` to disable automatic writes, or use `reportOnly: true` to audit without replaying or rewriting.
 
 ## Can I expose the dashboard on the Internet?
 

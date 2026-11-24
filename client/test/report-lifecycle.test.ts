@@ -45,10 +45,14 @@ function fakeBackend(calls: Call[]): FetchLike {
   };
 }
 
-function fakePage(): { page: Page; closed: { value: boolean } } {
+function fakePage(): { page: Page; closed: { value: boolean }; timeouts: number[] } {
   const closed = { value: false };
-  const page = { close: async () => { closed.value = true; } };
-  return { page: page as unknown as Page, closed };
+  const timeouts: number[] = [];
+  const page = {
+    close: async () => { closed.value = true; },
+    setDefaultTimeout: (timeout: number) => { timeouts.push(timeout); },
+  };
+  return { page: page as unknown as Page, closed, timeouts };
 }
 
 const initCalls = (calls: Call[]): Call[] =>
@@ -144,6 +148,33 @@ describe('report lifecycle', () => {
     expect(buildCalls(calls)).toHaveLength(0);
   });
 
+  it('applies the default 2000 ms action timeout to the Playwright page', () => {
+    const calls: Call[] = [];
+    const client = new RestClient({ serverUrl: 'http://localhost:7878', sessionKey: 'sess-default-timeout', fetch: fakeBackend(calls) });
+    const { page, timeouts } = fakePage();
+    heal(page, {
+      client,
+      sessionId: 'sess-default-timeout',
+      reporting: false,
+      sourceRewrite: 'off',
+    });
+    expect(timeouts).toEqual([2_000]);
+  });
+
+  it('applies a configured action timeout to the Playwright page', () => {
+    const calls: Call[] = [];
+    const client = new RestClient({ serverUrl: 'http://localhost:7878', sessionKey: 'sess-timeout', fetch: fakeBackend(calls) });
+    const { page, timeouts } = fakePage();
+    heal(page, {
+      client,
+      sessionId: 'sess-timeout',
+      reporting: false,
+      sourceRewrite: 'off',
+      actionTimeout: 15_000,
+    });
+    expect(timeouts).toEqual([15_000]);
+  });
+
   /** Phase-24 rewrite endpoint stand-in: records the request, replies with a fixed transaction. */
   async function rewriteServer(status: number, body: string): Promise<{
     url: string;
@@ -172,7 +203,7 @@ describe('report lifecycle', () => {
     };
   }
 
-  it('sourceRewrite:auto posts the session once at close and records the transaction', async () => {
+  it('rewrites by default once at close and records the transaction', async () => {
     const calls: Call[] = [];
     const dir = mkdtempSync(join(tmpdir(), 'hw-auto-'));
     const backend = await rewriteServer(200, JSON.stringify({
@@ -189,7 +220,6 @@ describe('report lifecycle', () => {
         reporting: true,
         reportDir: dir,
         serverUrl: backend.url,
-        sourceRewrite: 'auto',
       });
       const handle = (healed as unknown as Record<symbol, HealwrightSessionHandle | undefined>)[
         healwrightSession
@@ -225,6 +255,36 @@ describe('report lifecycle', () => {
         client,
         sessionId: 'sess-5',
         reporting: true,
+        reportDir: dir,
+        serverUrl: backend.url,
+        sourceRewrite: 'off',
+      });
+      const handle = (healed as unknown as Record<symbol, HealwrightSessionHandle | undefined>)[
+        healwrightSession
+      ];
+      if (handle === undefined) {
+        throw new Error('heal() did not expose a session handle');
+      }
+      await handle.close();
+      expect(backend.received).toHaveLength(0);
+    } finally {
+      await backend.close();
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('reportOnly never calls the rewrite endpoint', async () => {
+    const calls: Call[] = [];
+    const dir = mkdtempSync(join(tmpdir(), 'hw-readonly-'));
+    const backend = await rewriteServer(200, '{}');
+    try {
+      const client = new RestClient({ serverUrl: 'http://localhost:7878', sessionKey: 'sess-readonly', fetch: fakeBackend(calls) });
+      const { page } = fakePage();
+      const healed = heal(page, {
+        client,
+        sessionId: 'sess-readonly',
+        reporting: true,
+        reportOnly: true,
         reportDir: dir,
         serverUrl: backend.url,
       });

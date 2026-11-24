@@ -6,6 +6,7 @@
 //   node scripts/run-backend.mjs [--jar <path>] [--port <n>] [--db-host <h>] [--db-port <n>]
 // Env:
 //   HEALWRIGHT_BACKEND_JAR  path to a healenium-backend-*.jar or healwright-backend-*.jar (overrides discovery)
+//   HEALWRIGHT_APPLY_ROOTS  source-rewrite allowlist (defaults to the caller's project directory)
 //   Any SPRING_* variable is passed through to the backend.
 
 import { spawn } from 'node:child_process';
@@ -97,17 +98,26 @@ const port = args.port ?? process.env.SPRING_SERVER_PORT ?? '7878';
 const env = {
   ...process.env,
   SPRING_SERVER_PORT: String(port),
+  SPRING_POSTGRES_DB_HOST: args.dbHost ?? process.env.SPRING_POSTGRES_DB_HOST ?? 'localhost',
+  SPRING_POSTGRES_DB_PORT: String(args.dbPort ?? process.env.SPRING_POSTGRES_DB_PORT ?? '5432'),
+  SPRING_POSTGRES_DB: process.env.SPRING_POSTGRES_DB ?? 'healwright',
+  SPRING_POSTGRES_SCHEMA: process.env.SPRING_POSTGRES_SCHEMA ?? 'healwright',
+  SPRING_POSTGRES_USER: process.env.SPRING_POSTGRES_USER ?? 'healwright_user',
   COLLECT_METRICS: process.env.COLLECT_METRICS ?? 'false',
   // The jar's child cwd is dirname(jar); anchor the embedded dashboard's telemetry dir
   // to the caller's cwd so it reads the same .healwright/reports Healwright writes to.
   HEALWRIGHT_REPORT_DIR:
     process.env.HEALWRIGHT_REPORT_DIR ?? resolve(process.cwd(), '.healwright', 'reports'),
+  HEALWRIGHT_APPLY_ROOTS: process.env.HEALWRIGHT_APPLY_ROOTS ?? process.cwd(),
 };
-if (args.dbHost) env.SPRING_POSTGRES_DB_HOST = args.dbHost;
-if (args.dbPort) env.SPRING_POSTGRES_DB_PORT = args.dbPort;
 
 process.stdout.write(`[run-backend] jar  = ${jar}\n`);
 process.stdout.write(`[run-backend] port = ${port}\n`);
+process.stdout.write(
+  `[run-backend] database = ${env.SPRING_POSTGRES_DB_HOST}:${env.SPRING_POSTGRES_DB_PORT}/` +
+    `${env.SPRING_POSTGRES_DB} (schema ${env.SPRING_POSTGRES_SCHEMA}, user ${env.SPRING_POSTGRES_USER})\n`,
+);
+process.stdout.write(`[run-backend] rewrite roots = ${env.HEALWRIGHT_APPLY_ROOTS}\n`);
 process.stdout.write('[run-backend] starting java -jar (Ctrl-C to stop)...\n');
 
 const child = spawn('java', ['-jar', jar], {

@@ -1,6 +1,6 @@
 /**
- * Phase-24 automatic source rewrite. When `sourceRewrite: 'auto'`, the fixture posts its session
- * id to the backend after the report closes, so every safely healed locator of that test is
+ * Automatic source rewrite. With the default `sourceRewrite: 'auto'`, the fixture posts its
+ * session id to the backend after the report closes, so every safely healed locator of that test is
  * written back to the Playwright source once. The backend owns the engine (allowlist
  * HEALWRIGHT_APPLY_ROOTS, exact before/after journal), so the automatic path, the
  * `healwright-rewrite` CLI and the dashboard produce identical, revertible edits.

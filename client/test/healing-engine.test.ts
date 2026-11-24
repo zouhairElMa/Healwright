@@ -197,7 +197,7 @@ describe('HealingEngine.heal — renamed id scenario', () => {
         '#cancel': 'el-2',
       },
     });
-    const { engine } = makeEngine(reference, adapter, { reportOnly: true }, {
+    const { engine } = makeEngine(reference, adapter, { reportOnly: true, scoring: 'healenium' }, {
       record: (fields) => events.push(fields),
     });
     expect(await engine.heal(healRequest)).toBeNull();
@@ -404,7 +404,7 @@ describe('HealingEngine — phase-12 scoring profile', () => {
       html: obsoleteHtml,
       matches: { 'button#cancel_btn': 'el-cancel' },
     });
-    const { engine } = makeEngine(obsoleteReference, adapter);
+    const { engine } = makeEngine(obsoleteReference, adapter, { scoring: 'healenium' });
     const outcome = await engine.heal(obsoleteRequest);
     expect(outcome?.selector.value).toBe('button#cancel_btn');
   });
@@ -482,7 +482,7 @@ describe('HealingEngine — phase-12 scoring profile', () => {
 
   it('F5: healenium mode picks the first of two equally scored candidates', async () => {
     const { adapter } = mockAdapter({ html: ambiguousHtml, matches: { 'button#x2': 'el-x2' } });
-    const { engine } = makeEngine(ambiguousReference, adapter);
+    const { engine } = makeEngine(ambiguousReference, adapter, { scoring: 'healenium' });
     const outcome = await engine.heal({ ...healRequest, locator: { value: '#x5', type: 'By.cssSelector' } });
     expect(outcome?.selector.value).toBe('button#x2');
   });

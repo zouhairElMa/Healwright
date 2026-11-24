@@ -1,6 +1,6 @@
 {
   "name": "@zouhair_elmattad/healwright",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Self-healing locators and resilient Playwright tests with a local reporting dashboard",
   "keywords": [
     "playwright",

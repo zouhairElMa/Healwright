@@ -1,0 +1,47 @@
+{
+  "verifiedAt": "2026-11-24T02:18:07Z",
+  "package": {
+    "name": "@zouhair_elmattad/healwright",
+    "version": "0.2.1",
+    "shasum": "71991a3cff37b1dc61816b51829519f60ae56c0a",
+    "integrity": "sha512-8iezSmzNfd8YJ2dAFz/EtzbnFUj13aa1QQXvbsOxohrdSujZROJWPprdGjtVDXzeCUJ48XxmSB3NK09LV9EioA=="
+  },
+  "runtime": {
+    "node": "v24.22.1",
+    "playwright": "1.65.1",
+    "java": "Homebrew OpenJDK 21",
+    "backend": "healwright-backend-3.5.1.jar",
+    "backendPort": 7888,
+    "postgresql": "local rotated credential"
+  },
+  "scenario": {
+    "url": "https://www.testmuai.com/selenium-playground/auto-healing/",
+    "test": "testmuai: heals #username -> #lambdatest and replays fill",
+    "failedLocator": "#username",
+    "healedLocator": "#lambdatest",
+    "testTimeoutMs": 120000,
+    "actionTimeoutMs": 15000,
+    "reporting": true,
+    "sourceRewrite": "auto",
+    "sourceRewriteExplicitlyConfigured": false
+  },
+  "result": {
+    "status": "passed",
+    "durationSeconds": 45.0,
+    "replayOkEvents": 4,
+    "rewriteAuto": {
+      "ok": true,
+      "transactionId": "tx-20261124-021807-368-81f36486f5e53184",
+      "applied": 4,
+      "skipped": 1
+    },
+    "revert": {
+      "restored": 4,
+      "conflicts": 0
+    }
+  },
+  "evidence": {
+    "jsonl": "docs/evidence/live-testmuai-0.2.1.jsonl",
+    "sessionId": "01ab0268-725e-4862-9b72-85a8b3d844f7"
+  }
+}

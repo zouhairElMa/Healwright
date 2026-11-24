@@ -1,0 +1,35 @@
+
+Running 1 test using 1 worker
+
+[1/1] tests/selfHealingTest.spec.ts:973:3 › Iframes › [L4][nested-iframe][nested-frame-testid][heal] 2-level nested iframe ids & testid changed (IF-04)
+  1) tests/selfHealingTest.spec.ts:973:3 › Iframes › [L4][nested-iframe][nested-frame-testid][heal] 2-level nested iframe ids & testid changed (IF-04) 
+
+    TimeoutError: locator.click: Timeout 2000ms exceeded.
+    Call log:
+      - waiting for locator('#if-outer').contentFrame().locator('#if-inner').contentFrame().getByTestId('if-nested-btn')
+
+
+      975 |     await healedPage.frameLocator('#if-outer').frameLocator('#if-inner').getByTestId('if-nested-btn').click();
+      976 |     await breakAll(page);
+    > 977 |     await healedPage.frameLocator('#if-outer').frameLocator('#if-inner').getByTestId('if-nested-btn').click();
+          |     ^
+      978 |     expect(await readState(page, 'if_04')).toMatchObject({ clicks: 2 });
+      979 |   });
+      980 |
+        at invoke (/private/tmp/healwright-final-bench.kLVrFf/node_modules/@zouhair_elmattad/healwright/src/playwright/wrapper.ts:692:20)
+        at runAction (/private/tmp/healwright-final-bench.kLVrFf/node_modules/@zouhair_elmattad/healwright/src/playwright/wrapper.ts:766:28)
+        at /private/tmp/healwright-final-bench.kLVrFf/tests/selfHealingTest.spec.ts:977:5
+
+    Error Context: test-results/selfHealingTest-Iframes-L4-c7dde-e-ids-testid-changed-IF-04-/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/selfHealingTest-Iframes-L4-c7dde-e-ids-testid-changed-IF-04-/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/selfHealingTest-Iframes-L4-c7dde-e-ids-testid-changed-IF-04-/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+  1 failed
+    tests/selfHealingTest.spec.ts:973:3 › Iframes › [L4][nested-iframe][nested-frame-testid][heal] 2-level nested iframe ids & testid changed (IF-04) 

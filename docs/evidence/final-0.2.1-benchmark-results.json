@@ -1,0 +1,3049 @@
+{
+  "schemaVersion": 1,
+  "measuredAt": "2026-11-24",
+  "package": {
+    "name": "@zouhair_elmattad/healwright",
+    "version": "0.2.1",
+    "tarball": "zouhair_elmattad-healwright-0.2.1.tgz",
+    "sha256": "3c4036a530e50c3594b9d131613b7e18e309f4dba471dcd7d694364a6050b7d3",
+    "entries": 157,
+    "verifiedDefaults": {
+      "scoring": "adaptive",
+      "actionTimeout": 2000,
+      "scoreCap": 0.6,
+      "sourceRewrite": "auto"
+    }
+  },
+  "backend": {
+    "jar": "healwright-backend-3.5.1.jar",
+    "sha256": "8df43d918aaa455e9c2440259a082432b7bdb746abf0cc604c9f954e7beeae26",
+    "port": 7878,
+    "database": "healenium",
+    "schema": "healwright_bench_021_20261124032437",
+    "user": "healenium_user",
+    "metrics": false,
+    "freshSchemaSelectorRowsBeforeRun": 0,
+    "reportDir": "/private/tmp/healwright-final-bench.kLVrFf/.healwright/reports"
+  },
+  "benchmark": {
+    "source": "/Users/zouhair/Downloads/healwright-test",
+    "isolatedCopy": "/private/tmp/healwright-final-bench.kLVrFf",
+    "spec": "tests/selfHealingTest.spec.ts",
+    "page": "bench/index.html",
+    "command": "npx playwright test tests/selfHealingTest.spec.ts --workers=1 --reporter=line",
+    "workers": 1,
+    "fullyParallel": true,
+    "retries": 0,
+    "testTimeoutMs": 30000,
+    "expectTimeoutMs": 3000,
+    "browser": "chromium",
+    "headless": true,
+    "trace": "retain-on-failure",
+    "explicitOverrides": {
+      "scoring": null,
+      "actionTimeout": null,
+      "nativePlaywrightActionTimeout": null,
+      "HLM_SCORING": null,
+      "HEALWRIGHT_SCORING": null,
+      "HEALWRIGHT_ACTION_TIMEOUT": null,
+      "sourceRewrite": "off",
+      "sourceRewriteReason": "Benchmark isolation only: prevents automatic source edits from changing the frozen cases. The packaged auto default is verified separately.",
+      "scoreCap": 0.6,
+      "reportOnly": false,
+      "localXPathFallback": true,
+      "frameHealing": true,
+      "shadowHealing": true,
+      "assertionHealing": true,
+      "imitatorMode": "in-process"
+    },
+    "frozenInputs": {
+      "tests/selfHealingTest.spec.ts": "466c94dc8585fbf8630533bbe0fcb8e86b0786064b0340aff3e578967e622e4e",
+      "tests/fixtures.ts": "ba3238a334b6641d99044702d79f53b8c6967562634e1775fc7e422c2eb98d1d",
+      "playwright.config.ts": "4755fdc7c5bd2e8174827f58e5aa545561c138286bf87e27a32e778351cb089b",
+      "bench/index.html": "53425fa4f7273f4f2b463307e1459787d2923fcb91408429e12c102f60d97390",
+      "package.json": "d0623fa146a885693b7c34587eb56ee672e14d84869b5346b28e083d45d2ec8a",
+      "package-lock.json": "ef3a8f033c5cbdd9c95cfbef0265942f2545fe9a7d200da90198ff597ab94500",
+      "prereg-list.json": "e7c1cdf933441ef50ba5d5e51989d116c1be5f8948f5a7a3033d50ec996ed2ad"
+    }
+  },
+  "baseline": {
+    "source": "Phase 20 adaptive measurement, 128 tests, workers=1, scoreCap=0.6",
+    "sourceSha256": "25dc8724c56389388b9519501d805afe273303f4f97df9398a422a9423d57024",
+    "expected": {
+      "total": 128,
+      "passed": 85,
+      "failed": 43
+    },
+    "rule": "Exact per-case outcomes are frozen below. Any difference must be disclosed and classified; no product or benchmark code may be changed after measurement without a new preregistration."
+  },
+  "acceptance": {
+    "exactOutcomeMatchRequired": true,
+    "exactOutcomeMatch": false,
+    "status": "NOT_ACCEPTED_EXACT_MATCH",
+    "expectedPassed": 85,
+    "expectedFailed": 43,
+    "actualPassed": 119,
+    "actualFailed": 9,
+    "unexpectedRegressions": 1,
+    "note": "The historical rc.8 baseline is not reproduced. Differences are disclosed below; no product or benchmark code was changed after this measurement."
+  },
+  "aggregate": {
+    "total": 128,
+    "passed": 119,
+    "failed": 9,
+    "baselineMatches": 92,
+    "failedToPassed": 35,
+    "passedToFailed": 1
+  },
+  "deviationSummary": {
+    "improved-adaptive-heal": 22,
+    "improved-identity-guard": 12,
+    "improved-frame-healing": 1,
+    "regression-nested-frame-no-evidence": 1
+  },
+  "frozenInputVerification": [
+    {
+      "file": "tests/selfHealingTest.spec.ts",
+      "expectedSha256": "466c94dc8585fbf8630533bbe0fcb8e86b0786064b0340aff3e578967e622e4e",
+      "actualSha256": "466c94dc8585fbf8630533bbe0fcb8e86b0786064b0340aff3e578967e622e4e",
+      "unchanged": true
+    },
+    {
+      "file": "tests/fixtures.ts",
+      "expectedSha256": "ba3238a334b6641d99044702d79f53b8c6967562634e1775fc7e422c2eb98d1d",
+      "actualSha256": "ba3238a334b6641d99044702d79f53b8c6967562634e1775fc7e422c2eb98d1d",
+      "unchanged": true
+    },
+    {
+      "file": "playwright.config.ts",
+      "expectedSha256": "4755fdc7c5bd2e8174827f58e5aa545561c138286bf87e27a32e778351cb089b",
+      "actualSha256": "4755fdc7c5bd2e8174827f58e5aa545561c138286bf87e27a32e778351cb089b",
+      "unchanged": true
+    },
+    {
+      "file": "bench/index.html",
+      "expectedSha256": "53425fa4f7273f4f2b463307e1459787d2923fcb91408429e12c102f60d97390",
+      "actualSha256": "53425fa4f7273f4f2b463307e1459787d2923fcb91408429e12c102f60d97390",
+      "unchanged": true
+    },
+    {
+      "file": "package.json",
+      "expectedSha256": "d0623fa146a885693b7c34587eb56ee672e14d84869b5346b28e083d45d2ec8a",
+      "actualSha256": "d0623fa146a885693b7c34587eb56ee672e14d84869b5346b28e083d45d2ec8a",
+      "unchanged": true
+    },
+    {
+      "file": "package-lock.json",
+      "expectedSha256": "ef3a8f033c5cbdd9c95cfbef0265942f2545fe9a7d200da90198ff597ab94500",
+      "actualSha256": "ef3a8f033c5cbdd9c95cfbef0265942f2545fe9a7d200da90198ff597ab94500",
+      "unchanged": true
+    },
+    {
+      "file": "prereg-list.json",
+      "expectedSha256": "e7c1cdf933441ef50ba5d5e51989d116c1be5f8948f5a7a3033d50ec996ed2ad",
+      "actualSha256": "e7c1cdf933441ef50ba5d5e51989d116c1be5f8948f5a7a3033d50ec996ed2ad",
+      "unchanged": true
+    }
+  ],
+  "telemetry": {
+    "jsonlFiles": 127,
+    "sessions": 127,
+    "events": 670,
+    "eventCounts": {
+      "report.opening": 127,
+      "report.meta": 127,
+      "report.opened": 127,
+      "heal.success": 130,
+      "replay.ok": 111,
+      "heal.miss": 14,
+      "action.failed": 15,
+      "frame.healed": 7,
+      "identity.redirected": 12
+    },
+    "scoringModes": {
+      "adaptive": 143
+    },
+    "healMissReasons": {
+      "adaptive-ambiguous": 10,
+      "adaptive-no-evidence": 3,
+      "no-candidate-above-cap": 1
+    },
+    "jsonlConcatenatedSha256": "4c06a8e7578bae04694a1eb5181ffd647cb897eb846a579ca75f762f85bc1beb"
+  },
+  "database": {
+    "database": "healenium",
+    "schema": "healwright_bench_021_20261124032437",
+    "selectorRows": 135,
+    "healingRows": 130,
+    "healingResultRows": 130,
+    "reportRows": 127
+  },
+  "if04Diagnostic": {
+    "postMeasurement": true,
+    "reason": "The only baseline pass -> final failure was rerun separately to test reproducibility.",
+    "freshSchema": "healwright_if04_20261124034410",
+    "port": 7879,
+    "command": "HLM_URL=http://localhost:7879 HEALWRIGHT_REPORT_DIR=$PWD/.healwright/reports-if04 npx playwright test tests/selfHealingTest.spec.ts --grep 'IF-04' --workers=1 --reporter=line",
+    "result": "failed",
+    "reproduced": true,
+    "failure": "Timeout 2000ms on nested frame click; outer frame healed, inner frame refused with adaptive-no-evidence (signals [], context 0).",
+    "productOrBenchmarkCodeChanged": false
+  },
+  "failedCases": [
+    {
+      "order": 23,
+      "id": "be7aff4e55e94ba47568-0bc87efd47269a1a988a",
+      "title": "Level 2: Attribute-level › [L2][main][css-type-name][heal] Input type and name mutated (L2-06)",
+      "line": 275,
+      "expectedStatus": "failed",
+      "actualStatus": "failed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 0,
+        "replayOk": 0,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {
+          "adaptive-ambiguous": 1
+        }
+      }
+    },
+    {
+      "order": 105,
+      "id": "be7aff4e55e94ba47568-3b2dda7217f93bf54d72",
+      "title": "Iframes › [L4][nested-iframe][nested-frame-testid][heal] 2-level nested iframe ids & testid changed (IF-04)",
+      "line": 973,
+      "expectedStatus": "passed",
+      "actualStatus": "failed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 0,
+        "identityRedirected": 0,
+        "frameHealed": 1,
+        "healMissReasons": {
+          "adaptive-no-evidence": 1
+        }
+      }
+    },
+    {
+      "order": 106,
+      "id": "be7aff4e55e94ba47568-f7601b157c98d991c954",
+      "title": "Iframes › [L5][nested-iframe][nested3-frame-css-decoy][risk] 3-level nested iframe with decoy (IF-05)",
+      "line": 981,
+      "expectedStatus": "failed",
+      "actualStatus": "failed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 0,
+        "identityRedirected": 0,
+        "frameHealed": 1,
+        "healMissReasons": {
+          "adaptive-no-evidence": 1
+        }
+      }
+    },
+    {
+      "order": 107,
+      "id": "be7aff4e55e94ba47568-aba66310ac62a9eeb7f4",
+      "title": "Iframes › [L5][iframe-shadow][frame-shadow-css][heal] Shadow DOM inside iframe (IF-06)",
+      "line": 990,
+      "expectedStatus": "failed",
+      "actualStatus": "failed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 0,
+        "identityRedirected": 0,
+        "frameHealed": 1,
+        "healMissReasons": {
+          "no-candidate-above-cap": 1
+        }
+      }
+    },
+    {
+      "order": 108,
+      "id": "be7aff4e55e94ba47568-5d4dcc5c64c34adedb80",
+      "title": "Iframes › [L6][iframe-boundary][main-to-iframe][heal] Element moved from main DOM into iframe (IF-07)",
+      "line": 998,
+      "expectedStatus": "failed",
+      "actualStatus": "failed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 109,
+      "id": "be7aff4e55e94ba47568-446ebf5bd3cb9d1e9866",
+      "title": "Iframes › [L6][nested-iframe][nested-depth-change][risk] Iframe nesting depth 2->3 with decoy (IF-08)",
+      "line": 1006,
+      "expectedStatus": "failed",
+      "actualStatus": "failed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 0,
+        "identityRedirected": 0,
+        "frameHealed": 1,
+        "healMissReasons": {
+          "adaptive-no-evidence": 1
+        }
+      }
+    },
+    {
+      "order": 113,
+      "id": "be7aff4e55e94ba47568-4c4801f1e2c28be51d2a",
+      "title": "Shadow DOM › [L4][shadow-slotted][shadow-slot][heal] Slotted content moved between slots (SH-04)",
+      "line": 1044,
+      "expectedStatus": "failed",
+      "actualStatus": "failed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 0,
+        "replayOk": 0,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {
+          "adaptive-ambiguous": 1
+        }
+      }
+    },
+    {
+      "order": 117,
+      "id": "be7aff4e55e94ba47568-97fe42805176cfd73c8f",
+      "title": "Shadow DOM › [L6][shadow-iframe][shadow-to-iframe][heal] Iframe inside Shadow DOM (SH-08)",
+      "line": 1077,
+      "expectedStatus": "failed",
+      "actualStatus": "failed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 0,
+        "replayOk": 0,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 126,
+      "id": "be7aff4e55e94ba47568-a9dd1fa01678357c2eac",
+      "title": "Multi-Generation & Reload › [MultiGen][heal] Chain of 4 cumulative mutations (L1-01, L3-01, L4-06)",
+      "line": 1161,
+      "expectedStatus": "failed",
+      "actualStatus": "failed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 10,
+        "replayOk": 10,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    }
+  ],
+  "deviations": [
+    {
+      "order": 36,
+      "id": "be7aff4e55e94ba47568-b8ba97a8a7ed74487f7e",
+      "title": "Level 3: Semantic-level › [L3][main][getByRole][heal] Button tag and text changed with role kept (L3-01)",
+      "line": 384,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      },
+      "classification": "improved-adaptive-heal"
+    },
+    {
+      "order": 37,
+      "id": "be7aff4e55e94ba47568-e7de48147ca515a5a4d1",
+      "title": "Level 3: Semantic-level › [L3][main][getByText-exact][heal] Text split across child nodes and tag changed (L3-02)",
+      "line": 392,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      },
+      "classification": "improved-adaptive-heal"
+    },
+    {
+      "order": 40,
+      "id": "be7aff4e55e94ba47568-3bfb7faf7642c840e82c",
+      "title": "Level 3: Semantic-level › [L3][main][getByRole-level][heal] Heading level h2 changed to h3 (L3-05)",
+      "line": 416,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      },
+      "classification": "improved-adaptive-heal"
+    },
+    {
+      "order": 41,
+      "id": "be7aff4e55e94ba47568-6ecbfdc4708849b9fa76",
+      "title": "Level 3: Semantic-level › [L3][main][getByRole][heal] Link changed to span role=button (L3-06)",
+      "line": 424,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      },
+      "classification": "improved-adaptive-heal"
+    },
+    {
+      "order": 50,
+      "id": "be7aff4e55e94ba47568-48f1356227cc9e1cafc7",
+      "title": "Level 3: Semantic-level › [L3][main][getByRole][heal] Textarea replaced by contenteditable div (L3-15)",
+      "line": 496,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      },
+      "classification": "improved-adaptive-heal"
+    },
+    {
+      "order": 53,
+      "id": "be7aff4e55e94ba47568-4fd28c810efb80df4dc0",
+      "title": "Level 3: Semantic-level › [L3][main][css-class][heal] Hover menu class and tag changed (L3-18)",
+      "line": 520,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      },
+      "classification": "improved-adaptive-heal"
+    },
+    {
+      "order": 57,
+      "id": "be7aff4e55e94ba47568-1a3f0757df7c46c10332",
+      "title": "Level 4: Structural › [L4][main][nth][heal] List converted to div grid and shifted (L4-04)",
+      "line": 557,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      },
+      "classification": "improved-adaptive-heal"
+    },
+    {
+      "order": 59,
+      "id": "be7aff4e55e94ba47568-df73ee83d71038421f81",
+      "title": "Level 4: Structural › [L4][main][css-portal-scope][heal] Element moved to portal at end of body (L4-06)",
+      "line": 573,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      },
+      "classification": "improved-adaptive-heal"
+    },
+    {
+      "order": 62,
+      "id": "be7aff4e55e94ba47568-e5f29133823d9fa86ad4",
+      "title": "Level 4: Structural › [L4][main][filter-has][heal] Badge removed and parent class renamed (L4-09)",
+      "line": 597,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      },
+      "classification": "improved-adaptive-heal"
+    },
+    {
+      "order": 72,
+      "id": "be7aff4e55e94ba47568-948d9a52a23ee1bb7aee",
+      "title": "Level 5: Composite & Adversarial › [L5][main][css-class-decoy][risk] Look-alike decoy placed before target (L5-01)",
+      "line": 683,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 0,
+        "identityRedirected": 1,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      },
+      "classification": "improved-identity-guard"
+    },
+    {
+      "order": 73,
+      "id": "be7aff4e55e94ba47568-4ce7129d983f20e46387",
+      "title": "Level 5: Composite & Adversarial › [L5][main][css-id-swap][risk] Sibling identity swap (L5-02)",
+      "line": 692,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 0,
+        "identityRedirected": 1,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      },
+      "classification": "improved-identity-guard"
+    },
+    {
+      "order": 76,
+      "id": "be7aff4e55e94ba47568-963bb1a329f22c90cf4f",
+      "title": "Level 5: Composite & Adversarial › [L5][main][css-dup-id][risk] Duplicate id decoy injected before target (L5-05)",
+      "line": 717,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 0,
+        "identityRedirected": 1,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      },
+      "classification": "improved-identity-guard"
+    },
+    {
+      "order": 77,
+      "id": "be7aff4e55e94ba47568-90432ca3344e876b5d21",
+      "title": "Level 5: Composite & Adversarial › [L5][main][css-hidden-twin][risk] Hidden twin with old class before target (L5-06)",
+      "line": 726,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 0,
+        "identityRedirected": 1,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      },
+      "classification": "improved-identity-guard"
+    },
+    {
+      "order": 78,
+      "id": "be7aff4e55e94ba47568-f20d52dde5fa3645625f",
+      "title": "Level 5: Composite & Adversarial › [L5][main][nth-repeated][risk] Repeated rows reordered & classes changed (L5-07)",
+      "line": 735,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      },
+      "classification": "improved-adaptive-heal"
+    },
+    {
+      "order": 80,
+      "id": "be7aff4e55e94ba47568-5ed936d994ad903aaf63",
+      "title": "Level 5: Composite & Adversarial › [L5][main][getByRole-decoy][risk] Role+name decoy placed before target (L5-09)",
+      "line": 752,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 0,
+        "identityRedirected": 1,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      },
+      "classification": "improved-identity-guard"
+    },
+    {
+      "order": 81,
+      "id": "be7aff4e55e94ba47568-31d3d1a4f6ef40e65eea",
+      "title": "Level 5: Composite & Adversarial › [L5][main][getByLabel-decoy][risk] Duplicate label decoy before target (L5-10)",
+      "line": 761,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 0,
+        "identityRedirected": 1,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      },
+      "classification": "improved-identity-guard"
+    },
+    {
+      "order": 82,
+      "id": "be7aff4e55e94ba47568-e47f2e3c4aaf7ac23900",
+      "title": "Level 5: Composite & Adversarial › [L5][main][xpath-decoy][risk] XPath decoy div injected before target (L5-11)",
+      "line": 770,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 0,
+        "identityRedirected": 1,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      },
+      "classification": "improved-identity-guard"
+    },
+    {
+      "order": 83,
+      "id": "be7aff4e55e94ba47568-c3107040452e101b7037",
+      "title": "Level 5: Composite & Adversarial › [L5][main][getByText-pseudo][heal] Text moved to CSS ::before pseudo-element (L5-12)",
+      "line": 779,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      },
+      "classification": "improved-adaptive-heal"
+    },
+    {
+      "order": 84,
+      "id": "be7aff4e55e94ba47568-5c5aef8c4f4bd8a1ee31",
+      "title": "Level 5: Composite & Adversarial › [L5][main][getByRole-icon][heal] Text replaced by icon and aria-label changed (L5-13)",
+      "line": 787,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      },
+      "classification": "improved-adaptive-heal"
+    },
+    {
+      "order": 85,
+      "id": "be7aff4e55e94ba47568-a91dde6da5b399ca713f",
+      "title": "Level 5: Composite & Adversarial › [L5][main][css-class-decoy][risk] Combobox option decoy before target (L5-14)",
+      "line": 795,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 0,
+        "identityRedirected": 1,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      },
+      "classification": "improved-identity-guard"
+    },
+    {
+      "order": 86,
+      "id": "be7aff4e55e94ba47568-dbf9f52e8002888aa212",
+      "title": "Level 5: Composite & Adversarial › [L5][main][css-class-decoy][risk] Tree leaf decoy before target (L5-15)",
+      "line": 804,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 0,
+        "identityRedirected": 1,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      },
+      "classification": "improved-identity-guard"
+    },
+    {
+      "order": 87,
+      "id": "be7aff4e55e94ba47568-e3b7bc73d83422ec5987",
+      "title": "Level 5: Composite & Adversarial › [L5][main][css-class-decoy][risk] Stepper Next decoy before target (L5-16)",
+      "line": 813,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 0,
+        "identityRedirected": 1,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      },
+      "classification": "improved-identity-guard"
+    },
+    {
+      "order": 88,
+      "id": "be7aff4e55e94ba47568-a6799a1e9bf0f51cc267",
+      "title": "Level 5: Composite & Adversarial › [L5][main][css-class-decoy][risk] Breadcrumb link->button with decoy (L5-17)",
+      "line": 822,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      },
+      "classification": "improved-adaptive-heal"
+    },
+    {
+      "order": 89,
+      "id": "be7aff4e55e94ba47568-a3117c7bb17d0bcbf1fb",
+      "title": "Level 5: Composite & Adversarial › [L5][main][css-id][heal] Toast undo moved to portal (L5-18)",
+      "line": 831,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      },
+      "classification": "improved-adaptive-heal"
+    },
+    {
+      "order": 90,
+      "id": "be7aff4e55e94ba47568-f34caad927e4f8771113",
+      "title": "Level 6: Extreme › [L6][main][getByRole][heal] Localized FR/ES/AR + role/tag/wrap change (L6-01)",
+      "line": 844,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      },
+      "classification": "improved-adaptive-heal"
+    },
+    {
+      "order": 92,
+      "id": "be7aff4e55e94ba47568-db255c37658474f67edc",
+      "title": "Level 6: Extreme › [L6][main][getByText][heal] Save button localized + tag button->a (L6-03)",
+      "line": 860,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      },
+      "classification": "improved-adaptive-heal"
+    },
+    {
+      "order": 93,
+      "id": "be7aff4e55e94ba47568-ff32e314a815c6a0f6aa",
+      "title": "Level 6: Extreme › [L6][main][css-class-decoy][risk] English decoy before localized target (L6-04)",
+      "line": 868,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 0,
+        "identityRedirected": 1,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      },
+      "classification": "improved-identity-guard"
+    },
+    {
+      "order": 94,
+      "id": "be7aff4e55e94ba47568-6f8f5e8e301e68bfee84",
+      "title": "Level 6: Extreme › [L6][main][css-id][heal] Confirm dialog trigger localized & restructured (L6-05)",
+      "line": 877,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      },
+      "classification": "improved-adaptive-heal"
+    },
+    {
+      "order": 95,
+      "id": "be7aff4e55e94ba47568-428a09214c03c997dea7",
+      "title": "Level 6: Extreme › [L6][main][css-id][heal] Popup trigger localized & tag changed (L6-06)",
+      "line": 886,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      },
+      "classification": "improved-adaptive-heal"
+    },
+    {
+      "order": 98,
+      "id": "be7aff4e55e94ba47568-876f1a24002e910365fe",
+      "title": "Level 6: Extreme › [L6][main][css-id][heal] FAB moved to portal & localized (L6-09)",
+      "line": 910,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      },
+      "classification": "improved-adaptive-heal"
+    },
+    {
+      "order": 99,
+      "id": "be7aff4e55e94ba47568-27128c4cf7b018d725cf",
+      "title": "Level 6: Extreme › [L6][main][getByRole][heal] Pagination Next localized & button->a (L6-10)",
+      "line": 918,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      },
+      "classification": "improved-adaptive-heal"
+    },
+    {
+      "order": 103,
+      "id": "be7aff4e55e94ba47568-37dcfef2015d83ba9a7a",
+      "title": "Iframes › [L3][iframe][frame-getByPlaceholder][heal] Iframe title & placeholder changed (IF-02)",
+      "line": 957,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 2,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 1,
+        "healMissReasons": {}
+      },
+      "classification": "improved-frame-healing"
+    },
+    {
+      "order": 105,
+      "id": "be7aff4e55e94ba47568-3b2dda7217f93bf54d72",
+      "title": "Iframes › [L4][nested-iframe][nested-frame-testid][heal] 2-level nested iframe ids & testid changed (IF-04)",
+      "line": 973,
+      "expectedStatus": "passed",
+      "actualStatus": "failed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 0,
+        "identityRedirected": 0,
+        "frameHealed": 1,
+        "healMissReasons": {
+          "adaptive-no-evidence": 1
+        }
+      },
+      "classification": "regression-nested-frame-no-evidence"
+    },
+    {
+      "order": 110,
+      "id": "be7aff4e55e94ba47568-1964e3dbcec57699fa25",
+      "title": "Shadow DOM › [L3][shadow-dom][shadow-css][heal] Open shadow button tag & class changed (SH-01)",
+      "line": 1020,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      },
+      "classification": "improved-adaptive-heal"
+    },
+    {
+      "order": 111,
+      "id": "be7aff4e55e94ba47568-8c385a5b7adfd54f58cf",
+      "title": "Shadow DOM › [L3][shadow-dom][shadow-getByLabel][heal] Open shadow input label changed (SH-02)",
+      "line": 1028,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      },
+      "classification": "improved-adaptive-heal"
+    },
+    {
+      "order": 127,
+      "id": "be7aff4e55e94ba47568-1d95280da4ec82629bb3",
+      "title": "Multi-Generation & Reload › [Reload][heal] Mutated state persists across reload and heals (L2-03, L5-01)",
+      "line": 1179,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 2,
+        "replayOk": 1,
+        "identityRedirected": 1,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      },
+      "classification": "improved-identity-guard"
+    }
+  ],
+  "cases": [
+    {
+      "order": 1,
+      "id": "be7aff4e55e94ba47568-3714f77e8e726810d29c",
+      "title": "Precondition › manifest has 124 scenarios at generation 0",
+      "line": 91,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 0,
+        "replayOk": 0,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 2,
+      "id": "be7aff4e55e94ba47568-1f04965ea90641315bef",
+      "title": "Level 1: Cosmetic › [L1][main][css-id][heal] Save Draft button id mutated (L1-01)",
+      "line": 102,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 3,
+      "id": "be7aff4e55e94ba47568-b44ad648eaea7ba857b9",
+      "title": "Level 1: Cosmetic › [L1][main][css-class][heal] Publish button class mutated (L1-02)",
+      "line": 110,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 4,
+      "id": "be7aff4e55e94ba47568-0d95e466421a3dbf40f6",
+      "title": "Level 1: Cosmetic › [L1][main][getByTestId][heal] Search input testid mutated (L1-03)",
+      "line": 118,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 5,
+      "id": "be7aff4e55e94ba47568-885eeba106f18f1b5193",
+      "title": "Level 1: Cosmetic › [L1][main][css-name][heal] Username input name mutated (L1-04)",
+      "line": 126,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 6,
+      "id": "be7aff4e55e94ba47568-11a59ab8fafbab20ea5d",
+      "title": "Level 1: Cosmetic › [L1][main][getByPlaceholder][heal] Promo input placeholder mutated (L1-05)",
+      "line": 134,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 7,
+      "id": "be7aff4e55e94ba47568-80bcbdd5059ebda288c1",
+      "title": "Level 1: Cosmetic › [L1][main][getByTitle][heal] PDF button title mutated (L1-06)",
+      "line": 142,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 8,
+      "id": "be7aff4e55e94ba47568-929f39f349e931b9732b",
+      "title": "Level 1: Cosmetic › [L1][main][getByAltText][heal] Emblem image alt mutated (L1-07)",
+      "line": 150,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 9,
+      "id": "be7aff4e55e94ba47568-487a412019b610b0d2eb",
+      "title": "Level 1: Cosmetic › [L1][main][css-href-contains][heal] Pricing link href mutated (L1-08)",
+      "line": 158,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 10,
+      "id": "be7aff4e55e94ba47568-dc872ce291ec2cf7b3c8",
+      "title": "Level 1: Cosmetic › [L1][main][css-href-starts][heal] Docs link href prefix mutated (L1-09)",
+      "line": 166,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 11,
+      "id": "be7aff4e55e94ba47568-fde154a82620429c2aab",
+      "title": "Level 1: Cosmetic › [L1][main][css-href-ends][heal] CSV export link href suffix mutated (L1-10)",
+      "line": 174,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 12,
+      "id": "be7aff4e55e94ba47568-9b9bde17bf432c7d4e5b",
+      "title": "Level 1: Cosmetic › [L1][main][getByRole-aria][heal] Archive icon button aria-label mutated (L1-11)",
+      "line": 182,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 13,
+      "id": "be7aff4e55e94ba47568-74e3a6577f0818ada546",
+      "title": "Level 1: Cosmetic › [L1][main][css-custom-testattr][heal] Email input data-qa mutated (L1-12)",
+      "line": 190,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 14,
+      "id": "be7aff4e55e94ba47568-57cb6c7c2be4c9c5f1c6",
+      "title": "Level 1: Cosmetic › [L1][main][css-id][heal] Notes textarea id mutated (L1-13)",
+      "line": 198,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 15,
+      "id": "be7aff4e55e94ba47568-324a528d207ad647184b",
+      "title": "Level 1: Cosmetic › [L1][main][css-class][heal] Agree checkbox class mutated (L1-14)",
+      "line": 206,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 16,
+      "id": "be7aff4e55e94ba47568-e5fa07d13ff1dc5efb3f",
+      "title": "Level 1: Cosmetic › [L1][main][getByTestId][heal] Country select testid mutated (L1-15)",
+      "line": 214,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 17,
+      "id": "be7aff4e55e94ba47568-17723de4cfc2d6e36a0e",
+      "title": "Level 1: Cosmetic › [L1][main][css-attr][heal] Quantity input aria-describedby mutated (L1-16)",
+      "line": 222,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 18,
+      "id": "be7aff4e55e94ba47568-ec43970737982668dc5f",
+      "title": "Level 2: Attribute-level › [L2][main][getByTestId][heal] TestId renamed to data-qa (L2-01)",
+      "line": 235,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 19,
+      "id": "be7aff4e55e94ba47568-67d05216fbc84446f212",
+      "title": "Level 2: Attribute-level › [L2][main][css-attr][heal] Test attribute stripped (L2-02)",
+      "line": 243,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 20,
+      "id": "be7aff4e55e94ba47568-4df7f458bba36aa7f677",
+      "title": "Level 2: Attribute-level › [L2][main][getByLabel][heal] Label for/id pairing and text mutated (L2-03)",
+      "line": 251,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 21,
+      "id": "be7aff4e55e94ba47568-0de2d764d31b71c10aae",
+      "title": "Level 2: Attribute-level › [L2][main][getByPlaceholder][heal] Placeholder moved to aria-label (L2-04)",
+      "line": 259,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 22,
+      "id": "be7aff4e55e94ba47568-f89e654b296e414bdf51",
+      "title": "Level 2: Attribute-level › [L2][main][css-multi-class][heal] Multi-class button dblclick (L2-05)",
+      "line": 267,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 23,
+      "id": "be7aff4e55e94ba47568-0bc87efd47269a1a988a",
+      "title": "Level 2: Attribute-level › [L2][main][css-type-name][heal] Input type and name mutated (L2-06)",
+      "line": 275,
+      "expectedStatus": "failed",
+      "actualStatus": "failed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 0,
+        "replayOk": 0,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {
+          "adaptive-ambiguous": 1
+        }
+      }
+    },
+    {
+      "order": 24,
+      "id": "be7aff4e55e94ba47568-6d65839defdbf4634c0a",
+      "title": "Level 2: Attribute-level › [L2][main][getByRole-exact][heal] Button case and punctuation changed (L2-07)",
+      "line": 283,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 25,
+      "id": "be7aff4e55e94ba47568-0ed0c883650a51d3d94e",
+      "title": "Level 2: Attribute-level › [L2][main][css-attr][heal] data-action moved to parent container (L2-08)",
+      "line": 291,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 26,
+      "id": "be7aff4e55e94ba47568-9251f3b26e0a894b350b",
+      "title": "Level 2: Attribute-level › [L2][main][getByTitle][heal] Title moved to data-tooltip (L2-09)",
+      "line": 299,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 27,
+      "id": "be7aff4e55e94ba47568-0c3d5dd617a73727bc42",
+      "title": "Level 2: Attribute-level › [L2][main][css-id][heal] Password input id mutated (L2-10)",
+      "line": 307,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 28,
+      "id": "be7aff4e55e94ba47568-3277782492f7d0877e33",
+      "title": "Level 2: Attribute-level › [L2][main][getByRole][heal] Checkbox label reworded (L2-11)",
+      "line": 315,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 29,
+      "id": "be7aff4e55e94ba47568-966932c52002db7a1c6a",
+      "title": "Level 2: Attribute-level › [L2][main][getByRole][heal] Radio label and name mutated (L2-12)",
+      "line": 323,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 30,
+      "id": "be7aff4e55e94ba47568-f492a3f7eb598c533129",
+      "title": "Level 2: Attribute-level › [L2][main][getByRole][heal] Range slider aria-label mutated (L2-13)",
+      "line": 331,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 31,
+      "id": "be7aff4e55e94ba47568-5f8381a67ab5a04b2f5b",
+      "title": "Level 2: Attribute-level › [L2][main][css-id][heal] Color input id mutated (L2-14)",
+      "line": 339,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 32,
+      "id": "be7aff4e55e94ba47568-90d4c45858f7de54a1d2",
+      "title": "Level 2: Attribute-level › [L2][main][css-name][heal] Date input name mutated (L2-15)",
+      "line": 347,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 33,
+      "id": "be7aff4e55e94ba47568-ca2f05e89548ee632677",
+      "title": "Level 2: Attribute-level › [L2][main][getByTestId][heal] File upload testid moved to data-cy (L2-16)",
+      "line": 355,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 34,
+      "id": "be7aff4e55e94ba47568-bbf0acddddc6b74f350c",
+      "title": "Level 2: Attribute-level › [L2][main][getByRole][heal] Right-click context button name mutated (L2-17)",
+      "line": 363,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 35,
+      "id": "be7aff4e55e94ba47568-d80449c26c6080d16cc3",
+      "title": "Level 2: Attribute-level › [L2][main][css-attr][heal] aria-labelledby target id mutated (L2-18)",
+      "line": 371,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 36,
+      "id": "be7aff4e55e94ba47568-b8ba97a8a7ed74487f7e",
+      "title": "Level 3: Semantic-level › [L3][main][getByRole][heal] Button tag and text changed with role kept (L3-01)",
+      "line": 384,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 37,
+      "id": "be7aff4e55e94ba47568-e7de48147ca515a5a4d1",
+      "title": "Level 3: Semantic-level › [L3][main][getByText-exact][heal] Text split across child nodes and tag changed (L3-02)",
+      "line": 392,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 38,
+      "id": "be7aff4e55e94ba47568-50ce8fb509e4542f8d52",
+      "title": "Level 3: Semantic-level › [L3][main][css-nth-child][heal] List item shifted by injected siblings (L3-03)",
+      "line": 400,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 39,
+      "id": "be7aff4e55e94ba47568-258f04e86dc5c4c4840a",
+      "title": "Level 3: Semantic-level › [L3][main][css-nth-of-type][heal] Button shifted by preceding button (L3-04)",
+      "line": 408,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 40,
+      "id": "be7aff4e55e94ba47568-3bfb7faf7642c840e82c",
+      "title": "Level 3: Semantic-level › [L3][main][getByRole-level][heal] Heading level h2 changed to h3 (L3-05)",
+      "line": 416,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 41,
+      "id": "be7aff4e55e94ba47568-6ecbfdc4708849b9fa76",
+      "title": "Level 3: Semantic-level › [L3][main][getByRole][heal] Link changed to span role=button (L3-06)",
+      "line": 424,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 42,
+      "id": "be7aff4e55e94ba47568-51582b02c94bbe29a899",
+      "title": "Level 3: Semantic-level › [L3][main][getByRole-state][heal] Switch text rephrased and toggled (L3-07)",
+      "line": 432,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 43,
+      "id": "be7aff4e55e94ba47568-080f3557f1eac0b9d549",
+      "title": "Level 3: Semantic-level › [L3][main][getByRole][heal] Tab text rephrased (L3-08)",
+      "line": 440,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 44,
+      "id": "be7aff4e55e94ba47568-55a0efc356c479fe72c0",
+      "title": "Level 3: Semantic-level › [L3][main][getByRole][heal] Accordion button text rephrased (L3-09)",
+      "line": 448,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 45,
+      "id": "be7aff4e55e94ba47568-dda4a93dc4f6e7e78cea",
+      "title": "Level 3: Semantic-level › [L3][main][css-has-text][heal] Container tag div->section and text rephrased (L3-10)",
+      "line": 456,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 46,
+      "id": "be7aff4e55e94ba47568-b1b76c51bfc03cde5891",
+      "title": "Level 3: Semantic-level › [L3][main][css-not][heal] Form id changed and extra inputs injected (L3-11)",
+      "line": 464,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 47,
+      "id": "be7aff4e55e94ba47568-cf82cbea3b4ce62af14e",
+      "title": "Level 3: Semantic-level › [L3][main][getByText-regex][heal] Currency text rephrased (L3-12)",
+      "line": 472,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 48,
+      "id": "be7aff4e55e94ba47568-71958cd2e17ff3aa5a4d",
+      "title": "Level 3: Semantic-level › [L3][main][xpath-rel][heal] XPath wrapper id and button index shifted (L3-13)",
+      "line": 480,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 49,
+      "id": "be7aff4e55e94ba47568-99cfc41df40ba241c0ef",
+      "title": "Level 3: Semantic-level › [L3][main][xpath-axis][heal] Following-sibling span text changed (L3-14)",
+      "line": 488,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 50,
+      "id": "be7aff4e55e94ba47568-48f1356227cc9e1cafc7",
+      "title": "Level 3: Semantic-level › [L3][main][getByRole][heal] Textarea replaced by contenteditable div (L3-15)",
+      "line": 496,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 51,
+      "id": "be7aff4e55e94ba47568-8a38fa7fd88d7ea3f954",
+      "title": "Level 3: Semantic-level › [L3][main][getByRole][heal] Select All checkbox label rephrased (L3-16)",
+      "line": 504,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 52,
+      "id": "be7aff4e55e94ba47568-b1766fa6b461c51304df",
+      "title": "Level 3: Semantic-level › [L3][main][getByRole][heal] Combobox aria-label rephrased (L3-17)",
+      "line": 512,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 53,
+      "id": "be7aff4e55e94ba47568-4fd28c810efb80df4dc0",
+      "title": "Level 3: Semantic-level › [L3][main][css-class][heal] Hover menu class and tag changed (L3-18)",
+      "line": 520,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 54,
+      "id": "be7aff4e55e94ba47568-3a04aaf1f56f5538ffb8",
+      "title": "Level 4: Structural › [L4][main][css-direct-child][heal] Button wrapped in extra divs (L4-01)",
+      "line": 533,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 55,
+      "id": "be7aff4e55e94ba47568-81188f71ff87c7b5dfa5",
+      "title": "Level 4: Structural › [L4][main][css-deep-chain][heal] Deep nesting flattened (L4-02)",
+      "line": 541,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 56,
+      "id": "be7aff4e55e94ba47568-306833e46e7a98b8d7d3",
+      "title": "Level 4: Structural › [L4][main][css-section-scope][heal] Button reparented to another section (L4-03)",
+      "line": 549,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 57,
+      "id": "be7aff4e55e94ba47568-1a3f0757df7c46c10332",
+      "title": "Level 4: Structural › [L4][main][nth][heal] List converted to div grid and shifted (L4-04)",
+      "line": 557,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 58,
+      "id": "be7aff4e55e94ba47568-0d6131db599fe30cb99a",
+      "title": "Level 4: Structural › [L4][main][css-table-col][heal] Table columns reordered (L4-05)",
+      "line": 565,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 59,
+      "id": "be7aff4e55e94ba47568-df73ee83d71038421f81",
+      "title": "Level 4: Structural › [L4][main][css-portal-scope][heal] Element moved to portal at end of body (L4-06)",
+      "line": 573,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 60,
+      "id": "be7aff4e55e94ba47568-f39a8d26a54c667de814",
+      "title": "Level 4: Structural › [L4][main][filter-hasText][heal] Row class renamed (L4-07)",
+      "line": 581,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 61,
+      "id": "be7aff4e55e94ba47568-6cfc92d37b963549b672",
+      "title": "Level 4: Structural › [L4][main][xpath-abs][heal] Absolute XPath broken by wrapper (L4-08)",
+      "line": 589,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 62,
+      "id": "be7aff4e55e94ba47568-e5f29133823d9fa86ad4",
+      "title": "Level 4: Structural › [L4][main][filter-has][heal] Badge removed and parent class renamed (L4-09)",
+      "line": 597,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 63,
+      "id": "be7aff4e55e94ba47568-5cf59753a50097151a5f",
+      "title": "Level 4: Structural › [L4][main][locator-and][heal] Combined .and() locator attributes changed (L4-10)",
+      "line": 605,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 64,
+      "id": "be7aff4e55e94ba47568-0c4b3a31851206e5eb80",
+      "title": "Level 4: Structural › [L4][main][locator-or][heal] Combined .or() classes changed (L4-11)",
+      "line": 613,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 65,
+      "id": "be7aff4e55e94ba47568-86ff836311210a3cac01",
+      "title": "Level 4: Structural › [L4][main][parent-axis][heal] Parent axis broken by extra wrapper (L4-12)",
+      "line": 621,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 66,
+      "id": "be7aff4e55e94ba47568-d7809f614b6d008b89fd",
+      "title": "Level 4: Structural › [L4][main][first][heal] DOM order reversed from first() (L4-13)",
+      "line": 629,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 67,
+      "id": "be7aff4e55e94ba47568-3002688d044762a9593b",
+      "title": "Level 4: Structural › [L4][main][last][heal] DOM order reversed from last() (L4-14)",
+      "line": 637,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 68,
+      "id": "be7aff4e55e94ba47568-8182fd40da8c186126d2",
+      "title": "Level 4: Structural › [L4][main][css-id][heal] Native dialog trigger wrapped & id changed (L4-15)",
+      "line": 645,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 69,
+      "id": "be7aff4e55e94ba47568-b50d2dc40cf9594fa04c",
+      "title": "Level 4: Structural › [L4][main][css-id][heal] Drag source wrapped & id changed (L4-16)",
+      "line": 654,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 70,
+      "id": "be7aff4e55e94ba47568-0423efd97f44deeb7d88",
+      "title": "Level 4: Structural › [L4][main][css-svg][heal] SVG circle classes & wrapper changed (L4-17)",
+      "line": 662,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 71,
+      "id": "be7aff4e55e94ba47568-07ba3a52c7d832f8dca9",
+      "title": "Level 4: Structural › [L4][main][css-scroll][heal] Scrollable container item class changed (L4-18)",
+      "line": 670,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 72,
+      "id": "be7aff4e55e94ba47568-948d9a52a23ee1bb7aee",
+      "title": "Level 5: Composite & Adversarial › [L5][main][css-class-decoy][risk] Look-alike decoy placed before target (L5-01)",
+      "line": 683,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 0,
+        "identityRedirected": 1,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 73,
+      "id": "be7aff4e55e94ba47568-4ce7129d983f20e46387",
+      "title": "Level 5: Composite & Adversarial › [L5][main][css-id-swap][risk] Sibling identity swap (L5-02)",
+      "line": 692,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 0,
+        "identityRedirected": 1,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 74,
+      "id": "be7aff4e55e94ba47568-825bc4d78c0d48565a31",
+      "title": "Level 5: Composite & Adversarial › [L5][main][css-id-recreate][heal] Input detached/recreated with new id (L5-03)",
+      "line": 701,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 75,
+      "id": "be7aff4e55e94ba47568-2098ddb1da9035f40244",
+      "title": "Level 5: Composite & Adversarial › [L5][main][css-class-rerender][heal] Subtree rerendered & wrapped (L5-04)",
+      "line": 709,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 76,
+      "id": "be7aff4e55e94ba47568-963bb1a329f22c90cf4f",
+      "title": "Level 5: Composite & Adversarial › [L5][main][css-dup-id][risk] Duplicate id decoy injected before target (L5-05)",
+      "line": 717,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 0,
+        "identityRedirected": 1,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 77,
+      "id": "be7aff4e55e94ba47568-90432ca3344e876b5d21",
+      "title": "Level 5: Composite & Adversarial › [L5][main][css-hidden-twin][risk] Hidden twin with old class before target (L5-06)",
+      "line": 726,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 0,
+        "identityRedirected": 1,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 78,
+      "id": "be7aff4e55e94ba47568-f20d52dde5fa3645625f",
+      "title": "Level 5: Composite & Adversarial › [L5][main][nth-repeated][risk] Repeated rows reordered & classes changed (L5-07)",
+      "line": 735,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 79,
+      "id": "be7aff4e55e94ba47568-44303457ea56ee8ea72b",
+      "title": "Level 5: Composite & Adversarial › [L5][main][css-dynamic-attr][heal] Rotating dynamic attribute (L5-08)",
+      "line": 744,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 80,
+      "id": "be7aff4e55e94ba47568-5ed936d994ad903aaf63",
+      "title": "Level 5: Composite & Adversarial › [L5][main][getByRole-decoy][risk] Role+name decoy placed before target (L5-09)",
+      "line": 752,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 0,
+        "identityRedirected": 1,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 81,
+      "id": "be7aff4e55e94ba47568-31d3d1a4f6ef40e65eea",
+      "title": "Level 5: Composite & Adversarial › [L5][main][getByLabel-decoy][risk] Duplicate label decoy before target (L5-10)",
+      "line": 761,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 0,
+        "identityRedirected": 1,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 82,
+      "id": "be7aff4e55e94ba47568-e47f2e3c4aaf7ac23900",
+      "title": "Level 5: Composite & Adversarial › [L5][main][xpath-decoy][risk] XPath decoy div injected before target (L5-11)",
+      "line": 770,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 0,
+        "identityRedirected": 1,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 83,
+      "id": "be7aff4e55e94ba47568-c3107040452e101b7037",
+      "title": "Level 5: Composite & Adversarial › [L5][main][getByText-pseudo][heal] Text moved to CSS ::before pseudo-element (L5-12)",
+      "line": 779,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 84,
+      "id": "be7aff4e55e94ba47568-5c5aef8c4f4bd8a1ee31",
+      "title": "Level 5: Composite & Adversarial › [L5][main][getByRole-icon][heal] Text replaced by icon and aria-label changed (L5-13)",
+      "line": 787,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 85,
+      "id": "be7aff4e55e94ba47568-a91dde6da5b399ca713f",
+      "title": "Level 5: Composite & Adversarial › [L5][main][css-class-decoy][risk] Combobox option decoy before target (L5-14)",
+      "line": 795,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 0,
+        "identityRedirected": 1,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 86,
+      "id": "be7aff4e55e94ba47568-dbf9f52e8002888aa212",
+      "title": "Level 5: Composite & Adversarial › [L5][main][css-class-decoy][risk] Tree leaf decoy before target (L5-15)",
+      "line": 804,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 0,
+        "identityRedirected": 1,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 87,
+      "id": "be7aff4e55e94ba47568-e3b7bc73d83422ec5987",
+      "title": "Level 5: Composite & Adversarial › [L5][main][css-class-decoy][risk] Stepper Next decoy before target (L5-16)",
+      "line": 813,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 0,
+        "identityRedirected": 1,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 88,
+      "id": "be7aff4e55e94ba47568-a6799a1e9bf0f51cc267",
+      "title": "Level 5: Composite & Adversarial › [L5][main][css-class-decoy][risk] Breadcrumb link->button with decoy (L5-17)",
+      "line": 822,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 89,
+      "id": "be7aff4e55e94ba47568-a3117c7bb17d0bcbf1fb",
+      "title": "Level 5: Composite & Adversarial › [L5][main][css-id][heal] Toast undo moved to portal (L5-18)",
+      "line": 831,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 90,
+      "id": "be7aff4e55e94ba47568-f34caad927e4f8771113",
+      "title": "Level 6: Extreme › [L6][main][getByRole][heal] Localized FR/ES/AR + role/tag/wrap change (L6-01)",
+      "line": 844,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 91,
+      "id": "be7aff4e55e94ba47568-b19ed2ebf3befa6dad19",
+      "title": "Level 6: Extreme › [L6][main][getByPlaceholder][heal] Search input localized + type changed (L6-02)",
+      "line": 852,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 92,
+      "id": "be7aff4e55e94ba47568-db255c37658474f67edc",
+      "title": "Level 6: Extreme › [L6][main][getByText][heal] Save button localized + tag button->a (L6-03)",
+      "line": 860,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 93,
+      "id": "be7aff4e55e94ba47568-ff32e314a815c6a0f6aa",
+      "title": "Level 6: Extreme › [L6][main][css-class-decoy][risk] English decoy before localized target (L6-04)",
+      "line": 868,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 0,
+        "identityRedirected": 1,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 94,
+      "id": "be7aff4e55e94ba47568-6f8f5e8e301e68bfee84",
+      "title": "Level 6: Extreme › [L6][main][css-id][heal] Confirm dialog trigger localized & restructured (L6-05)",
+      "line": 877,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 95,
+      "id": "be7aff4e55e94ba47568-428a09214c03c997dea7",
+      "title": "Level 6: Extreme › [L6][main][css-id][heal] Popup trigger localized & tag changed (L6-06)",
+      "line": 886,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 96,
+      "id": "be7aff4e55e94ba47568-7bb896dd4cb8b7eac42d",
+      "title": "Level 6: Extreme › [L6][main][css-id][heal] Download link localized & id changed (L6-07)",
+      "line": 894,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 97,
+      "id": "be7aff4e55e94ba47568-f8bea99c4e1ab8c8f105",
+      "title": "Level 6: Extreme › [L6][main][getByLabel][heal] Work Email localized & wrapped (L6-08)",
+      "line": 902,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 98,
+      "id": "be7aff4e55e94ba47568-876f1a24002e910365fe",
+      "title": "Level 6: Extreme › [L6][main][css-id][heal] FAB moved to portal & localized (L6-09)",
+      "line": 910,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 99,
+      "id": "be7aff4e55e94ba47568-27128c4cf7b018d725cf",
+      "title": "Level 6: Extreme › [L6][main][getByRole][heal] Pagination Next localized & button->a (L6-10)",
+      "line": 918,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 100,
+      "id": "be7aff4e55e94ba47568-078b1c844c9f87f328e4",
+      "title": "Level 6: Extreme › [L6][main][css-card-nth][risk] Card grid shuffled & localized (L6-11)",
+      "line": 926,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 101,
+      "id": "be7aff4e55e94ba47568-7943968e58fd7863afc0",
+      "title": "Level 6: Extreme › [L6][main][css-table-cell][risk] Table rows/cols shuffled & localized (L6-12)",
+      "line": 935,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 102,
+      "id": "be7aff4e55e94ba47568-263cac2730edbeb5cba5",
+      "title": "Iframes › [L3][iframe][frame-getByRole][heal] Iframe id & button name changed (IF-01)",
+      "line": 949,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 2,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 1,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 103,
+      "id": "be7aff4e55e94ba47568-37dcfef2015d83ba9a7a",
+      "title": "Iframes › [L3][iframe][frame-getByPlaceholder][heal] Iframe title & placeholder changed (IF-02)",
+      "line": 957,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 2,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 1,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 104,
+      "id": "be7aff4e55e94ba47568-06af799d4ff7feb2ee55",
+      "title": "Iframes › [L4][iframe][frame-css][heal] Iframe remounted & button wrapped (IF-03)",
+      "line": 965,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 2,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 1,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 105,
+      "id": "be7aff4e55e94ba47568-3b2dda7217f93bf54d72",
+      "title": "Iframes › [L4][nested-iframe][nested-frame-testid][heal] 2-level nested iframe ids & testid changed (IF-04)",
+      "line": 973,
+      "expectedStatus": "passed",
+      "actualStatus": "failed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 0,
+        "identityRedirected": 0,
+        "frameHealed": 1,
+        "healMissReasons": {
+          "adaptive-no-evidence": 1
+        }
+      }
+    },
+    {
+      "order": 106,
+      "id": "be7aff4e55e94ba47568-f7601b157c98d991c954",
+      "title": "Iframes › [L5][nested-iframe][nested3-frame-css-decoy][risk] 3-level nested iframe with decoy (IF-05)",
+      "line": 981,
+      "expectedStatus": "failed",
+      "actualStatus": "failed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 0,
+        "identityRedirected": 0,
+        "frameHealed": 1,
+        "healMissReasons": {
+          "adaptive-no-evidence": 1
+        }
+      }
+    },
+    {
+      "order": 107,
+      "id": "be7aff4e55e94ba47568-aba66310ac62a9eeb7f4",
+      "title": "Iframes › [L5][iframe-shadow][frame-shadow-css][heal] Shadow DOM inside iframe (IF-06)",
+      "line": 990,
+      "expectedStatus": "failed",
+      "actualStatus": "failed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 0,
+        "identityRedirected": 0,
+        "frameHealed": 1,
+        "healMissReasons": {
+          "no-candidate-above-cap": 1
+        }
+      }
+    },
+    {
+      "order": 108,
+      "id": "be7aff4e55e94ba47568-5d4dcc5c64c34adedb80",
+      "title": "Iframes › [L6][iframe-boundary][main-to-iframe][heal] Element moved from main DOM into iframe (IF-07)",
+      "line": 998,
+      "expectedStatus": "failed",
+      "actualStatus": "failed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 109,
+      "id": "be7aff4e55e94ba47568-446ebf5bd3cb9d1e9866",
+      "title": "Iframes › [L6][nested-iframe][nested-depth-change][risk] Iframe nesting depth 2->3 with decoy (IF-08)",
+      "line": 1006,
+      "expectedStatus": "failed",
+      "actualStatus": "failed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 0,
+        "identityRedirected": 0,
+        "frameHealed": 1,
+        "healMissReasons": {
+          "adaptive-no-evidence": 1
+        }
+      }
+    },
+    {
+      "order": 110,
+      "id": "be7aff4e55e94ba47568-1964e3dbcec57699fa25",
+      "title": "Shadow DOM › [L3][shadow-dom][shadow-css][heal] Open shadow button tag & class changed (SH-01)",
+      "line": 1020,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 111,
+      "id": "be7aff4e55e94ba47568-8c385a5b7adfd54f58cf",
+      "title": "Shadow DOM › [L3][shadow-dom][shadow-getByLabel][heal] Open shadow input label changed (SH-02)",
+      "line": 1028,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 112,
+      "id": "be7aff4e55e94ba47568-3b005a57d072cc90ce37",
+      "title": "Shadow DOM › [L4][shadow-dom][shadow-host-rename][heal] Shadow host tag renamed & wrapped (SH-03)",
+      "line": 1036,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 113,
+      "id": "be7aff4e55e94ba47568-4c4801f1e2c28be51d2a",
+      "title": "Shadow DOM › [L4][shadow-slotted][shadow-slot][heal] Slotted content moved between slots (SH-04)",
+      "line": 1044,
+      "expectedStatus": "failed",
+      "actualStatus": "failed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 0,
+        "replayOk": 0,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {
+          "adaptive-ambiguous": 1
+        }
+      }
+    },
+    {
+      "order": 114,
+      "id": "be7aff4e55e94ba47568-124f169345f125af1856",
+      "title": "Shadow DOM › [L5][nested-shadow][nested-shadow-decoy][risk] 2-level nested shadow with decoy (SH-05)",
+      "line": 1052,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 115,
+      "id": "be7aff4e55e94ba47568-c237423a3ffdcea66526",
+      "title": "Shadow DOM › [L5][shadow-boundary][light-to-shadow][heal] Element moved from light DOM into shadow root (SH-06)",
+      "line": 1061,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 116,
+      "id": "be7aff4e55e94ba47568-37b07fcad648e615abb0",
+      "title": "Shadow DOM › [L6][nested-shadow][shadow-depth-change][heal] Shadow nesting depth 2->3 & localized (SH-07)",
+      "line": 1069,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 1,
+        "replayOk": 1,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 117,
+      "id": "be7aff4e55e94ba47568-97fe42805176cfd73c8f",
+      "title": "Shadow DOM › [L6][shadow-iframe][shadow-to-iframe][heal] Iframe inside Shadow DOM (SH-08)",
+      "line": 1077,
+      "expectedStatus": "failed",
+      "actualStatus": "failed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 0,
+        "replayOk": 0,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 118,
+      "id": "be7aff4e55e94ba47568-bb523b6822e2c2f53c8c",
+      "title": "Negative Controls › [NC][main][css-id][no-heal] Genuinely removed button must fail (NC-01)",
+      "line": 1090,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 0,
+        "replayOk": 0,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {
+          "adaptive-ambiguous": 1
+        }
+      }
+    },
+    {
+      "order": 119,
+      "id": "be7aff4e55e94ba47568-dc23ff945ba731cca922",
+      "title": "Negative Controls › [NC][main][css-id][no-heal] Button replaced by unrelated paragraph must fail (NC-02)",
+      "line": 1098,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 0,
+        "replayOk": 0,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {
+          "adaptive-ambiguous": 1
+        }
+      }
+    },
+    {
+      "order": 120,
+      "id": "be7aff4e55e94ba47568-8704f8eb07753615b4f6",
+      "title": "Negative Controls › [NC][closed-shadow][css-class][no-heal] Element moved to closed shadow root is unreachable (NC-03)",
+      "line": 1106,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 0,
+        "replayOk": 0,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {
+          "adaptive-ambiguous": 1
+        }
+      }
+    },
+    {
+      "order": 121,
+      "id": "be7aff4e55e94ba47568-4ecec1365f95a9cd4a4e",
+      "title": "Negative Controls › [NC][main][css-id][no-heal] Removed input must not heal to unrelated input (NC-04)",
+      "line": 1114,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 0,
+        "replayOk": 0,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {
+          "adaptive-ambiguous": 1
+        }
+      }
+    },
+    {
+      "order": 122,
+      "id": "be7aff4e55e94ba47568-77b0c08268f44fc68dca",
+      "title": "Negative Controls › [NC][iframe][frame-css][no-heal] Removed iframe must fail (NC-05)",
+      "line": 1123,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 0,
+        "replayOk": 0,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {
+          "adaptive-ambiguous": 1
+        }
+      }
+    },
+    {
+      "order": 123,
+      "id": "be7aff4e55e94ba47568-5e9f6212faf0feb39a55",
+      "title": "Negative Controls › [NC][shadow-dom][shadow-css][no-heal] Removed shadow host must fail (NC-06)",
+      "line": 1131,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 0,
+        "replayOk": 0,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {
+          "adaptive-ambiguous": 1
+        }
+      }
+    },
+    {
+      "order": 124,
+      "id": "be7aff4e55e94ba47568-6a6ed6b78cda2eafd21d",
+      "title": "Negative Controls › [NC][main][getByLabel][no-heal] Removed checkbox must not heal to spam decoy (NC-07)",
+      "line": 1139,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 0,
+        "replayOk": 0,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {
+          "adaptive-ambiguous": 1
+        }
+      }
+    },
+    {
+      "order": 125,
+      "id": "be7aff4e55e94ba47568-4a437f24374e1e85f4ea",
+      "title": "Negative Controls › [NC][main][getByRole][no-heal] Button replaced by inert span must fail (NC-08)",
+      "line": 1148,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 0,
+        "replayOk": 0,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {
+          "adaptive-ambiguous": 1
+        }
+      }
+    },
+    {
+      "order": 126,
+      "id": "be7aff4e55e94ba47568-a9dd1fa01678357c2eac",
+      "title": "Multi-Generation & Reload › [MultiGen][heal] Chain of 4 cumulative mutations (L1-01, L3-01, L4-06)",
+      "line": 1161,
+      "expectedStatus": "failed",
+      "actualStatus": "failed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 10,
+        "replayOk": 10,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 127,
+      "id": "be7aff4e55e94ba47568-1d95280da4ec82629bb3",
+      "title": "Multi-Generation & Reload › [Reload][heal] Mutated state persists across reload and heals (L2-03, L5-01)",
+      "line": 1179,
+      "expectedStatus": "failed",
+      "actualStatus": "passed",
+      "matchesBaseline": false,
+      "telemetry": {
+        "healSuccess": 2,
+        "replayOk": 1,
+        "identityRedirected": 1,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    },
+    {
+      "order": 128,
+      "id": "be7aff4e55e94ba47568-867eb85cbb5bfc5b7e93",
+      "title": "Multi-Generation & Reload › [Reload][heal] breakAll -> reload -> breakAll -> heal (L1-03, L4-01)",
+      "line": 1196,
+      "expectedStatus": "passed",
+      "actualStatus": "passed",
+      "matchesBaseline": true,
+      "telemetry": {
+        "healSuccess": 2,
+        "replayOk": 2,
+        "identityRedirected": 0,
+        "frameHealed": 0,
+        "healMissReasons": {}
+      }
+    }
+  ],
+  "limitations": [
+    "Nine benchmark cases still fail; this is not a perfection claim.",
+    "IF-04 is a reproducible regression relative to the rc.8 baseline and remains a release gate unless the owner explicitly accepts it as a documented limitation.",
+    "The live TestMu AI verification with the new defaults is recorded separately."
+  ]
+}
